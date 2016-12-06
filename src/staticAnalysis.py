@@ -2,6 +2,11 @@ import sys
 import message
 import json
 
+class Obj:
+    def __init__(self, id, type):
+        self.id = id  
+        self.type = type
+
 ##Object of attribute versions to be used in latestVersion and latestVersionBefore
 class StaticAnalysis:
     def __init__(self, attr_file, coord_list):
@@ -66,13 +71,14 @@ class StaticAnalysis:
         else:
             if(i == 2):
                 result = 'res'
-        return result
+        if(result == 'sub'):        
+            ob = Obj(req.subj_id, result)
+        else:
+            ob = Obj(req.res_id, result)            
+        return ob
         
      def coord(obj):
-        if(obj == 'sub'):
-            return coord_list[caluculateHash(msg.subj_id) % len(coord_list)]
-        elif(obj == 'res'):
-            return coord_list[caluculateHash(msg.res_id) % len(coord_list)]           
+            return coord_list[caluculateHash(obj.id) % len(coord_list)]
         
         
         

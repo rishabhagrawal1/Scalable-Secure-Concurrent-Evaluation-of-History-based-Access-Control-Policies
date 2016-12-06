@@ -76,8 +76,8 @@ class Request:
         self.res_id = -1
         self.action = None
         self.position = None
-        self.timeStamp = 0
-        self.ReqId = -1
+        self.ts = 0
+        self.id = -1
         self.result = False
         self.updatedObj = -1
         self.rdonlyObj = -1
@@ -92,10 +92,10 @@ class Request:
 
     def generateTimeStamp(self):
         clk = time.time()
-        self.timeStamp = clk
+        self.ts = clk
 
     def reset_attr_objects(self):
-        self.tent_attr = CatchedAttributes()
+        self.catched_attr = CatchedAttributes()
         self.db_attr = FromDBAttributes()
         self.worker_attr = FromWorkerAttributes()
 
