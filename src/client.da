@@ -1,82 +1,76 @@
 import json
-import message
-import time 
+import time
+import request 
+import config
+import staticAnalysis
 config(clock = 'Lamport')
 config(channel = 'fifo')
 TIMEOUT = 1
 
 class Client(process):
-    def setup(coord_list: list, conf_file:str, num_clients: int, counter: int):
-        self.msg_queue = []
-        #print ("In Client received list of size" + str(len(coord_list)))
+    def setup(config:Config, coord_list: list, counter: int):
+        self.req_queue = []
         output("Client:  Client Setup in done")
         pass
 
-    def caluculateHash(subj_id):
-        count = 0
-        for i in subj_id:
-            count += ord(i)
-        return count
-
-    def msgFactory(type):
+    def reqFactory(type):
         if type == None:
-            msg = message.HistoryMessage()
+            req = request.HistoryRequest()
         else:
-            msg = message.DrmMessage(type)
-        return msg
+            req = request.DrmRequest(type)
+        return req
 
     def readNextOperation(conf_data):
         output("Client: Fetching Next Request to evaluate policy ,from Config")
         oper = conf_data["operations"][counter]
-        msg = msgFactory(oper["op"][2].get("type"))
-        msg.action = oper["op"][0].get("action")
-        msg.subj_id = oper["op"][1].get("sub-id")
-        msg.position = oper["op"][1].get("position")
-        msg.res_id = oper["op"][2].get("id")
-        msg.generateMsgId(counter)
-        msg.set_curr_app(self.id)
-        ##add request unique id to msg id list
-        self.msg_queue.append(msg.MsgId)
-        output("Client: A new Evaluation Request is created with msgId: ",msg.MsgId)
-        return msg
+        req = reqFactory(oper["op"][2].get("type"))
+        req.action = oper["op"][0].get("action")
+        req.subj_id = oper["op"][1].get("sub-id")
+        req.position = oper["op"][1].get("position")
+        req.res_id = oper["op"][2].get("id")
+        req.generateReqId(counter)
+        req.set_curr_app(self.id)
+        
+        ##add request unique id to req id list
+        self.req_queue.append(req.ReqId)
+        output("Client: A new Evaluation Request is created with reqId: ",req.ReqId)
+        return req
 
-
-    def handle_policy_evaluation_result(msg):
-        if(msg.MsgId in self.msg_queue):
-            print("Got policy evaluation result for msg with msg id: ", msg.MsgId)
-            print("evaluation result is: ", msg.result)
-            self.msg_queue.remove(msg.MsgId)
+    def handle_policy_evaluation_result(req):
+        if(req.ReqId in self.req_queue):
+            print("Got policy evaluation result for req with req id: ", req.ReqId)
+            print("evaluation result is: ", req.result)
+            self.req_queue.remove(req.ReqId)
         else:
             print("Got some random message")
 
     def run():
         output("Client:  Client started")
         try:
-            with open(conf_file, encoding='utf-8') as conf:
+            with open(config.conf_file, encoding='utf-8') as conf:
                 ##Need to enable simultaneous read/write in test file to simulate dynamic user requests##
                 conf_data = json.loads(conf.read())
                 num_operations =  len(conf_data["operations"])
+                sta = staticAnalysis.StaticAnalysis(config.config_file, coord_list)
                 time.sleep(1)
                 while(counter < num_operations):
                     output("Client: Client fetches next policy evaluation request #:" ,counter)
-                    msg = readNextOperation(conf_data)
-                    counter = counter + num_clients
-                    output("Client coord list is this", type(msg))
+                    req = readNextOperation(conf_data)
+                    counter = counter + config.num_client
                     
-                    send(('req_app', msg), to = coord_list[caluculateHash(msg.subj_id) % len(coord_list)])
-                    output("Client: Forward policy evaluation request to Subject Co ordinator")
+                    send(('req_app', req), to = sta.coord(obj(req, 1)))
+                    output("Client: Forward policy evaluation request to First Coordinator")
                     --handle_policy_evaluation_results
-                    if(await(some(received(('result_sub', msg))))):
+                    
+                    if(await(some(received(('result_sub', req))))):
                         output("Client: Policy Evaluation result received")
-                        #handle_policy_evaluation_result(msg)
                     elif timeout(TIMEOUT * 0.1):
                         pass
-                        #print("timeout")
 
-            while len(msg_queue) > 0:
+            while len(req_queue) > 0:
                 #print("waiting for policy result in Client")
-                if (await(some(received(('result_sub', msg))))):
-                    #handle_policy_evaluation_result(msg)
+                if (await(some(received(('result_sub', req))))):
+                    #handle_policy_evaluation_result(req)
                     pass#output("Client: Policy Evaluation result received")
                 elif timeout(TIMEOUT * 1):
                     pass
@@ -86,7 +80,9 @@ class Client(process):
         except ImportError:
             output("Client: Error in read file", sep = "|")
 
-    def receive(msg=(a,b)):
+    def receive(req=(a,b)):
         #output("Client: received policy evaluation")
         if(a == "result_sub"):
             handle_policy_evaluation_result(b)
+            
+            

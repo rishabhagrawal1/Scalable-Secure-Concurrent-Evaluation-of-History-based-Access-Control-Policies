@@ -1,11 +1,12 @@
 import config
 import random,time
 import version
+import staticAnalysis
 TIMEOUT = 1
 MAXDBLatency = 0.1
 MINDBLatency = 0.01
 w = import_da("worker")
-from message import Message
+from request import Request
 config(clock = 'Lamport')
 config(channel = 'fifo')
 
@@ -19,7 +20,7 @@ class Coordinator(process):
         currRunningWriteReq = []
         work = new(w.Worker, num=config.num_workers)
         work_list = list(work)
-        setup(work, (self, config.policy_file, data))
+        setup(work, (self, coord_list, config, data))
         start(work)
 
     def caluculateHash(id):
@@ -28,12 +29,6 @@ class Coordinator(process):
             count += ord(i)
         return count
 
-    def coord(obj):
-        if(obj == 'sub'):
-            return coord_list[caluculateHash(msg.subj_id) % len(coord_list)]
-        elif(obj == 'res'):
-            return coord_list[caluculateHash(msg.res_id) % len(coord_list)]
-
     def sendPolicyResultToApp(msg):
         send(('result_sub', msg), to=msg.get_curr_app())
 
@@ -41,12 +36,13 @@ class Coordinator(process):
         send(('req_sub_conflict_check', msg), to=coord_list[caluculateHash(msg.res_id) % len(coord_list)])
 
     def send_response_to_subject_coordinator_after_verification(msg):
-        send(('reply_res', msg), to=coord_list[caluculateHash(msg.subj_id) % len(coord_list)])
+        send(('reply_res', msg), to=coord_list[caluculateHash(msg.subj_id) % len(coord_list)])          
     
     ##Need to be called if not all attributes are available in cache at co-ordinator     
-    def send_attr_read_request_to_attr_database(msg):
+    def send_attr_read_request_to_attr_database(req):
+        req.curr_coordinator = self
         output("Coordinator: sending attribute read request to DB")
-        send(('req_db_read', msg), to=data)    
+        send(('req_db_read', req), to=data)    
 
     def populate_tentative_subj_updates_in_msg(msg):
         if msg.subj_id in self.subj_attr_dict:
@@ -74,12 +70,15 @@ class Coordinator(process):
             for k,v in catched_res_attr.items():
                 if k in db_res_attr:
                     msg.db_attr.get_res_attr()[k] = v[0]
+        ##Set everything in catched attributes now and update the local catch as well            
+        req.catched_attr.set_sub_attr(msg.db_attr.get_sub_attr())
+        req.catched_attr.set_res_attr(msg.db_attr.get_res_attr())
+ToDO: Update the catch         
         output("Coordinator:Attribute set ready for evaluation")
 
     def handleResourceRequest(msg):
         populate_tentative_res_updates_in_msg(msg)
-        msg.curr_worker = work_list[worker_count % (config.num_workers)]
-        send(('req_res', msg), to=msg.curr_worker)
+        send(('req_cord', msg), to=work_list[worker_count % (config.num_workers)])
         worker_count += 1
         print("Work sent to worker")
 

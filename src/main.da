@@ -1,6 +1,5 @@
 import sys, os
 import json,random,copy
-import staticAnalysis
 sys.path.insert(0, '../config')
 from config import Config
 config(clock = 'Lamport')
@@ -20,7 +19,6 @@ class Main(process):
             cl = import_da("client")
             co = import_da("coordinator")
             d = import_da("database")
-            sta = staticAnalysis.
 
         except ImportError:
             output("Error in import", sep="|")
@@ -41,7 +39,7 @@ class Main(process):
             data_list = list(data)
             counter = 0
             for a in clie:
-                setup(a, (coord_list, conf_file, config.num_client, counter))
+                setup(a, (config, coord_list, counter))
                 counter += 1
 
             #Config Object and coordinator process list to conordinators

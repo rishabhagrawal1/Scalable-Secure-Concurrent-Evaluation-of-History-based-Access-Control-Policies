@@ -4,10 +4,16 @@ import json
 
 ##Object of attribute versions to be used in latestVersion and latestVersionBefore
 class StaticAnalysis:
-
-    def __init__(self, attr_file):
+    def __init__(self, attr_file, coord_list):
         self.attr_file = attr_file  
         self.attr_data = None
+        self.coord_list = coord_list
+    
+    def caluculateHash(id):
+        count = 0
+        for i in id:
+            count += ord(i)
+        return count
         
     def loadAttrFileObj(self):  
         try:    
@@ -53,16 +59,20 @@ class StaticAnalysis:
         result = 'sub'
         result_set = mightWriteObj(self, req)
         if(len(result_set) == 1):
-            if(next(iter(s)) == 'sub' and i == 1):
+            if(next(iter(result_set)) == 'sub' and i == 1):
                 result = 'res'
-            elif(next(iter(s)) == 'res' and i == 2):
+            elif(next(iter(result_set)) == 'res' and i == 2):
                 result = 'res'
         else:
             if(i == 2):
                 result = 'res'
         return result
         
-                
+     def coord(obj):
+        if(obj == 'sub'):
+            return coord_list[caluculateHash(msg.subj_id) % len(coord_list)]
+        elif(obj == 'res'):
+            return coord_list[caluculateHash(msg.res_id) % len(coord_list)]           
         
         
         
