@@ -43,7 +43,7 @@ class Main(process):
                 counter += 1
 
             #Config Object and coordinator process list to conordinators
-            setup(coord, (config, coord_list, 0, data, None))
+            setup(coord, (config, coord_list, 0, data, None, None))
             #Pass database empulator process list to data emulators
             setup(data, (data_list))
 

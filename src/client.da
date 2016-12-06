@@ -51,14 +51,14 @@ class Client(process):
                 ##Need to enable simultaneous read/write in test file to simulate dynamic user requests##
                 conf_data = json.loads(conf.read())
                 num_operations =  len(conf_data["operations"])
-                sta = staticAnalysis.StaticAnalysis(config.config_file, coord_list)
+                sta = staticAnalysis.StaticAnalysis(config.attr_file, coord_list)
                 time.sleep(1)
                 while(counter < num_operations):
                     output("Client: Client fetches next policy evaluation request #:" ,counter)
                     req = readNextOperation(conf_data)
                     counter = counter + config.num_client
                     
-                    send(('req_app', req), to = sta.coord(obj(req, 1)))
+                    send(('req_app', req), to = sta.coord(sta.obj(req, 1)))
                     output("Client: Forward policy evaluation request to First Coordinator")
                     --handle_policy_evaluation_results
                     
