@@ -1,40 +1,37 @@
 {
 "num_applications":"3",
 "num_coordinator":"3",
-"num_workers":"1",
+"num_workers":"3",
 "load_application_1": "30",
 "load_application_2": "35",
 "load_application_3": "35",
-"operations":[                
-		{"op":         
-                        [{"action":"view"},
-                         {"sub-id":"Movie_customer2","position":"customer"},
-                          {"id":"mov1","type":"movie"}]
+"operations":[
+
+                {"op":         
+                        [{"action":"read"},
+                         {"sub-id":"BankA001","position":"employee"},
+                          {"id":"bank A"}]
+                },
+                {"op":         
+                        [{"action":"read"},
+                         {"sub-id":"BankA001","position":"employee"},
+                          {"id":"bank A"}]
+                },
+                {"op":         
+                        [{"action":"read"},
+                         {"sub-id":"BankA001","position":"employee"},
+                          {"id":"bank A"}]
                 },
                 {"op":         
                         [{"action":"view"},
-                         {"sub-id":"Movie_customer2","position":"customer"},
-                          {"id":"mov1","type":"movie"}]
+                         {"sub-id":"BankA001","position":"manager"},
+                          {"id":"bank A"}]
                 },
                 {"op":         
                         [{"action":"view"},
-                         {"sub-id":"Movie_customer2","position":"customer"},
-                          {"id":"mov1","type":"movie"}]
-                },
-                {"op":         
-                        [{"action":"view"},
-                         {"sub-id":"Movie_customer2","position":"customer"},
-                          {"id":"mov1","type":"movie"}]
-                },
-                {"op":         
-                        [{"action":"view"},
-                         {"sub-id":"Movie_customer2","position":"customer"},
-                          {"id":"mov1","type":"movie"}]
-                },
-                {"op":         
-                        [{"action":"view"},
-                         {"sub-id":"Movie_customer2","position":"customer"},
-                          {"id":"mov1","type":"movie"}]
-                }
-	]
-}
+                         {"sub-id":"BankA001","position":"manager"},
+                          {"id":"bank B"}]
+                },        ]
+} 
+
+

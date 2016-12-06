@@ -9,7 +9,6 @@
 <resourceCondition id="bank A"/>
 <!--  the action authorized by this rule.  -->
 <action name="read"/>
-
 <subjectUpdate history="bank A"/>
 </rule>
 
@@ -29,6 +28,12 @@
 <rule name="access bank B again">
 <subjectCondition position="employee" history="bank B"/>
 <resourceCondition id="bank B"/>
+<action name="read"/>
+</rule>
+
+<rule name="access bank C open Document">
+<subjectCondition position="employee"/>
+<resourceCondition id="bank C"/>
 <action name="read"/>
 </rule>
 
@@ -55,16 +60,23 @@
 </rule>
 
 <rule name="Bank A employee trying to access Bank B doc">
-<subjectCondition position="employee" history="bank A"/>
+<subjectCondition position="manager" history="empty"/>
 <resourceCondition id="bank B"/>
+<subjectUpdate history="bank B"/>
 <action name="read"/>
 </rule>
 
 
 <rule name="Bank A employee trying to access Bank B doc">
-<subjectCondition position="manager" history="bank A"/>
-<resourceCondition id="bank B"/>
-<subjectUpdate history="bank A,bank B"/>
+<subjectCondition position="manager" history="bank B"/>
+<resourceCondition id="bank A"/>
+<subjectUpdate history="bank B,bank A"/>
+<action name="read"/>
+</rule>
+
+<rule name="Bank A employee trying to access Bank B doc">
+<subjectCondition position="manager" history="bank B,bank A"/>
+<resourceCondition id="bank A"/>
 <action name="read"/>
 </rule>
 

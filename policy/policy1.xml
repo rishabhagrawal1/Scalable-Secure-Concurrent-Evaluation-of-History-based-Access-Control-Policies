@@ -31,6 +31,12 @@
 <action name="read"/>
 </rule>
 
+<rule name="access bank C open Document">
+<subjectCondition position="employee"/>
+<resourceCondition id="bank C"/>
+<action name="read"/>
+</rule>
+
 <rule name="customers collectively can view each movie at most 5 times">
 <subjectCondition position="customer"/>
 <resourceCondition type="movie2" viewCount="&lt;5"/>

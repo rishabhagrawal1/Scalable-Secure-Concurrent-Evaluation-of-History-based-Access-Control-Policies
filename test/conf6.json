@@ -14,19 +14,29 @@
                 },
                 {"op":         
                         [{"action":"view"},
-                         {"sub-id":"common_man","position":"non_employee"},
-                          {"id":"open_doc"}]
-                },
-                {"op":         
-                        [{"action":"view"},
-                         {"sub-id":"common_man","position":"non_employee"},
-                          {"id":"open_doc"}]
+                         {"sub-id":"BankA001","position":"employee"},
+                          {"id":"bank A"}]
                 },
                 {"op":         
                         [{"action":"read"},
                          {"sub-id":"BankA001","position":"employee"},
                           {"id":"bank A"}]
                 },
+                {"op":         
+                        [{"action":"read"},
+                         {"sub-id":"BankA001","position":"employee"},
+                          {"id":"bank A"}]
+                },
+                {"op":         
+                        [{"action":"read"},
+                         {"sub-id":"BankA001","position":"employee"},
+                          {"id":"bank A"}]
+                },
+                {"op":         
+                        [{"action":"read"},
+                         {"sub-id":"BankA001","position":"employee"},
+                          {"id":"bank A"}]
+                }
         ]
 } 
 

@@ -1,59 +1,95 @@
 {
     "subjects": [{
             "id": "BankA001",
-            "position": "employee",
-            "history": "bank B"
+            "version": [{
+                "v_ts": "001",
+                "position": "employee ",
+                "history": "bank B"
+            }]
         }, {
             "id": "BankB_employee_001",
-            "position": "employee",
-            "history": "bank B"
-
+            "version": [{
+                "v_ts": "001",
+                "position": "employee",
+                "history": "bank B"
+            }]
         }, {
             "id": "BankA_Manager_001",
-            "position": "manager",
-            "history": "bank A,bank B"
+            "version": [{
+                "v_ts": "001",
+                "position": "manager",
+                "history": "empty"
+            }]
+        }, {
+            "id": "common_man",
+            "version": [{
+                "v_ts": "001",
+                "position": "non_employee"
+            }]
         }, {
             "id": "Movie_customer1",
-            "position": "customer",
-            "movies": [{
-                "movieC": {
-                    "maxCount": "4",
-                    "currentCount": "0"
-                }
+            "version": [{
+                "v_ts": "001",
+                "position": "customer",
+                "movies": [{
+                    "movieC": {
+                        "maxCount": "4",
+                        "currentCount": "0"
+                    }
+                }]
+            }]
         }, {
             "id": "Movie_customer2",
-            "position": "customer"
+            "version": [{
+                "v_ts": "001",
+                "position": "customer"
+            }]
         }, {
             "id": "Movie_customer3",
-            "position": "customer1"
+            "version": [{
+                "v_ts": "001",
+                "id": "Movie_customer3",
+                "position": "customer1"
             }]
 
         }
 
     ],
     "resources": [{
-        "id": "bank A"
+        "id": "bank A",
+        "version": [{
+            "v_ts": "001"
+        }]
+    }, {
+        "id": "bank B",
+        "version": [{
+            "v_ts": "001"
+        }]
 
-    },
-    {
-        "id": "bank B"
-    },
-    {
+    }, {
+        "id": "open_doc",
+        "version": [{
+            "v_ts": "001"
+        }]
+
+    }, {
         "id": "mov1",
-        "type":"movie1",
-        "viewCount": "5"
-    },
-    {
+        "version": [{
+            "v_ts": "001",
+            "type": "movie",
+            "viewCount": "5"
+        }]
+    }, {
         "id": "mov2",
-        "type":"movie2",
-        "viewCount": "1"
-    },
-    {
+        "version": [{
+            "v_ts": "001"
+        }]
+    }, {
         "id": "mov3",
-        "type":"movie3_cust_specific",
-        "viewCount": "2"
-    }
-]
+        "version": [{
+            "v_ts": "001",
+            "type": "movie3_cust_specific",
+            "viewCount": "2"
+        }]
+    }]
 }
-
-

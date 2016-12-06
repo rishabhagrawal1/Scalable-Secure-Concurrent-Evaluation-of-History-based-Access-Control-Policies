@@ -8,36 +8,25 @@
 "operations":[
 
                 {"op":         
-                        [{"action":"view"},
-                         {"sub-id":"Movie_customer3","position":"customer"},
-                          {"id":"mov2","type":"movie2"}]
+                        [{"action":"read"},
+                         {"sub-id":"BankA001","position":"employee"},
+                          {"id":"bank A"}]
                 },
                 {"op":         
                         [{"action":"view"},
-                         {"sub-id":"Movie_customer4","position":"customer"},
-                          {"id":"mov2","type":"movie2"}]
+                         {"sub-id":"common_man","position":"non_employee"},
+                          {"id":"open_doc"}]
                 },
                 {"op":         
                         [{"action":"view"},
-                         {"sub-id":"Movie_customer5","position":"customer"},
-                          {"id":"mov2","type":"movie2"}]
+                         {"sub-id":"BankA001","position":"manager"},
+                          {"id":"bank A"}]
                 },
                 {"op":         
                         [{"action":"view"},
-                         {"sub-id":"Movie_customer6","position":"customer"},
-                          {"id":"mov2","type":"movie2"}]
-                },
-                {"op":         
-                        [{"action":"view"},
-                         {"sub-id":"Movie_customer7","position":"customer"},
-                          {"id":"mov2","type":"movie2"}]
-                },
-                {"op":         
-                        [{"action":"view"},
-                         {"sub-id":"Movie_customer8","position":"customer"},
-                          {"id":"mov2","type":"movie2"}]
-                }
-        ]
+                         {"sub-id":"BankA001","position":"manager"},
+                          {"id":"bank B"}]
+                },        ]
 } 
 
 

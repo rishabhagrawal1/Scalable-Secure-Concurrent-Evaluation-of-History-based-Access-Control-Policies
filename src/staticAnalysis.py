@@ -9,7 +9,7 @@ class StaticAnalysis:
         self.attr_data = None
         self.coord_list = coord_list
     
-    def caluculateHash(id):
+    def calculateHash(id):
         count = 0
         for i in id:
             count += ord(i)
