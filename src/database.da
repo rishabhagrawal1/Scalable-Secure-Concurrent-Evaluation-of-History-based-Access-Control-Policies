@@ -9,38 +9,71 @@ class Database(process):
         self.attributeStore = dict()
         self.attributeStore["resources"] = dict()
         self.attributeStore["subjects"] = dict()
+        self.attributeStore["subjects"]["version"] = dict()
+        self.attributeStore["resources"]["version"] = dict()
         # check error in loading pre init config file for the database
-        if loadConfig() == False:
+        if getDataFromFile() == False:
             sys.exit(-1)
         # output(self.attributeStore)
+
+    def create_new_version(msg):
+#    /* to create a new dict element , versions and return it.*/
+        v = dict()    
+        v["v_ts"] = msg.timestamp  
+        if(msg.worker_attr.get_updated_attr_sub() != None):            
+            for k, val in msg.worker_attr.updated_attr_sub.items(): 
+                v[k] = val;
+        else:  # res updated
+            for k, val in msg.worker_attr.updated_attr_res.items(): 
+                v[k] = val;
+
 
     def handleupdate(msg):
         # need to write the received update to db..
         output("Database: Database received write request to update attributes for Id:",msg.subj_id)
-        for k, v in msg.worker_attr.updated_attr_sub.items():
-            print("k and v are available")
-            if k in self.attributeStore["subjects"].get(msg.subj_id):
-                self.attributeStore["subjects"].get(msg.subj_id)[k] = v
 
-        for k, v in msg.worker_attr.updated_attr_res.items():
-            if k in self.attributeStore["resources"].get(msg.res_id):
-                self.attributeStore["resources"].get(msg.res_id)[k] = v
+#   /*check if sub has updated or res*/
+        v = create_new_version(msg)
+
+        if(msg.worker_attr.get_updated_attr_sub() != None):
+            item = self.attributeStore["resources"].get(msg.sub_id)
+            item.[versions].append(v)
+        else:
+            self.attributeStore["resources"].get(msg.sub_id)
+            item.[versions].append(v)
         output("Database: Database write request completed for Id:",msg.subj_id)
         
 
     def handleQuery(msg):
         # read msg query , fetch from dicts and send back a reply to the node which sent the query(how to get target node??)
-        output("Database: Received a query for :", msg.subj_id)
+        output("Database: Received a query for with ts :", msg.subj_id,msg.timeStamp)
         item = self.attributeStore["subjects"].get(msg.subj_id)
         output("item in database is ", item)
-        if (item != None):
-            msg.db_attr.set_sub_attr(item)
+        #for version in item.items():
+        version_list = list(item.items())
+        for i in xrange(len(version_list)):
+            ts = version_list[i].get("v_ts")
+            index = i
+            if(ts > msg.timeStamp):
+                break
+        if (version_list[i] != None):
+            msg.db_attr.set_sub_attr(version_list[i])
+
         item = self.attributeStore["resources"].get(msg.res_id)
-        if (item != None):
-            msg.db_attr.set_res_attr(item)
+        output("item in database is ", item)
+        #for version in item.items():
+        version_list = list(item.items())
+        for i in xrange(len(version_list)):
+            ts = version_list[i].get("v_ts")
+            index = i
+            if(ts > msg.timeStamp):
+                break
+        if (version_list[i] != None):
+            msg.db_attr.set_res_attr(version_list[i])
+
         output("item in database is ", item)    
-        send(('reply_db_read', msg), to=msg.curr_worker)
-        output("Database : Message sent to worker back after database fetch")
+        send(('reply_db_read', msg), to=msg.curr_curr_coordinator)
+        output("Database : Message sent to curr_coordinator back after database fetch")
 
     def run():
         while True:
@@ -62,26 +95,30 @@ class Database(process):
         elif a == "req_db_write":
             handleupdate(b)
 
-    def loadConfig():
+    def getDataFromFile():
         if not os.path.exists(data_file):
             output("Database: preInit Config file %s not found" % data_file)
             return -1
         try:
-            preConfigData = json.loads(open(data_file).read())
+            fileData = json.loads(open(data_file).read())
             output("Database: Loading entries in JSon file to local memory to simulate DB")
-            for subjects in preConfigData.get("subjects"):
+            for subjects in fileData.get("subjects"):
                 item = subjects.get("id")
                 self.attributeStore["subjects"][item] = dict()
-                for k, v in subjects.items():
-                    if k != "id":
-                        self.attributeStore["subjects"][item][k] = v
+                for versions in item.get("v_ts"):
+                    self.attributeStore["subjects"][item][versions] = dict
+                    for k, v in versions.items():
+                        if k != "v_ts":
+                            self.attributeStore["subjects"][item][versions][k] = v
 
-            for resources in preConfigData.get("resources"):
+            for resources in fileData.get("resources"):
                 item = resources.get("id")
                 self.attributeStore["resources"][item] = dict()
-                for k, v in resources.items():
-                    if k != "id":
-                        self.attributeStore["resources"][item][k] = v
+                for versions in item.get("v_ts"):
+                    self.attributeStore["resources"][item][versions] = dict
+                    for k, v in resources.items():
+                        if k != "v_ts":
+                            self.attributeStore["resources"][item][versions][k] = v
             output("Loading Datasbe entries in JSon file complete, DB Simulator Ready")
             return True
 
