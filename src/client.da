@@ -32,15 +32,15 @@ class Client(process):
         req.set_curr_app(self.id)
         
         ##add request unique id to req id list
-        self.req_queue.append(req.ReqId)
-        output("Client: A new Evaluation Request is created with reqId: ",req.ReqId)
+        self.req_queue.append(req.id)
+        output("Client: A new Evaluation Request is created with req id: ",req.id)
         return req
 
     def handle_policy_evaluation_result(req):
-        if(req.ReqId in self.req_queue):
-            print("Got policy evaluation result for req with req id: ", req.ReqId)
+        if(req.id in self.req_queue):
+            print("Got policy evaluation result for req with req id: ", req.id)
             print("evaluation result is: ", req.result)
-            self.req_queue.remove(req.ReqId)
+            self.req_queue.remove(req.id)
         else:
             print("Got some random message")
 

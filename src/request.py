@@ -77,7 +77,7 @@ class Request:
         self.action = None
         self.position = None
         self.ts = 0
-        self.ReqId = -1
+        self.id = -1
         self.result = False
         self.updatedObj = -1
         self.rdonlyObj = -1
