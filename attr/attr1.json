@@ -1,0 +1,38 @@
+{
+"attribute_properties":[
+            	{"position":    	 
+                    	[{"read":"might"},
+                      	{"write":"mutable"},
+                      	{"obj":"sub"}]
+            	},
+            	{"history":    	 
+                    	[{"read":"def"},
+                      	{"write":"mutable"},
+                        {"obj":"sub"}]
+            	},
+            	{"id":    	 
+                    	[{"read":"def"},
+                      	{"write":"immutable"},
+                      	{"obj":"res"}]
+            	},
+            	{"type":    	 
+                    	[{"read":"might"},
+                      	{"write":"immutable"},
+                      	{"obj":"res"}]
+            	},
+            	{"viewCount":    	 
+                    	[{"read":"def"},
+                      	{"write":"mutable"},
+                      	{"obj":"res"}]
+            	}
+    	]
+}
+
+
+
+
+
+
+
+
+

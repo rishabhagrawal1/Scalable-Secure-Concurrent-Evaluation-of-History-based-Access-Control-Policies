@@ -1,0 +1,441 @@
+[2016-10-17 07:05:01,515]da.api:INFO: Running iteration 1 ...
+[2016-10-17 07:05:01,517]runtime.TcpEndPoint(localhost_23058):DEBUG: TcpEndPoint ('localhost', 23058) initialization complete
+[2016-10-17 07:05:01,559]da.api:DEBUG: Current process is ('localhost', 23058)
+[2016-10-17 07:05:01,560]da.api:DEBUG: Creating 1 instances of <class 'main.Main'>..
+[2016-10-17 07:05:01,566]da.api:DEBUG: 1 instances of Main created.
+[2016-10-17 07:05:01,571]runtime.TcpEndPoint(localhost_18309):DEBUG: TcpEndPoint ('localhost', 18309) initialization complete
+[2016-10-17 07:05:01,572]Main[('localhost', 18309)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:01,573]da.api:DEBUG: Starting ('localhost', 18309)...
+[2016-10-17 07:05:01,574]Main[('localhost', 18309)]:DEBUG: Running setup..
+[2016-10-17 07:05:01,574]Main[('localhost', 18309)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:01,574]da.api:INFO: Terminating...
+[2016-10-17 07:05:01,594]da.api:DEBUG: Current process is ('localhost', 18309)
+[2016-10-17 07:05:01,594]da.api:DEBUG: Creating 3 instances of <class 'coordinator.Coordinator'>..
+[2016-10-17 07:05:01,600]runtime.TcpEndPoint(localhost_21111):DEBUG: TcpEndPoint ('localhost', 21111) initialization complete
+[2016-10-17 07:05:01,601]da.api:DEBUG: 3 instances of Coordinator created.
+[2016-10-17 07:05:01,608]Coordinator[('localhost', 21111)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:01,611]runtime.TcpEndPoint(localhost_11615):DEBUG: TcpEndPoint ('localhost', 11615) initialization complete
+[2016-10-17 07:05:01,612]runtime.TcpEndPoint(localhost_13786):DEBUG: TcpEndPoint ('localhost', 13786) initialization complete
+[2016-10-17 07:05:01,613]Coordinator[('localhost', 11615)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:01,613]Coordinator[('localhost', 13786)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:01,614]da.api:DEBUG: Current process is ('localhost', 18309)
+[2016-10-17 07:05:01,615]da.api:DEBUG: Creating 1 instances of <class 'database.Database'>..
+[2016-10-17 07:05:01,617]da.api:DEBUG: 1 instances of Database created.
+[2016-10-17 07:05:01,620]runtime.TcpEndPoint(localhost_36504):DEBUG: TcpEndPoint ('localhost', 36504) initialization complete
+[2016-10-17 07:05:01,622]Database[('localhost', 36504)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:01,623]da.api:DEBUG: Current process is ('localhost', 18309)
+[2016-10-17 07:05:01,623]da.api:DEBUG: Creating 3 instances of <class 'application.Application'>..
+[2016-10-17 07:05:01,630]runtime.TcpEndPoint(localhost_32956):DEBUG: TcpEndPoint ('localhost', 32956) initialization complete
+[2016-10-17 07:05:01,632]Application[('localhost', 32956)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:01,634]da.api:DEBUG: 3 instances of Application created.
+[2016-10-17 07:05:01,638]runtime.TcpEndPoint(localhost_12977):DEBUG: TcpEndPoint ('localhost', 12977) initialization complete
+[2016-10-17 07:05:01,639]runtime.TcpEndPoint(localhost_34547):DEBUG: TcpEndPoint ('localhost', 34547) initialization complete
+[2016-10-17 07:05:01,640]Application[('localhost', 34547)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:01,641]Application[('localhost', 12977)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:01,647]Application[('localhost', 32956)]:DEBUG: Running setup..
+[2016-10-17 07:05:01,647]Application[('localhost', 32956)]:INFO: Application:  Application Setup in done
+[2016-10-17 07:05:01,648]Coordinator[('localhost', 13786)]:DEBUG: Running setup..
+[2016-10-17 07:05:01,648]Application[('localhost', 34547)]:DEBUG: Running setup..
+[2016-10-17 07:05:01,649]da.api:DEBUG: Current process is ('localhost', 13786)
+[2016-10-17 07:05:01,649]da.api:DEBUG: Creating 3 instances of <class 'worker.Worker'>..
+[2016-10-17 07:05:01,649]Application[('localhost', 34547)]:INFO: Application:  Application Setup in done
+[2016-10-17 07:05:01,650]Application[('localhost', 12977)]:DEBUG: Running setup..
+[2016-10-17 07:05:01,651]Application[('localhost', 12977)]:INFO: Application:  Application Setup in done
+[2016-10-17 07:05:01,656]Coordinator[('localhost', 21111)]:DEBUG: Running setup..
+[2016-10-17 07:05:01,657]da.api:DEBUG: Current process is ('localhost', 21111)
+[2016-10-17 07:05:01,657]runtime.TcpEndPoint(localhost_19474):DEBUG: TcpEndPoint ('localhost', 19474) initialization complete
+[2016-10-17 07:05:01,657]da.api:DEBUG: Creating 3 instances of <class 'worker.Worker'>..
+[2016-10-17 07:05:01,661]Coordinator[('localhost', 11615)]:DEBUG: Running setup..
+[2016-10-17 07:05:01,662]da.api:DEBUG: Current process is ('localhost', 11615)
+[2016-10-17 07:05:01,662]da.api:DEBUG: Creating 3 instances of <class 'worker.Worker'>..
+[2016-10-17 07:05:01,664]Database[('localhost', 36504)]:DEBUG: Running setup..
+[2016-10-17 07:05:01,666]da.api:DEBUG: Starting {<Application('localhost', 32956)>, <Application('localhost', 12977)>, <Application('localhost', 34547)>}...
+[2016-10-17 07:05:01,666]Worker[('localhost', 19474)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:01,666]Application[('localhost', 32956)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:01,667]Application[('localhost', 32956)]:INFO: Application:  Application started
+[2016-10-17 07:05:01,665]Database[('localhost', 36504)]:INFO: Database: Loading entries in JSon file to local memory to simulate DB
+[2016-10-17 07:05:01,668]Application[('localhost', 12977)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:01,668]runtime.TcpEndPoint(localhost_13860):DEBUG: TcpEndPoint ('localhost', 13860) initialization complete
+[2016-10-17 07:05:01,668]Application[('localhost', 12977)]:INFO: Application:  Application started
+[2016-10-17 07:05:01,668]Database[('localhost', 36504)]:INFO: Loading Datasbe entries in JSon file complete, DB Simulator Ready
+[2016-10-17 07:05:01,670]Worker[('localhost', 13860)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:01,677]Application[('localhost', 34547)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:01,678]Application[('localhost', 34547)]:INFO: Application:  Application started
+[2016-10-17 07:05:01,679]da.api:DEBUG: Starting {<Coordinator('localhost', 13786)>, <Coordinator('localhost', 21111)>, <Coordinator('localhost', 11615)>}...
+[2016-10-17 07:05:01,679]da.api:DEBUG: Starting {<Database('localhost', 36504)>}...
+[2016-10-17 07:05:01,680]Database[('localhost', 36504)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:01,690]da.api:DEBUG: 3 instances of Worker created.
+[2016-10-17 07:05:01,695]runtime.TcpEndPoint(localhost_18016):DEBUG: TcpEndPoint ('localhost', 18016) initialization complete
+[2016-10-17 07:05:01,696]da.api:DEBUG: 3 instances of Worker created.
+[2016-10-17 07:05:01,710]runtime.TcpEndPoint(localhost_23692):DEBUG: TcpEndPoint ('localhost', 23692) initialization complete
+[2016-10-17 07:05:01,675]da.api:DEBUG: 3 instances of Worker created.
+[2016-10-17 07:05:01,715]runtime.TcpEndPoint(localhost_39863):DEBUG: TcpEndPoint ('localhost', 39863) initialization complete
+[2016-10-17 07:05:01,721]runtime.TcpEndPoint(localhost_33581):DEBUG: TcpEndPoint ('localhost', 33581) initialization complete
+[2016-10-17 07:05:01,729]runtime.TcpEndPoint(localhost_18982):DEBUG: TcpEndPoint ('localhost', 18982) initialization complete
+[2016-10-17 07:05:01,730]runtime.TcpEndPoint(localhost_30856):DEBUG: TcpEndPoint ('localhost', 30856) initialization complete
+[2016-10-17 07:05:01,728]runtime.TcpEndPoint(localhost_24779):DEBUG: TcpEndPoint ('localhost', 24779) initialization complete
+[2016-10-17 07:05:01,732]Worker[('localhost', 23692)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:01,732]Worker[('localhost', 18016)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:01,733]Worker[('localhost', 33581)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:01,734]Worker[('localhost', 19474)]:DEBUG: Running setup..
+[2016-10-17 07:05:01,735]Worker[('localhost', 19474)]:INFO: Worker: Steup Done
+[2016-10-17 07:05:01,741]Worker[('localhost', 13860)]:DEBUG: Running setup..
+[2016-10-17 07:05:01,744]Worker[('localhost', 39863)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:01,742]Worker[('localhost', 13860)]:INFO: Worker: Steup Done
+[2016-10-17 07:05:01,747]da.api:DEBUG: Starting {<Worker('localhost', 19474)>, <Worker('localhost', 23692)>, <Worker('localhost', 13860)>}...
+[2016-10-17 07:05:01,748]Worker[('localhost', 19474)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:01,748]Worker[('localhost', 19474)]:INFO:  Worker Thread start 
+[2016-10-17 07:05:01,749]Worker[('localhost', 13860)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:01,749]Worker[('localhost', 13860)]:INFO:  Worker Thread start 
+[2016-10-17 07:05:01,748]Coordinator[('localhost', 13786)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:01,762]Worker[('localhost', 23692)]:DEBUG: Running setup..
+[2016-10-17 07:05:01,764]Worker[('localhost', 23692)]:INFO: Worker: Steup Done
+[2016-10-17 07:05:01,765]Worker[('localhost', 23692)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:01,765]Worker[('localhost', 23692)]:INFO:  Worker Thread start 
+[2016-10-17 07:05:01,767]Worker[('localhost', 30856)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:01,768]Worker[('localhost', 24779)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:01,771]da.api:DEBUG: Starting {<Worker('localhost', 33581)>, <Worker('localhost', 18016)>, <Worker('localhost', 30856)>}...
+[2016-10-17 07:05:01,771]Worker[('localhost', 18016)]:DEBUG: Running setup..
+[2016-10-17 07:05:01,772]Worker[('localhost', 33581)]:DEBUG: Running setup..
+[2016-10-17 07:05:01,772]Worker[('localhost', 18016)]:INFO: Worker: Steup Done
+[2016-10-17 07:05:01,785]Worker[('localhost', 33581)]:INFO: Worker: Steup Done
+[2016-10-17 07:05:01,791]Worker[('localhost', 18016)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:01,791]Worker[('localhost', 33581)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:01,792]Worker[('localhost', 18016)]:INFO:  Worker Thread start 
+[2016-10-17 07:05:01,792]Worker[('localhost', 33581)]:INFO:  Worker Thread start 
+[2016-10-17 07:05:01,797]Coordinator[('localhost', 21111)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:01,799]Worker[('localhost', 30856)]:DEBUG: Running setup..
+[2016-10-17 07:05:01,800]Worker[('localhost', 30856)]:INFO: Worker: Steup Done
+[2016-10-17 07:05:01,801]Worker[('localhost', 30856)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:01,801]Worker[('localhost', 18982)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:01,802]Worker[('localhost', 30856)]:INFO:  Worker Thread start 
+[2016-10-17 07:05:01,803]da.api:DEBUG: Starting {<Worker('localhost', 39863)>, <Worker('localhost', 18982)>, <Worker('localhost', 24779)>}...
+[2016-10-17 07:05:01,804]Worker[('localhost', 24779)]:DEBUG: Running setup..
+[2016-10-17 07:05:01,804]Worker[('localhost', 24779)]:INFO: Worker: Steup Done
+[2016-10-17 07:05:01,807]Worker[('localhost', 24779)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:01,807]Worker[('localhost', 24779)]:INFO:  Worker Thread start 
+[2016-10-17 07:05:01,805]Coordinator[('localhost', 11615)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:01,803]Worker[('localhost', 39863)]:DEBUG: Running setup..
+[2016-10-17 07:05:01,812]Worker[('localhost', 39863)]:INFO: Worker: Steup Done
+[2016-10-17 07:05:01,813]Worker[('localhost', 39863)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:01,814]Worker[('localhost', 39863)]:INFO:  Worker Thread start 
+[2016-10-17 07:05:01,828]Worker[('localhost', 18982)]:DEBUG: Running setup..
+[2016-10-17 07:05:01,828]Worker[('localhost', 18982)]:INFO: Worker: Steup Done
+[2016-10-17 07:05:01,829]Worker[('localhost', 18982)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:01,829]Worker[('localhost', 18982)]:INFO:  Worker Thread start 
+[2016-10-17 07:05:02,668]Application[('localhost', 32956)]:INFO: Application: Application fetches next policy evaluation request #: 0
+[2016-10-17 07:05:02,668]Application[('localhost', 32956)]:INFO: Application: Fetching Next Request to evaluate policy ,from Config
+[2016-10-17 07:05:02,669]Application[('localhost', 32956)]:INFO: Application: A new Evaluation Request is created with msgId:  1000
+[2016-10-17 07:05:02,669]Application[('localhost', 32956)]:INFO: Application coord list is this <class 'message.HistoryMessage'>
+[2016-10-17 07:05:02,669]Application[('localhost', 12977)]:INFO: Application: Application fetches next policy evaluation request #: 1
+[2016-10-17 07:05:02,672]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:1 to:None from:<Application('localhost', 32956)> msg:('req_app', <message.HistoryMessage object at 0x7fb43ffd32e8>)>
+[2016-10-17 07:05:02,674]Coordinator[('localhost', 11615)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:02,677]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.HistoryMessage object at 0x7fb43fff4860>) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:02,680]Application[('localhost', 34547)]:INFO: Application: Application fetches next policy evaluation request #: 2
+[2016-10-17 07:05:02,680]Application[('localhost', 34547)]:INFO: Application: Fetching Next Request to evaluate policy ,from Config
+[2016-10-17 07:05:02,681]Application[('localhost', 34547)]:INFO: Application: A new Evaluation Request is created with msgId:  1002
+[2016-10-17 07:05:02,681]Application[('localhost', 34547)]:INFO: Application coord list is this <class 'message.HistoryMessage'>
+[2016-10-17 07:05:02,688]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.HistoryMessage object at 0x7fb43fff3a58>) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:02,689]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.HistoryMessage object at 0x7fb43ffd3748>) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:02,689]Application[('localhost', 34547)]:DEBUG: triggering event <SentEvent time:1 to:<Coordinator('localhost', 11615)> from:<Application('localhost', 34547)> msg:('req_app', <message.HistoryMessage object at 0x7fb43ffead30>)>
+[2016-10-17 07:05:02,691]Coordinator[('localhost', 11615)]:DEBUG: triggering event <SentEvent time:3 to:<Coordinator('localhost', 11615)> from:<Coordinator('localhost', 11615)> msg:('req_sub', <message.HistoryMessage object at 0x7fb43ffea518>)>
+[2016-10-17 07:05:02,670]Application[('localhost', 12977)]:INFO: Application: Fetching Next Request to evaluate policy ,from Config
+[2016-10-17 07:05:02,696]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:02,696]Application[('localhost', 34547)]:INFO: Application: Application: Forward policy evaluation request to Subject Co ordinator
+[2016-10-17 07:05:02,693]Application[('localhost', 12977)]:INFO: Application: A new Evaluation Request is created with msgId:  1001
+[2016-10-17 07:05:02,707]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:02,706]Application[('localhost', 12977)]:INFO: Application coord list is this <class 'message.HistoryMessage'>
+[2016-10-17 07:05:02,710]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:3 to:None from:<Coordinator('localhost', 11615)> msg:('req_sub', <message.HistoryMessage object at 0x7fb43ffd3160>)>
+[2016-10-17 07:05:02,722]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.HistoryMessage object at 0x7fb43ffeaf60>) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:02,723]Application[('localhost', 12977)]:DEBUG: triggering event <SentEvent time:1 to:<Coordinator('localhost', 11615)> from:<Application('localhost', 12977)> msg:('req_app', <message.HistoryMessage object at 0x7fb43ffd32b0>)>
+[2016-10-17 07:05:02,724]Application[('localhost', 32956)]:DEBUG: triggering event <SentEvent time:1 to:<Coordinator('localhost', 11615)> from:<Application('localhost', 32956)> msg:('req_app', <message.HistoryMessage object at 0x7fb43fff49b0>)>
+[2016-10-17 07:05:02,727]Worker[('localhost', 39863)]:DEBUG: triggering event <ReceivedEvent time:5 to:None from:<Coordinator('localhost', 11615)> msg:('req_res', <message.HistoryMessage object at 0x7fb43ffd36d8>)>
+[2016-10-17 07:05:02,728]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:02,728]Worker[('localhost', 39863)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:02,729]Application[('localhost', 32956)]:INFO: Application: Application: Forward policy evaluation request to Subject Co ordinator
+[2016-10-17 07:05:02,731]Database[('localhost', 36504)]:DEBUG: triggering event <ReceivedEvent time:7 to:None from:<Worker('localhost', 39863)> msg:('req_db_read', <message.HistoryMessage object at 0x7fb43fff5438>)>
+[2016-10-17 07:05:02,732]Database[('localhost', 36504)]:INFO: Database: Received a query for : BankA001
+[2016-10-17 07:05:02,733]Database[('localhost', 36504)]:INFO: item in database is  {'position': 'employee', 'history': 'bank B'}
+[2016-10-17 07:05:02,733]Database[('localhost', 36504)]:INFO: item in database is  {}
+[2016-10-17 07:05:02,734]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.HistoryMessage object at 0x7fb43ffd3160>) to <Database('localhost', 36504)>.
+[2016-10-17 07:05:02,740]Worker[('localhost', 39863)]:DEBUG: triggering event <SentEvent time:7 to:{<Database('localhost', 36504)>} from:<Worker('localhost', 39863)> msg:('req_db_read', <message.HistoryMessage object at 0x7fb43ffea780>)>
+[2016-10-17 07:05:02,740]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.HistoryMessage object at 0x7fb43fff5668>) to <Worker('localhost', 39863)>.
+[2016-10-17 07:05:02,745]runtime.TcpEndPoint(localhost_11615):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:02,746]Worker[('localhost', 39863)]:DEBUG: triggering event <ReceivedEvent time:9 to:None from:<Database('localhost', 36504)> msg:('reply_db_read', <message.HistoryMessage object at 0x7fb445b3d6a0>)>
+[2016-10-17 07:05:02,748]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.HistoryMessage object at 0x7fb43ffd3320>) to <Worker('localhost', 39863)>.
+[2016-10-17 07:05:02,751]Coordinator[('localhost', 11615)]:DEBUG: triggering event <SentEvent time:5 to:<Worker('localhost', 39863)> from:<Coordinator('localhost', 11615)> msg:('req_res', <message.HistoryMessage object at 0x7fb43ffd3748>)>
+[2016-10-17 07:05:02,747]Worker[('localhost', 39863)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:02,748]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:02,754]Worker[('localhost', 39863)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:02,754]Application[('localhost', 12977)]:INFO: Application: Application: Forward policy evaluation request to Subject Co ordinator
+[2016-10-17 07:05:02,762]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:02,762]Worker[('localhost', 39863)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:02,764]Worker[('localhost', 39863)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:02,765]Database[('localhost', 36504)]:DEBUG: triggering event <SentEvent time:9 to:<Worker('localhost', 39863)> from:<Database('localhost', 36504)> msg:('reply_db_read', <message.HistoryMessage object at 0x7fb43ffeaa20>)>
+[2016-10-17 07:05:02,766]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:1 to:None from:<Application('localhost', 34547)> msg:('req_app', <message.HistoryMessage object at 0x7fb43ffd31d0>)>
+[2016-10-17 07:05:02,771]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:02,771]Worker[('localhost', 39863)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator False
+[2016-10-17 07:05:02,768]Coordinator[('localhost', 11615)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:02,773]Database[('localhost', 36504)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:02,774]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.HistoryMessage object at 0x7fb43ffd3160>) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:02,783]Worker[('localhost', 39863)]:DEBUG: triggering event <SentEvent time:11 to:<Coordinator('localhost', 11615)> from:<Worker('localhost', 39863)> msg:('reply_work', <message.HistoryMessage object at 0x7fb445b3d080>)>
+[2016-10-17 07:05:02,783]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.HistoryMessage object at 0x7fb444889668>) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:02,786]runtime.TcpEndPoint(localhost_11615):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:02,785]Coordinator[('localhost', 11615)]:DEBUG: triggering event <SentEvent time:7 to:<Coordinator('localhost', 11615)> from:<Coordinator('localhost', 11615)> msg:('req_sub', <message.HistoryMessage object at 0x7fb445b3d080>)>
+[2016-10-17 07:05:02,788]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:02,794]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:1 to:None from:<Application('localhost', 12977)> msg:('req_app', <message.HistoryMessage object at 0x7fb445b3d2b0>)>
+[2016-10-17 07:05:02,795]Coordinator[('localhost', 11615)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:02,798]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.HistoryMessage object at 0x7fb43ffd3748>) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:02,799]Coordinator[('localhost', 11615)]:DEBUG: triggering event <SentEvent time:9 to:<Coordinator('localhost', 11615)> from:<Coordinator('localhost', 11615)> msg:('req_sub', <message.HistoryMessage object at 0x7fb444889668>)>
+[2016-10-17 07:05:02,802]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:02,802]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 39863)> msg:('sent', 1)>
+[2016-10-17 07:05:02,803]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:11 to:None from:<Worker('localhost', 39863)> msg:('reply_work', <message.HistoryMessage object at 0x7fb445b3a860>)>
+[2016-10-17 07:05:02,805]Application[('localhost', 34547)]:INFO: Application: Application fetches next policy evaluation request #: 5
+[2016-10-17 07:05:02,805]Application[('localhost', 34547)]:INFO: Application: Fetching Next Request to evaluate policy ,from Config
+[2016-10-17 07:05:02,806]Application[('localhost', 34547)]:INFO: Application: A new Evaluation Request is created with msgId:  1005
+[2016-10-17 07:05:02,806]Application[('localhost', 34547)]:INFO: Application coord list is this <class 'message.HistoryMessage'>
+[2016-10-17 07:05:02,807]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.HistoryMessage object at 0x7fb43ffeaf60>) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:02,808]Application[('localhost', 34547)]:DEBUG: triggering event <SentEvent time:2 to:<Coordinator('localhost', 11615)> from:<Application('localhost', 34547)> msg:('req_app', <message.HistoryMessage object at 0x7fb43ffd32b0>)>
+[2016-10-17 07:05:02,809]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:02,809]Application[('localhost', 34547)]:INFO: Application: Application: Forward policy evaluation request to Subject Co ordinator
+[2016-10-17 07:05:02,822]Application[('localhost', 32956)]:DEBUG: triggering event <ReceivedEvent time:13 to:None from:<Coordinator('localhost', 11615)> msg:('result_sub', <message.HistoryMessage object at 0x7fb43ffead30>)>
+[2016-10-17 07:05:02,826]Application[('localhost', 32956)]:INFO: Application: Application: Application: Policy Evaluation result received
+[2016-10-17 07:05:02,827]Application[('localhost', 32956)]:INFO: Application: Application fetches next policy evaluation request #: 3
+[2016-10-17 07:05:02,827]Application[('localhost', 32956)]:INFO: Application: Fetching Next Request to evaluate policy ,from Config
+[2016-10-17 07:05:02,828]Application[('localhost', 32956)]:INFO: Application: A new Evaluation Request is created with msgId:  1003
+[2016-10-17 07:05:02,829]Application[('localhost', 32956)]:INFO: Application coord list is this <class 'message.HistoryMessage'>
+[2016-10-17 07:05:02,830]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.HistoryMessage object at 0x7fb43ffea780>) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:02,831]Application[('localhost', 32956)]:DEBUG: triggering event <SentEvent time:15 to:<Coordinator('localhost', 11615)> from:<Application('localhost', 32956)> msg:('req_app', <message.HistoryMessage object at 0x7fb43ffd3320>)>
+[2016-10-17 07:05:02,831]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('result_sub', <message.HistoryMessage object at 0x7fb43ffd3748>) to <Application('localhost', 32956)>.
+[2016-10-17 07:05:02,833]Coordinator[('localhost', 11615)]:DEBUG: triggering event <SentEvent time:13 to:<Application('localhost', 32956)> from:<Coordinator('localhost', 11615)> msg:('result_sub', <message.HistoryMessage object at 0x7fb43fff5d30>)>
+[2016-10-17 07:05:02,834]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:02,834]Application[('localhost', 32956)]:INFO: Application: Application: Forward policy evaluation request to Subject Co ordinator
+[2016-10-17 07:05:02,846]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:02,846]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:7 to:None from:<Coordinator('localhost', 11615)> msg:('req_sub', <message.HistoryMessage object at 0x7fb445b3a3c8>)>
+[2016-10-17 07:05:02,845]Application[('localhost', 32956)]:INFO: Application: Application: Application: Policy Evaluation result received
+[2016-10-17 07:05:02,859]Worker[('localhost', 18982)]:DEBUG: triggering event <ReceivedEvent time:15 to:None from:<Coordinator('localhost', 11615)> msg:('req_res', <message.HistoryMessage object at 0x7fb43ffd3320>)>
+[2016-10-17 07:05:02,860]Worker[('localhost', 18982)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:02,862]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.HistoryMessage object at 0x7fb43ffd3518>) to <Database('localhost', 36504)>.
+[2016-10-17 07:05:02,863]Worker[('localhost', 18982)]:DEBUG: triggering event <SentEvent time:17 to:{<Database('localhost', 36504)>} from:<Worker('localhost', 18982)> msg:('req_db_read', <message.HistoryMessage object at 0x7fb43ffd3160>)>
+[2016-10-17 07:05:02,865]runtime.TcpEndPoint(localhost_11615):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:02,867]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.HistoryMessage object at 0x7fb43ffd3320>) to <Worker('localhost', 18982)>.
+[2016-10-17 07:05:02,869]Application[('localhost', 12977)]:INFO: Application: Application fetches next policy evaluation request #: 4
+[2016-10-17 07:05:02,870]Application[('localhost', 12977)]:INFO: Application: Fetching Next Request to evaluate policy ,from Config
+[2016-10-17 07:05:02,872]Application[('localhost', 12977)]:INFO: Application: A new Evaluation Request is created with msgId:  1004
+[2016-10-17 07:05:02,873]Application[('localhost', 12977)]:INFO: Application coord list is this <class 'message.HistoryMessage'>
+[2016-10-17 07:05:02,874]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.HistoryMessage object at 0x7fb43ffeaa20>) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:02,875]Application[('localhost', 12977)]:DEBUG: triggering event <SentEvent time:2 to:<Coordinator('localhost', 11615)> from:<Application('localhost', 12977)> msg:('req_app', <message.HistoryMessage object at 0x7fb43ffd32b0>)>
+[2016-10-17 07:05:02,876]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:02,877]Application[('localhost', 12977)]:INFO: Application: Application: Forward policy evaluation request to Subject Co ordinator
+[2016-10-17 07:05:02,879]Database[('localhost', 36504)]:DEBUG: triggering event <ReceivedEvent time:17 to:None from:<Worker('localhost', 18982)> msg:('req_db_read', <message.HistoryMessage object at 0x7fb43ffd3358>)>
+[2016-10-17 07:05:02,880]Database[('localhost', 36504)]:INFO: Database: Received a query for : BankA001
+[2016-10-17 07:05:02,868]Coordinator[('localhost', 11615)]:DEBUG: triggering event <SentEvent time:15 to:<Worker('localhost', 18982)> from:<Coordinator('localhost', 11615)> msg:('req_res', <message.HistoryMessage object at 0x7fb445b3d080>)>
+[2016-10-17 07:05:02,885]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:02,883]Database[('localhost', 36504)]:INFO: item in database is  {'position': 'employee', 'history': 'bank B'}
+[2016-10-17 07:05:02,889]Database[('localhost', 36504)]:INFO: item in database is  {}
+[2016-10-17 07:05:02,891]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 39863)> msg:('sent', 1)>
+[2016-10-17 07:05:02,892]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.HistoryMessage object at 0x7fb43ffd3748>) to <Worker('localhost', 18982)>.
+[2016-10-17 07:05:02,893]Database[('localhost', 36504)]:DEBUG: triggering event <SentEvent time:19 to:<Worker('localhost', 18982)> from:<Database('localhost', 36504)> msg:('reply_db_read', <message.HistoryMessage object at 0x7fb43ffd32e8>)>
+[2016-10-17 07:05:02,896]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:9 to:None from:<Coordinator('localhost', 11615)> msg:('req_sub', <message.HistoryMessage object at 0x7fb445b3a5c0>)>
+[2016-10-17 07:05:02,899]Worker[('localhost', 18982)]:DEBUG: triggering event <ReceivedEvent time:19 to:None from:<Database('localhost', 36504)> msg:('reply_db_read', <message.HistoryMessage object at 0x7fb43ffd3748>)>
+[2016-10-17 07:05:02,894]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:02,914]Database[('localhost', 36504)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:02,913]Worker[('localhost', 18982)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:02,921]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.HistoryMessage object at 0x7fb43fff5e10>) to <Worker('localhost', 24779)>.
+[2016-10-17 07:05:02,922]Coordinator[('localhost', 11615)]:DEBUG: triggering event <SentEvent time:18 to:<Worker('localhost', 24779)> from:<Coordinator('localhost', 11615)> msg:('req_res', <message.HistoryMessage object at 0x7fb43fff5c88>)>
+[2016-10-17 07:05:02,924]Worker[('localhost', 18982)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:02,925]Worker[('localhost', 18982)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:02,928]Worker[('localhost', 24779)]:DEBUG: triggering event <ReceivedEvent time:18 to:None from:<Coordinator('localhost', 11615)> msg:('req_res', <message.HistoryMessage object at 0x7fb43ffd32b0>)>
+[2016-10-17 07:05:02,935]Worker[('localhost', 24779)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:02,929]Worker[('localhost', 18982)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:02,937]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.HistoryMessage object at 0x7fb43ffd3438>) to <Database('localhost', 36504)>.
+[2016-10-17 07:05:02,939]Worker[('localhost', 24779)]:DEBUG: triggering event <SentEvent time:20 to:{<Database('localhost', 36504)>} from:<Worker('localhost', 24779)> msg:('req_db_read', <message.HistoryMessage object at 0x7fb43ffd3630>)>
+[2016-10-17 07:05:02,940]runtime.TcpEndPoint(localhost_11615):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:02,944]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:02,946]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:2 to:None from:<Application('localhost', 34547)> msg:('req_app', <message.HistoryMessage object at 0x7fb43ffead30>)>
+[2016-10-17 07:05:02,950]Worker[('localhost', 18982)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator False
+[2016-10-17 07:05:02,952]Database[('localhost', 36504)]:DEBUG: triggering event <ReceivedEvent time:20 to:None from:<Worker('localhost', 24779)> msg:('req_db_read', <message.HistoryMessage object at 0x7fb43ffd3390>)>
+[2016-10-17 07:05:02,952]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.HistoryMessage object at 0x7fb43ffd3518>) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:02,953]Worker[('localhost', 18982)]:DEBUG: triggering event <SentEvent time:21 to:<Coordinator('localhost', 11615)> from:<Worker('localhost', 18982)> msg:('reply_work', <message.HistoryMessage object at 0x7fb445b3d080>)>
+[2016-10-17 07:05:02,954]runtime.TcpEndPoint(localhost_11615):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:02,955]Database[('localhost', 36504)]:INFO: Database: Received a query for : BankA001
+[2016-10-17 07:05:02,955]Coordinator[('localhost', 11615)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:02,958]Database[('localhost', 36504)]:INFO: item in database is  {'position': 'employee', 'history': 'bank B'}
+[2016-10-17 07:05:02,958]Database[('localhost', 36504)]:INFO: item in database is  {}
+[2016-10-17 07:05:02,969]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.HistoryMessage object at 0x7fb444889668>) to <Worker('localhost', 24779)>.
+[2016-10-17 07:05:02,969]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.HistoryMessage object at 0x7fb43ffd30f0>) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:02,970]Worker[('localhost', 24779)]:DEBUG: triggering event <ReceivedEvent time:22 to:None from:<Database('localhost', 36504)> msg:('reply_db_read', <message.HistoryMessage object at 0x7fb43ffd32e8>)>
+[2016-10-17 07:05:02,971]Coordinator[('localhost', 11615)]:DEBUG: triggering event <SentEvent time:20 to:<Coordinator('localhost', 11615)> from:<Coordinator('localhost', 11615)> msg:('req_sub', <message.HistoryMessage object at 0x7fb43ffd3550>)>
+[2016-10-17 07:05:02,984]Database[('localhost', 36504)]:DEBUG: triggering event <SentEvent time:22 to:<Worker('localhost', 24779)> from:<Database('localhost', 36504)> msg:('reply_db_read', <message.HistoryMessage object at 0x7fb43ffea518>)>
+[2016-10-17 07:05:02,972]Worker[('localhost', 24779)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:02,985]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:02,986]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:15 to:None from:<Application('localhost', 32956)> msg:('req_app', <message.HistoryMessage object at 0x7fb43fff57b8>)>
+[2016-10-17 07:05:02,986]Worker[('localhost', 24779)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:02,987]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:02,987]Worker[('localhost', 24779)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:02,987]Database[('localhost', 36504)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:02,988]Worker[('localhost', 24779)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:02,992]Worker[('localhost', 24779)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator False
+[2016-10-17 07:05:02,997]Coordinator[('localhost', 11615)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:03,007]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.HistoryMessage object at 0x7fb43ffd3128>) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:03,008]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.HistoryMessage object at 0x7fb43fff5e10>) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:03,013]Coordinator[('localhost', 11615)]:DEBUG: triggering event <SentEvent time:22 to:<Coordinator('localhost', 11615)> from:<Coordinator('localhost', 11615)> msg:('req_sub', <message.HistoryMessage object at 0x7fb43fff5cc0>)>
+[2016-10-17 07:05:03,017]Worker[('localhost', 24779)]:DEBUG: triggering event <SentEvent time:24 to:<Coordinator('localhost', 11615)> from:<Worker('localhost', 24779)> msg:('reply_work', <message.HistoryMessage object at 0x7fb445b3d710>)>
+[2016-10-17 07:05:03,018]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,019]runtime.TcpEndPoint(localhost_11615):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:03,025]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 18982)> msg:('sent', 1)>
+[2016-10-17 07:05:03,029]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:2 to:None from:<Application('localhost', 12977)> msg:('req_app', <message.HistoryMessage object at 0x7fb43fffe358>)>
+[2016-10-17 07:05:03,041]Coordinator[('localhost', 11615)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:03,049]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.HistoryMessage object at 0x7fb43ffd3748>) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:03,050]Coordinator[('localhost', 11615)]:DEBUG: triggering event <SentEvent time:25 to:<Coordinator('localhost', 11615)> from:<Coordinator('localhost', 11615)> msg:('req_sub', <message.HistoryMessage object at 0x7fb445b3ac18>)>
+[2016-10-17 07:05:03,067]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,068]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 24779)> msg:('sent', 1)>
+[2016-10-17 07:05:03,069]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:21 to:None from:<Worker('localhost', 18982)> msg:('reply_work', <message.HistoryMessage object at 0x7fb445b3a550>)>
+[2016-10-17 07:05:03,081]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('result_sub', <message.HistoryMessage object at 0x7fb43fff5e10>) to <Application('localhost', 34547)>.
+[2016-10-17 07:05:03,085]Application[('localhost', 34547)]:DEBUG: triggering event <ReceivedEvent time:28 to:None from:<Coordinator('localhost', 11615)> msg:('result_sub', <message.HistoryMessage object at 0x7fb43ffea780>)>
+[2016-10-17 07:05:03,082]Coordinator[('localhost', 11615)]:DEBUG: triggering event <SentEvent time:28 to:<Application('localhost', 34547)> from:<Coordinator('localhost', 11615)> msg:('result_sub', <message.HistoryMessage object at 0x7fb445b3d080>)>
+[2016-10-17 07:05:03,100]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,101]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 18982)> msg:('sent', 1)>
+[2016-10-17 07:05:03,108]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:20 to:None from:<Coordinator('localhost', 11615)> msg:('req_sub', <message.HistoryMessage object at 0x7fb43fffe0f0>)>
+[2016-10-17 07:05:03,112]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.HistoryMessage object at 0x7fb445b3d080>) to <Worker('localhost', 39863)>.
+[2016-10-17 07:05:03,127]Coordinator[('localhost', 11615)]:DEBUG: triggering event <SentEvent time:31 to:<Worker('localhost', 39863)> from:<Coordinator('localhost', 11615)> msg:('req_res', <message.HistoryMessage object at 0x7fb43ffd3550>)>
+[2016-10-17 07:05:03,127]Worker[('localhost', 39863)]:DEBUG: triggering event <ReceivedEvent time:31 to:None from:<Coordinator('localhost', 11615)> msg:('req_res', <message.HistoryMessage object at 0x7fb43ffd3438>)>
+[2016-10-17 07:05:03,136]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,129]Worker[('localhost', 39863)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:03,141]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.HistoryMessage object at 0x7fb445b3aac8>) to <Database('localhost', 36504)>.
+[2016-10-17 07:05:03,142]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:24 to:None from:<Worker('localhost', 24779)> msg:('reply_work', <message.HistoryMessage object at 0x7fb43fffe748>)>
+[2016-10-17 07:05:03,143]Worker[('localhost', 39863)]:DEBUG: triggering event <SentEvent time:33 to:{<Database('localhost', 36504)>} from:<Worker('localhost', 39863)> msg:('req_db_read', <message.HistoryMessage object at 0x7fb43ffd32b0>)>
+[2016-10-17 07:05:03,149]runtime.TcpEndPoint(localhost_11615):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:03,150]Application[('localhost', 12977)]:DEBUG: triggering event <ReceivedEvent time:33 to:None from:<Coordinator('localhost', 11615)> msg:('result_sub', <message.HistoryMessage object at 0x7fb43ffea780>)>
+[2016-10-17 07:05:03,152]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('result_sub', <message.HistoryMessage object at 0x7fb43fff5eb8>) to <Application('localhost', 12977)>.
+[2016-10-17 07:05:03,158]Coordinator[('localhost', 11615)]:DEBUG: triggering event <SentEvent time:33 to:<Application('localhost', 12977)> from:<Coordinator('localhost', 11615)> msg:('result_sub', <message.HistoryMessage object at 0x7fb445b3d080>)>
+[2016-10-17 07:05:03,164]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,165]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:22 to:None from:<Coordinator('localhost', 11615)> msg:('req_sub', <message.HistoryMessage object at 0x7fb43fffeac8>)>
+[2016-10-17 07:05:03,174]Database[('localhost', 36504)]:DEBUG: triggering event <ReceivedEvent time:33 to:None from:<Worker('localhost', 39863)> msg:('req_db_read', <message.HistoryMessage object at 0x7fb43ffd3240>)>
+[2016-10-17 07:05:03,186]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.HistoryMessage object at 0x7fb43ffd3748>) to <Worker('localhost', 18982)>.
+[2016-10-17 07:05:03,187]Coordinator[('localhost', 11615)]:DEBUG: triggering event <SentEvent time:35 to:<Worker('localhost', 18982)> from:<Coordinator('localhost', 11615)> msg:('req_res', <message.HistoryMessage object at 0x7fb43ffd3550>)>
+[2016-10-17 07:05:03,189]Worker[('localhost', 18982)]:DEBUG: triggering event <ReceivedEvent time:35 to:None from:<Coordinator('localhost', 11615)> msg:('req_res', <message.HistoryMessage object at 0x7fb445b3af60>)>
+[2016-10-17 07:05:03,192]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,178]Database[('localhost', 36504)]:INFO: Database: Received a query for : BankA001
+[2016-10-17 07:05:03,191]Worker[('localhost', 18982)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:03,194]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 24779)> msg:('sent', 1)>
+[2016-10-17 07:05:03,195]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:25 to:None from:<Coordinator('localhost', 11615)> msg:('req_sub', <message.HistoryMessage object at 0x7fb43fffe2e8>)>
+[2016-10-17 07:05:03,193]Database[('localhost', 36504)]:INFO: item in database is  {'position': 'employee', 'history': 'bank B'}
+[2016-10-17 07:05:03,201]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.HistoryMessage object at 0x7fb445b3a6d8>) to <Database('localhost', 36504)>.
+[2016-10-17 07:05:03,202]Worker[('localhost', 18982)]:DEBUG: triggering event <SentEvent time:37 to:{<Database('localhost', 36504)>} from:<Worker('localhost', 18982)> msg:('req_db_read', <message.HistoryMessage object at 0x7fb445b3a748>)>
+[2016-10-17 07:05:03,203]runtime.TcpEndPoint(localhost_11615):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:03,196]Database[('localhost', 36504)]:INFO: item in database is  {}
+[2016-10-17 07:05:03,212]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.HistoryMessage object at 0x7fb445b3d208>) to <Worker('localhost', 39863)>.
+[2016-10-17 07:05:03,214]Database[('localhost', 36504)]:DEBUG: triggering event <SentEvent time:35 to:<Worker('localhost', 39863)> from:<Database('localhost', 36504)> msg:('reply_db_read', <message.HistoryMessage object at 0x7fb444889668>)>
+[2016-10-17 07:05:03,218]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,224]Worker[('localhost', 39863)]:DEBUG: triggering event <ReceivedEvent time:35 to:None from:<Database('localhost', 36504)> msg:('reply_db_read', <message.HistoryMessage object at 0x7fb445b3af60>)>
+[2016-10-17 07:05:03,225]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.HistoryMessage object at 0x7fb43ffd3550>) to <Worker('localhost', 24779)>.
+[2016-10-17 07:05:03,226]Coordinator[('localhost', 11615)]:DEBUG: triggering event <SentEvent time:38 to:<Worker('localhost', 24779)> from:<Coordinator('localhost', 11615)> msg:('req_res', <message.HistoryMessage object at 0x7fb43ffd3748>)>
+[2016-10-17 07:05:03,227]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,218]Database[('localhost', 36504)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:03,228]Database[('localhost', 36504)]:DEBUG: triggering event <ReceivedEvent time:37 to:None from:<Worker('localhost', 18982)> msg:('req_db_read', <message.HistoryMessage object at 0x7fb43ffd3550>)>
+[2016-10-17 07:05:03,229]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 39863)> msg:('sent', 1)>
+[2016-10-17 07:05:03,233]Worker[('localhost', 24779)]:DEBUG: triggering event <ReceivedEvent time:38 to:None from:<Coordinator('localhost', 11615)> msg:('req_res', <message.HistoryMessage object at 0x7fb445b3acc0>)>
+[2016-10-17 07:05:03,251]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 18982)> msg:('sent', 1)>
+[2016-10-17 07:05:03,233]Worker[('localhost', 39863)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:03,253]Worker[('localhost', 39863)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:03,253]Worker[('localhost', 39863)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:03,254]Worker[('localhost', 39863)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:03,240]Worker[('localhost', 24779)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:03,256]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.HistoryMessage object at 0x7fb445b3a748>) to <Database('localhost', 36504)>.
+[2016-10-17 07:05:03,261]Worker[('localhost', 39863)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator False
+[2016-10-17 07:05:03,262]Worker[('localhost', 24779)]:DEBUG: triggering event <SentEvent time:40 to:{<Database('localhost', 36504)>} from:<Worker('localhost', 24779)> msg:('req_db_read', <message.HistoryMessage object at 0x7fb445b3ab70>)>
+[2016-10-17 07:05:03,263]runtime.TcpEndPoint(localhost_11615):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:03,274]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.HistoryMessage object at 0x7fb445b3aac8>) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:03,233]Database[('localhost', 36504)]:INFO: Database: Received a query for : BankA001
+[2016-10-17 07:05:03,277]Worker[('localhost', 39863)]:DEBUG: triggering event <SentEvent time:37 to:<Coordinator('localhost', 11615)> from:<Worker('localhost', 39863)> msg:('reply_work', <message.HistoryMessage object at 0x7fb445b3d4e0>)>
+[2016-10-17 07:05:03,278]runtime.TcpEndPoint(localhost_11615):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:03,275]Database[('localhost', 36504)]:INFO: item in database is  {'position': 'employee', 'history': 'bank B'}
+[2016-10-17 07:05:03,279]Database[('localhost', 36504)]:INFO: item in database is  {}
+[2016-10-17 07:05:03,288]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:37 to:None from:<Worker('localhost', 39863)> msg:('reply_work', <message.HistoryMessage object at 0x7fb43fff5c88>)>
+[2016-10-17 07:05:03,288]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.HistoryMessage object at 0x7fb445b3d128>) to <Worker('localhost', 18982)>.
+[2016-10-17 07:05:03,289]Database[('localhost', 36504)]:DEBUG: triggering event <SentEvent time:39 to:<Worker('localhost', 18982)> from:<Database('localhost', 36504)> msg:('reply_db_read', <message.HistoryMessage object at 0x7fb43ffea518>)>
+[2016-10-17 07:05:03,299]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('result_sub', <message.HistoryMessage object at 0x7fb445b3ac18>) to <Application('localhost', 34547)>.
+[2016-10-17 07:05:03,300]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,304]Database[('localhost', 36504)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:03,304]Database[('localhost', 36504)]:DEBUG: triggering event <ReceivedEvent time:40 to:None from:<Worker('localhost', 24779)> msg:('req_db_read', <message.HistoryMessage object at 0x7fb445b3a780>)>
+[2016-10-17 07:05:03,310]Worker[('localhost', 18982)]:DEBUG: triggering event <ReceivedEvent time:39 to:None from:<Database('localhost', 36504)> msg:('reply_db_read', <message.HistoryMessage object at 0x7fb445b3a400>)>
+[2016-10-17 07:05:03,311]Coordinator[('localhost', 11615)]:DEBUG: triggering event <SentEvent time:42 to:<Application('localhost', 34547)> from:<Coordinator('localhost', 11615)> msg:('result_sub', <message.HistoryMessage object at 0x7fb43fffec88>)>
+[2016-10-17 07:05:03,319]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,320]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 24779)> msg:('sent', 1)>
+[2016-10-17 07:05:03,316]Database[('localhost', 36504)]:INFO: Database: Received a query for : BankA001
+[2016-10-17 07:05:03,320]Database[('localhost', 36504)]:INFO: item in database is  {'position': 'employee', 'history': 'bank B'}
+[2016-10-17 07:05:03,311]Worker[('localhost', 18982)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:03,321]Database[('localhost', 36504)]:INFO: item in database is  {}
+[2016-10-17 07:05:03,322]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.HistoryMessage object at 0x7fb43ffd30f0>) to <Worker('localhost', 24779)>.
+[2016-10-17 07:05:03,322]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 39863)> msg:('sent', 1)>
+[2016-10-17 07:05:03,323]Database[('localhost', 36504)]:DEBUG: triggering event <SentEvent time:42 to:<Worker('localhost', 24779)> from:<Database('localhost', 36504)> msg:('reply_db_read', <message.HistoryMessage object at 0x7fb444ed7cc0>)>
+[2016-10-17 07:05:03,322]Application[('localhost', 34547)]:DEBUG: triggering event <ReceivedEvent time:42 to:None from:<Coordinator('localhost', 11615)> msg:('result_sub', <message.HistoryMessage object at 0x7fb43ffd3128>)>
+[2016-10-17 07:05:03,325]Worker[('localhost', 18982)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:03,328]Worker[('localhost', 18982)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:03,329]Worker[('localhost', 18982)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:03,330]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,331]Database[('localhost', 36504)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:03,331]Worker[('localhost', 18982)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator False
+[2016-10-17 07:05:03,340]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:41 to:None from:<Worker('localhost', 18982)> msg:('reply_work', <message.HistoryMessage object at 0x7fb43fffec88>)>
+[2016-10-17 07:05:03,337]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.HistoryMessage object at 0x7fb445b3a828>) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:03,345]Worker[('localhost', 18982)]:DEBUG: triggering event <SentEvent time:41 to:<Coordinator('localhost', 11615)> from:<Worker('localhost', 18982)> msg:('reply_work', <message.HistoryMessage object at 0x7fb43ffd3358>)>
+[2016-10-17 07:05:03,353]runtime.TcpEndPoint(localhost_11615):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:03,345]Application[('localhost', 34547)]:INFO: Application: All Evaluation requests for this Application are over
+[2016-10-17 07:05:03,355]Worker[('localhost', 24779)]:DEBUG: triggering event <ReceivedEvent time:42 to:None from:<Database('localhost', 36504)> msg:('reply_db_read', <message.HistoryMessage object at 0x7fb445b3a3c8>)>
+[2016-10-17 07:05:03,356]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('totalusrtime', 0) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,364]Worker[('localhost', 24779)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:03,373]Worker[('localhost', 24779)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:03,374]Worker[('localhost', 24779)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:03,374]Worker[('localhost', 24779)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:03,365]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('totalsystime', 0) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,376]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('result_sub', <message.HistoryMessage object at 0x7fb445b3ab70>) to <Application('localhost', 32956)>.
+[2016-10-17 07:05:03,381]Coordinator[('localhost', 11615)]:DEBUG: triggering event <SentEvent time:46 to:<Application('localhost', 32956)> from:<Coordinator('localhost', 11615)> msg:('result_sub', <message.HistoryMessage object at 0x7fb43fff5eb8>)>
+[2016-10-17 07:05:03,380]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('totaltime', 0) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,382]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,382]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 18982)> msg:('sent', 1)>
+[2016-10-17 07:05:03,384]Worker[('localhost', 24779)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator False
+[2016-10-17 07:05:03,386]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.HistoryMessage object at 0x7fb445b3a860>) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:03,386]runtime.TcpEndPoint(localhost_18309):DEBUG: Remote connection <socket.socket fd=13, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 18309), raddr=('127.0.0.1', 40712)> terminated.
+[2016-10-17 07:05:03,387]Worker[('localhost', 24779)]:DEBUG: triggering event <SentEvent time:44 to:<Coordinator('localhost', 11615)> from:<Worker('localhost', 24779)> msg:('reply_work', <message.HistoryMessage object at 0x7fb43ffd3358>)>
+[2016-10-17 07:05:03,388]runtime.TcpEndPoint(localhost_11615):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 11615)>.
+[2016-10-17 07:05:03,401]Application[('localhost', 32956)]:DEBUG: triggering event <ReceivedEvent time:46 to:None from:<Coordinator('localhost', 11615)> msg:('result_sub', <message.HistoryMessage object at 0x7fb43ffd32b0>)>
+[2016-10-17 07:05:03,413]runtime.TcpEndPoint(localhost_11615):DEBUG: Remote connection <socket.socket fd=27, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 11615), raddr=('127.0.0.1', 49480)> terminated.
+[2016-10-17 07:05:03,414]Application[('localhost', 32956)]:INFO: Application: All Evaluation requests for this Application are over
+[2016-10-17 07:05:03,415]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('totalusrtime', 0) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,415]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('totalsystime', 0) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,421]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('totaltime', 0) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,427]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:44 to:None from:<Worker('localhost', 24779)> msg:('reply_work', <message.HistoryMessage object at 0x7fb43fff5eb8>)>
+[2016-10-17 07:05:03,430]runtime.TcpEndPoint(localhost_11615):DEBUG: Remote connection <socket.socket fd=23, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 11615), raddr=('127.0.0.1', 49478)> terminated.
+[2016-10-17 07:05:03,440]runtime.TcpEndPoint(localhost_18309):DEBUG: Remote connection <socket.socket fd=16, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 18309), raddr=('127.0.0.1', 40720)> terminated.
+[2016-10-17 07:05:03,439]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('result_sub', <message.HistoryMessage object at 0x7fb445b3ab70>) to <Application('localhost', 12977)>.
+[2016-10-17 07:05:03,442]Coordinator[('localhost', 11615)]:DEBUG: triggering event <SentEvent time:49 to:<Application('localhost', 12977)> from:<Coordinator('localhost', 11615)> msg:('result_sub', <message.HistoryMessage object at 0x7fb43fff5d30>)>
+[2016-10-17 07:05:03,446]Application[('localhost', 12977)]:DEBUG: triggering event <ReceivedEvent time:49 to:None from:<Coordinator('localhost', 11615)> msg:('result_sub', <message.HistoryMessage object at 0x7fb43ffd3128>)>
+[2016-10-17 07:05:03,446]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,447]Coordinator[('localhost', 11615)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 24779)> msg:('sent', 1)>
+[2016-10-17 07:05:03,460]Application[('localhost', 12977)]:INFO: Application: All Evaluation requests for this Application are over
+[2016-10-17 07:05:03,461]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('totalusrtime', 0) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,461]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('totalsystime', 0) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,462]runtime.TcpEndPoint(localhost_18309):DEBUG: Sent packet ('totaltime', 0) to <Main('localhost', 18309)>.
+[2016-10-17 07:05:03,478]runtime.TcpEndPoint(localhost_18309):DEBUG: Remote connection <socket.socket fd=17, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 18309), raddr=('127.0.0.1', 40728)> terminated.
+[2016-10-17 07:05:03,485]runtime.TcpEndPoint(localhost_11615):DEBUG: Remote connection <socket.socket fd=30, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 11615), raddr=('127.0.0.1', 49488)> terminated.
+[2016-10-17 07:05:13,402]Worker[('localhost', 19474)]:DEBUG: Received KeyboardInterrupt, exiting
+[2016-10-17 07:05:13,402]Worker[('localhost', 18016)]:DEBUG: Received KeyboardInterrupt, exiting
+[2016-10-17 07:05:13,403]Coordinator[('localhost', 11615)]:DEBUG: Received KeyboardInterrupt, exiting
+[2016-10-17 07:05:13,403]Worker[('localhost', 39863)]:DEBUG: Received KeyboardInterrupt, exiting
+[2016-10-17 07:05:13,404]Worker[('localhost', 30856)]:DEBUG: Received KeyboardInterrupt, exiting
+[2016-10-17 07:05:13,404]Worker[('localhost', 13860)]:DEBUG: Received KeyboardInterrupt, exiting
+[2016-10-17 07:05:13,405]Worker[('localhost', 23692)]:DEBUG: Received KeyboardInterrupt, exiting
+[2016-10-17 07:05:13,405]Database[('localhost', 36504)]:DEBUG: Received KeyboardInterrupt, exiting
+[2016-10-17 07:05:13,405]Coordinator[('localhost', 13786)]:DEBUG: Received KeyboardInterrupt, exiting
+[2016-10-17 07:05:13,406]Coordinator[('localhost', 21111)]:DEBUG: Received KeyboardInterrupt, exiting
+[2016-10-17 07:05:13,407]runtime.TcpEndPoint(localhost_11615):DEBUG: Remote connection <socket.socket fd=33, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 11615), raddr=('127.0.0.1', 49498)> terminated.
+[2016-10-17 07:05:13,402]Worker[('localhost', 33581)]:DEBUG: Received KeyboardInterrupt, exiting
+[2016-10-17 07:05:13,425]runtime.TcpEndPoint(localhost_24779):DEBUG: Remote connection <socket.socket fd=30, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 24779), raddr=('127.0.0.1', 46420)> terminated.
+[2016-10-17 07:05:13,426]runtime.TcpEndPoint(localhost_18982):DEBUG: Remote connection <socket.socket fd=33, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 18982), raddr=('127.0.0.1', 40872)> terminated.
+[2016-10-17 07:05:13,427]runtime.TcpEndPoint(localhost_18309):DEBUG: Remote connection <socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 18309), raddr=('127.0.0.1', 40730)> terminated.
+[2016-10-17 07:05:13,428]Worker[('localhost', 18982)]:DEBUG: Received KeyboardInterrupt, exiting
+[2016-10-17 07:05:13,426]Worker[('localhost', 24779)]:DEBUG: Received KeyboardInterrupt, exiting
+[2016-10-17 07:05:13,434]runtime.TcpEndPoint(localhost_11615):DEBUG: Remote connection <socket.socket fd=38, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 11615), raddr=('127.0.0.1', 49518)> terminated.
+[2016-10-17 07:05:13,437]runtime.TcpEndPoint(localhost_11615):DEBUG: Remote connection <socket.socket fd=36, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 11615), raddr=('127.0.0.1', 49510)> terminated.
+[2016-10-17 07:05:13,438]Main[('localhost', 18309)]:INFO: User requested abort

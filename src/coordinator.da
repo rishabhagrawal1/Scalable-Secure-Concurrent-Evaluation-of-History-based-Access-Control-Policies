@@ -1,0 +1,299 @@
+import config
+import random,time
+import version
+TIMEOUT = 1
+MAXDBLatency = 0.1
+MINDBLatency = 0.01
+w = import_da("worker")
+from message import Message
+config(clock = 'Lamport')
+config(channel = 'fifo')
+
+class Coordinator(process):
+    def setup(config: Config, coord_list: list, worker_count: int, data: object, work_list: list):
+        ## Dictionary of attribute versions to be used in latestVersion and latestVersionBefore Key used is subject/resource Id + '_' + attr
+        attrVersionDict = {} 
+        ## All read requestes which are conflicting with current running write requests will be stored in this
+        pendingReadReq = []
+        ## All current Write requests with workers will be stored here
+        currRunningWriteReq = []
+        work = new(w.Worker, num=config.num_workers)
+        work_list = list(work)
+        setup(work, (self, config.policy_file, data))
+        start(work)
+
+    def caluculateHash(id):
+        count = 0
+        for i in id:
+            count += ord(i)
+        return count
+
+    def coord(obj):
+        if(obj == 'sub'):
+            return coord_list[caluculateHash(msg.subj_id) % len(coord_list)]
+        elif(obj == 'res'):
+            return coord_list[caluculateHash(msg.res_id) % len(coord_list)]
+
+    def sendPolicyResultToApp(msg):
+        send(('result_sub', msg), to=msg.get_curr_app())
+
+    def send_query_to_resource_coordinator_for_verification(msg):
+        send(('req_sub_conflict_check', msg), to=coord_list[caluculateHash(msg.res_id) % len(coord_list)])
+
+    def send_response_to_subject_coordinator_after_verification(msg):
+        send(('reply_res', msg), to=coord_list[caluculateHash(msg.subj_id) % len(coord_list)])
+    
+    ##Need to be called if not all attributes are available in cache at co-ordinator     
+    def send_attr_read_request_to_attr_database(msg):
+        output("Coordinator: sending attribute read request to DB")
+        send(('req_db_read', msg), to=data)    
+
+    def populate_tentative_subj_updates_in_msg(msg):
+        if msg.subj_id in self.subj_attr_dict:
+            msg.tent_attr.set_sub_attr(self.subj_attr_dict[msg.subj_id])
+        if(msg.subj_id in self.tentative_dict and len(self.tentative_dict[msg.subj_id]) > 0):
+            self.tentative_dict[msg.subj_id][-1][1].append(msg.subj_id)
+
+    def populate_tentative_res_updates_in_msg(msg):
+        print("in populate_tentative_res_updates_in_msg self.res_attr_dict,", self.res_attr_dict, self)
+        if msg.subj_id in self.res_attr_dict:
+            msg.tent_attr.set_res_attr(self.res_attr_dict[msg.res_id])
+
+    def update_db_result_with_tentative(msg):
+        output("Coordinator: extract catched and database fetched attributes for use by evaluator worker")
+        catched_sub_attr = msg.catched_attr.get_sub_attr()
+        catched_res_attr = msg.catched_attr.get_res_attr()
+        db_sub_attr = msg.db_attr.get_sub_attr()
+        db_res_attr = msg.db_attr.get_res_attr()
+
+        if(len(catched_sub_attr) > 0):
+            for k,v in catched_sub_attr.items():
+                if k in db_sub_attr:
+                    msg.db_attr.get_sub_attr()[k] = v[0]
+        if (len(catched_res_attr) > 0):
+            for k,v in catched_res_attr.items():
+                if k in db_res_attr:
+                    msg.db_attr.get_res_attr()[k] = v[0]
+        output("Coordinator:Attribute set ready for evaluation")
+
+    def handleResourceRequest(msg):
+        populate_tentative_res_updates_in_msg(msg)
+        msg.curr_worker = work_list[worker_count % (config.num_workers)]
+        send(('req_res', msg), to=msg.curr_worker)
+        worker_count += 1
+        print("Work sent to worker")
+
+    def latestVersionBefore(x,attr,ts):
+        aIdx = x.id+'_'+attr
+        #scan attrVersionDict from end  to check for the highest TS with TS value less than passed TS.
+        length = attrVersionDict.len()
+        for i in xrange(length , 0):
+            if attrVersionDict[aIdx][i].rts < ts
+                return attrVersionDict[aIdx][i]
+        return CreateversionForPreviousSessionRead(x,attr)        
+        
+    def latestversion(x,attr):
+        latestVersionBefore(x,attr,now())
+
+    def createVersionForPreviousSessionRead(x, attr):   
+        v = version.Version(0, 0, 0)
+        aIdx = x.id+'_'+attr
+        ##add at begining
+        attrVersionDict[aIdx].insert(0, v)
+        return attrVersionDict[aIdx][0]
+
+    def updateVersionAttribDictAtCoord(req, x):
+        ##create new version object and add in list of the attribute
+        for attr,val in req.updates:
+          v = version.Version(req.ts, req.ts, val)
+          aIdx = x.id+'_'+attr
+          attrVersionDict[aIdx].append(v)
+          #v.createReplicaUpdateStatus(coordinatorList, self)
+
+    def findVersionBeforeTs()
+        for i in xrange(attrVersionDict[aIdx].len(), 0):
+          v = attrVersionDict[aIdx][i]
+          if(v.rts <= req.ts):
+            resultSet[attr] = v.val
+            return True
+        return False
+
+    def cachedUpdates(x, req):
+        defRead = defReadAttr(x, req)
+        mightRead = mightReadAttr(x, req)
+        uniounAttr = defRead | mightRead
+        resultSet = {}
+        for attr in uniounAttr:
+          aIdx = x.id+'_'+attr
+          if(findVersionBeforeTs() == False):
+            read this attribute from attribute database
+        return resultSet
+
+    ##coordinator: on receiving <"restart", req>
+    def handleRestartRequest(req): 
+        send <"restart", req> to coord(obj(req, req.rdonlyObj))
+        remove context for this req from this coordinator    
+
+    def checkForConflicts(req):
+        for <attr, val> in req.updates:
+          # note: if x.attr has not been read or written in this session, then
+          # v is the special version with v.rts=0 and v.wts=0.
+          v = latestVersionBefore(x,attr,req.ts)
+          if v.rts > req.ts:
+            return true
+        return false
+
+    ##coordinator: on receiving <"result", req> as 
+    def handleWorkerResponseForWriteRequests(req): 
+        coord(obj(req,req.updatedObj)):
+        # req updates the object that this coordinator is responsible for.
+        # check for conflicts.
+        x = obj(req,req.updatedObj)
+
+        # check whether there are already known conflicts
+        conflict = checkForConflicts()
+
+        if not conflict:
+          # wait for relevant pending reads to complete
+          await (forall <attr,val> in req.updates:
+                 latestVersionBefore(x,attr,req.ts).pendingMightRead is empty
+                 or contains only an entry for req)
+          # check again for conflicts
+          conflict = checkForConflicts()
+          if not conflict:
+            # commit the updates
+            send updates to the attribute database with timestamp req.ts
+            add updates to cachedUpdates
+            updateVersionAttribDictAtCoord(req, x)   ##update data structure used by latestVersionBefore
+
+            # update read timestamps
+            for attr in defReadAttr(x,req) union mightReadAttr(x,req)
+              v = latestVersionBefore(x,attr,req.ts)
+              v.pendingMightRead.remove(<req.id,_>)
+              if attr in req.readAttr[req.updatedObj]:
+                v.rts = req.ts
+
+
+            send <req.id, req.decision> to req.client
+            # notify coordinator of read-only object that req committed, so it can
+            # update read timestamps.
+            send <"readAttr", req, req.rdonlyObj> to coord(obj(req, req.rdonlyObj))
+            ## Remove self from current running write reqests
+            
+            currRunningWriteReq.remove(req)
+            ## Start any pending and not conflicting read request 
+            startDelayedRequest()
+          else:
+            restart(req)
+        else:  
+          restart(req)
+
+
+    def handleWorkerResponseForReadRequests(req): #coordinator: on receiving <"readAttr", req, i>
+        x = obj(req,i)
+        for attr in mightReadAttr(x,req)
+          v = latestVersionBefore(x,attr,req.ts)
+          v.pendingMightRead.remove(<req.id,_>)
+          if attr in req.readAttr[i]:
+            v.rts = req.ts
+
+    # Merging read write flow 
+    def handleReqAsCorod1(req):
+        x = obj(req,1)
+        req.ts = now()
+        if not mightWriteAttr(x, req): ## this is a read only request and mightWriteAttr set is empty
+          for attr in defReadAttr(x,req):
+            latestVersion(x,attr).rts = req.ts
+        for attr in mightReadAttr(x,req):
+          latestVersion(x,attr).pendingMightRead.add(<req.id,req.ts>).
+        req.cachedUpdates[1] = cachedUpdates(x,req)
+        send req to coord(obj(req,2))
+
+    # Merging read write flow 
+    def handleReqAsCorod2(req):
+        x = obj(req,2)
+        if not mightWriteAttr(x, req): ## this is a read only request and mightWriteAttr set is empty
+          for attr in defReadAttr(x,req):
+            latestVersion(x,attr).rts = req.ts
+          for attr in mightReadAttr(x,req):
+            latestVersion(x,attr).pendingMightRead.add(<req.id,req.ts>).
+        else:
+          for a in defReadAttr(x,req) union mightReadAttr(x,req)
+            v = most recent version of x.a
+            v.pendingMightRead.add(req.id)
+        choose worker w to evaluate this request
+        req.worker = w
+        req.cachedUpdates[2] = cachedUpdates(x,req)
+        send req to w
+
+    #code to prevent starvation and delay r1- begins
+    def startDelayedRequest():
+        defRead = defReadAttr(x, req)
+        mightRead = mightReadAttr(x, req)
+        uniounAttr = defRead | mightRead
+        for req in pendingReadReq:
+          if(needDealyToPreventStarvation(req) == False):
+            pendingReadReq.remove(req)
+            handleRequest(req)
+
+
+    def needDealyToPreventStarvation(req):
+        if mightWriteObj(req):
+          return False
+        ##unioun set of read attributes need to be checked with each running write request mightWriteAttr set
+        defRead = defReadAttr(x, req)
+        mightRead = mightReadAttr(x, req)
+        uniounAttr = defRead | mightRead
+        for wrq in currRunningWriteReq:
+          mightWrite = mightWriteAttr(wrq)
+          if (mightWrite & uniounAttr) is not empty:
+              return True
+        return False
+
+    def handleRequest(req):  
+        ##coordinator: on receiving request req as coord(obj(req,1))
+        req.generateTimeStamp()
+        if(coord(obj(req,1)) == self): 
+          handleReqAsCorod1(req)
+        ##coordinator: on receiving req as coord(obj(req,2))       
+        elif(coord(obj(req,2)) == self):
+          handleReqAsCorod2(req)
+
+    #code to prevent starvation and delay r1- begins
+    def checkAndHandleRequest(req):
+        if(needDealyToPreventStarvation(req) == False):
+          handleRequest(req)
+        else: ##Need to be delayed after write completion
+          pendingReadReq.append(req)  
+    #code to prevent starvation and delay r1- end
+
+    def run():
+        while True:
+            clk = logical_clock()
+            if (await(some(received(("handleReq", req),clk=rclk), has=(rclk > clk)))):
+                checkAndHandleRequest(req)
+            elif (some(received(("readAttr", req), clk=rclk), has=(rclk > clk))):
+                handleWorkerResponseForReadRequests(req)
+            elif (some(received(("result", req), clk=rclk), has=(rclk > clk))):
+                handleWorkerResponseForWriteRequests(req)    
+            elif (some(received(("restart", req), clk=rclk), has=(rclk > clk))):
+                handleRestartRequest(req)
+            elif (some(received(("reply_db_read", req), clk=rclk), has=(rclk > clk))):
+                update_db_result_with_tentative(req)
+            elif timeout(TIMEOUT * 10):
+                output('timeout because of inactivity')
+
+    def receive(req = (a, b)):
+        if(a == "handleReq"):
+            print "received handleReq message in coordinator"
+        elif(a == "readAttr"):
+            print "received readAttr message in coordinator"
+        elif(a == "result"):
+            print "received result message in coordinator"
+        elif (a == "restart"):
+            print "received restart message in coordinator"
+        elif (a == "reply_db_read"):
+            print "recived read attributes from db"    
+
+
+

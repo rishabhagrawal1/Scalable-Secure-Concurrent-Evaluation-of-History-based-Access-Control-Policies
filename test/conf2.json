@@ -1,0 +1,43 @@
+{
+"num_applications":"3",
+"num_coordinator":"3",
+"num_workers":"3",
+"load_application_1": "30",
+"load_application_2": "35",
+"load_application_3": "35",
+"operations":[
+
+                {"op":         
+                        [{"action":"view"},
+                         {"sub-id":"Movie_customer3","position":"customer"},
+                          {"id":"mov2","type":"movie2"}]
+                },
+                {"op":         
+                        [{"action":"view"},
+                         {"sub-id":"Movie_customer4","position":"customer"},
+                          {"id":"mov2","type":"movie2"}]
+                },
+                {"op":         
+                        [{"action":"view"},
+                         {"sub-id":"Movie_customer5","position":"customer"},
+                          {"id":"mov2","type":"movie2"}]
+                },
+                {"op":         
+                        [{"action":"view"},
+                         {"sub-id":"Movie_customer6","position":"customer"},
+                          {"id":"mov2","type":"movie2"}]
+                },
+                {"op":         
+                        [{"action":"view"},
+                         {"sub-id":"Movie_customer7","position":"customer"},
+                          {"id":"mov2","type":"movie2"}]
+                },
+                {"op":         
+                        [{"action":"view"},
+                         {"sub-id":"Movie_customer8","position":"customer"},
+                          {"id":"mov2","type":"movie2"}]
+                }
+        ]
+} 
+
+
