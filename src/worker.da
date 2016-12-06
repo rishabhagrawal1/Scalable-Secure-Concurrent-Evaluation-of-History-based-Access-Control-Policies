@@ -20,7 +20,17 @@ class Worker(process):
 
     def handle_evaluation_result(req, result):
         sta = staticAnalysis.StaticAnalysis(config.config_file, coord_list)
-        if(len(req.worker_attr.updated_attr_sub) == 0 and len(req.worker_attr.updated_attr_sub) == 0)
+        ## Update the object got updated ##
+        if(len(req.worker_attr.updated_attr_sub) >= 1  and sta.obj(req,1) == 'sub'):
+            req.updatedObj = 1
+        elif(len(req.worker_attr.updated_attr_sub) >= 1 and sta.obj(req,2) == 'sub'):
+            req.updatedObj = 2
+        elif(len(req.worker_attr.updated_attr_res) >= 1 and sta.obj(req,1) == 'res'):
+            req.updatedObj = 1
+        elif(len(req.worker_attr.updated_attr_res) >= 1 and sta.obj(req,2) == 'sub'):
+            req.updatedObj = 2        
+
+        ## send the results ##
         if req.updatedObj = -1  # req is read-only.
             return_result_to_client(req, result)
             for i in range(2):
