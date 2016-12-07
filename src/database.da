@@ -68,6 +68,7 @@ class Database(process):
                 break
         if(index != -1):
             res_attribs = dict()
+            res_attribs["id"] = req.res_id
             for k, v in version_list[i].items():
                 if k != "v_ts":
                     res_attribs[k] = v
@@ -84,7 +85,7 @@ class Database(process):
             fileData = json.loads(open(data_file).read())
             output("Database: Loading entries from JSon file to local memory to simulate DB")
             for subjects in fileData.get("subjects"):
-                item = subjects.get("id")
+                item = subjects.get("sub-id")
                 version = subjects.get("version")
                 self.attributeStore["subjects"][item] = version
             for resources in fileData.get("resources"):

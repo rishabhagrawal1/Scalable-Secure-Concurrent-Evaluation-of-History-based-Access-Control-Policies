@@ -24,6 +24,7 @@ class Coordinator(process):
         ## All current Write requests with workers will be stored here
         self.currRunningWriteReq = []
         sta = staticAnalysis.StaticAnalysis(config.attr_file, coord_list)
+        self.common = None
 
     def now():
         return time.time()
@@ -65,6 +66,7 @@ class Coordinator(process):
         x = staticAnalysis.Obj(req.res_id, 'res')
         for k, v in req.catched_attr.get_res_attr().items():
             createVersionForPreviousSessionRead(x, k, v)
+        self.common = req
         print("after db read", req.catched_attr.get_sub_attr())
         print("after db read", req.catched_attr.get_res_attr())
         output("Coordinator:Attribute set ready for evaluation")
@@ -141,7 +143,8 @@ class Coordinator(process):
         if(needDataFromDb == True):
             send_attr_read_request_to_attr_database(req)
             await(some(received(("reply_db_read", req))))
-
+            return common
+        return req
         print("cachedUpdates sub", req.catched_attr.get_sub_attr())
         print("cachedUpdates res", req.catched_attr.get_res_attr())
 
@@ -222,15 +225,18 @@ class Coordinator(process):
 
     #coordinator: on receiving <"readAttr", req, i>
     def handleWorkerResponseForReadRequests(req, i):
+        print("handleWorkerResponseForReadRequests called")
         x = sta.obj(req,i)
         for attr in sta.mightReadAttr(x,req):
             v = latestVersionBefore(x, attr, req.ts)
-            #print("handleWorkerResponseForReadRequests",x.type, attr, v)
+            print("handleWorkerResponseForReadRequests",x.type, attr, v)
             if(len(v.pendingMightRead) >= 1 and req.id in v.pendingMightRead):
                 v.pendingMightRead.remove(req.id)
             readAttr = (req.worker_attr.read_attr_res, req.worker_attr.read_attr_sub)
+            print("handleWorkerResponseForReadRequests readAttr", readAttr)
             for r in readAttr:
                 if attr in r:
+                    print ("handleWorkerResponseForReadRequests", attr)
                     v.rts = req.ts
 
     # Merging read write flow 
@@ -241,7 +247,7 @@ class Coordinator(process):
         #print("defRead",sta.defReadAttr(x,req))
         #print("mightRead",sta.mightReadAttr(x, req))
 
-        cachedUpdates(x,req)
+        req = cachedUpdates(x,req)
 
         if not sta.mightWriteObj(req): ## this is a read only request and mightWriteObj set is empty
             for attr in sta.defReadAttr(x,req):
@@ -278,7 +284,7 @@ class Coordinator(process):
             latestVersionBefore(x,attr, req.ts).pendingMightRead.add(req.id)
         
         ## req.cachedUpdates[2] = cachedUpdates(x,req) ##
-        cachedUpdates(x,req)
+        req = cachedUpdates(x,req)
         
         ## send req to w ##
         sendRequestToWorker(req)
@@ -323,7 +329,7 @@ class Coordinator(process):
     #code to prevent starvation and delay r1- begins
     def checkAndHandleRequest(req, req_type):
         if(needDealyToPreventStarvation(req) == False):
-            print ("does not need to delay this req")
+            print ("does not need to delay this req", sta.mightWriteObj(req))
             if(sta.mightWriteObj(req)):
                 currRunningWriteReq.append(req)
             handleRequest(req, req_type)
