@@ -101,6 +101,8 @@ class Worker(process):
                 
     def evaluate_rule(sc, rc, act, su, ru, req, sub_attr, res_attr):
         #output("Worker: evaluate rule Entry")
+        print(sub_attr,"1")
+        print(res_attr,"2")
         if (sc.attrib.get('position') == req.position):
             if ((rc.attrib.get('id') == req.res_id) or ('type' in dir(req) and rc.attrib.get('type') == req.type)):
                 if (act.attrib.get('name') == req.action):
@@ -138,6 +140,8 @@ class Worker(process):
         print("Entry Evaluate policy")
         sub_attr = req.catched_attr.get_sub_attr()
         res_attr = req.catched_attr.get_res_attr()
+        print(sub_attr,"11")
+        print(res_attr,"22")
         for rule in root.iter('rule'):
             sc = rule.find('subjectCondition')
             rc = rule.find('resourceCondition')
@@ -149,6 +153,7 @@ class Worker(process):
             ##Check if this rule matches##
             if(evaluate_rule(sc, rc, act, su, ru, req, sub_attr, res_attr) == True):
                 handle_evaluation_result(req, True)
+                return
         handle_evaluation_result(req, False)
 
     def run():

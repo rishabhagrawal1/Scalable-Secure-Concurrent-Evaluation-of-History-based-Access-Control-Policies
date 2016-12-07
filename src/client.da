@@ -63,7 +63,7 @@ class Client(process):
                     output("Client: Forward policy evaluation request to First Coordinator")
                     --handle_policy_evaluation_results
                     
-                    if(await(some(received(('result_sub', req))))):
+                    if(await(some(received(('result', req))))):
                         output("Client: Policy Evaluation result received")
                     elif timeout(TIMEOUT * 0.1):
                         pass
@@ -83,7 +83,7 @@ class Client(process):
 
     def receive(msg=(a,b)):
         #output("Client: received policy evaluation")
-        if(a == "result_sub"):
+        if(a == "result"):
             handle_policy_evaluation_result(b)
             
             

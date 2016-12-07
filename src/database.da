@@ -11,7 +11,6 @@ class Database(process):
         # check error in loading pre init config file for the database
         if getDataFromFile() == False:
             sys.exit(-1)
-        # output(self.attributeStore)
 
     def create_new_version(req):
         # to create a new dict element , versions and return it. #
@@ -49,7 +48,7 @@ class Database(process):
         index = -1
         for i in range(0,len(version_list)):
             ts = version_list[i].get("v_ts")
-            if(ts > req.ts):
+            if(int(ts) < int(req.ts)):
                 index = i
                 break
         if(index != -1):
@@ -64,7 +63,7 @@ class Database(process):
         index = -1
         for i in range(0,len(version_list)):
             ts = version_list[i].get("v_ts")
-            if(ts > req.ts):
+            if(int(ts) < int(req.ts)):
                 index = i
                 break
         if(index != -1):
@@ -72,30 +71,10 @@ class Database(process):
             for k, v in version_list[i].items():
                 if k != "v_ts":
                     res_attribs[k] = v
-        req.db_attr.set_sub_attr(res_attribs)
+        req.db_attr.set_res_attr(res_attribs)
 
-        send(('reply_db_read', req), to=req.curr_curr_coordinator)
+        send(('reply_db_read', req), to=req.curr_coordinator)
         output("Database : Message sent to curr_coordinator back after database fetch")
-
-    def run():
-        while True:
-            #clk = logical_clock()
-            if (await(some(received(('req_db_read', req))))):
-                pass
-                #print("database received a req to read")
-                #handleQuery(req)
-            elif (some(received(('req_db_write', req)))):
-                pass
-                #print("database received a req to write")
-                #handleupdate(req)
-            elif timeout(TIMEOUT * 10):
-                pass
-
-    def receive(msg=(a, b)):
-        if a == "req_db_read":
-            handleQuery(b)
-        elif a == "req_db_write":
-            handleupdate(b)
 
     def getDataFromFile():
         if not os.path.exists(data_file):
@@ -118,3 +97,25 @@ class Database(process):
         except:
             output("Database: Json file not in correct syntax")
             return False
+
+    def run():
+        while True:
+            # clk = logical_clock()
+            if (await(some(received(('req_db_read', req))))):
+                pass
+                # print("database received a req to read")
+                # handleQuery(req)
+            elif (some(received(('req_db_write', req)))):
+                pass
+                # print("database received a req to write")
+                # handleupdate(req)
+            elif timeout(TIMEOUT * 10):
+                pass
+
+
+    def receive(msg=(a, b)):
+        output("received req in Database: ", a)
+        if a == "req_db_read":
+            handleQuery(b)
+        elif a == "req_db_write":
+            handleupdate(b)
