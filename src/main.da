@@ -28,7 +28,7 @@ class Main(process):
             ### Worker will be created in the resource ###
             
             coord = new(co.Coordinator, num=config.num_coordinator)
-            data = new(d.Database,  num=config.num_coordinator)
+            data = new(d.Database,  num=1)
             clie = new(cl.Client, num=config.num_client)
 
         except:
@@ -44,9 +44,8 @@ class Main(process):
 
             #Config Object and coordinator process list to conordinators
             setup(coord, (config, coord_list, 0, data, None, None))
-            #Pass database empulator process list to data emulators
-            setup(data, (data_list))
 
+            #Pass database empulator process list to data emulators
             m = list()
             m.append(data_file)
             setup(data, (m))

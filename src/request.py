@@ -86,7 +86,6 @@ class Request:
         self.catched_attr = CatchedAttributes()
         self.db_attr = FromDBAttributes()
         self.worker_attr = FromWorkerAttributes()
-        self.updates = {}
 
     def generateReqId(self, counter):
         self.ReqId = seed + counter

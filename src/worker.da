@@ -1,5 +1,6 @@
 import sys
 import xml.etree.ElementTree as ET
+sys.path.insert(0, '../config')
 import config
 import staticAnalysis
 d = import_da("database")
@@ -9,26 +10,29 @@ config(channel = 'fifo')
 TIMEOUT = 1
 
 class Worker(process):
-    def setup(coord: Coordinator, coord_list: list, config: Config, data: Database):
+    def setup(coord: Coordinator, coord_list: list, config: Config):
         output("Worker: Steup Done")
-        pass
 
     def return_result_to_client(req, result):
         output("Worker: Policy Evaluation complete sending result of read only request to client", result)
-        req.set_result(result)
         send(('result', req), to=req.curr_app)
 
     def handle_evaluation_result(req, result):
         sta = staticAnalysis.StaticAnalysis(config.attr_file, coord_list)
+        req.set_result(result)
         ## Update the object got updated ##
         if(len(req.worker_attr.updated_attr_sub) >= 1  and sta.obj(req,1) == 'sub'):
             req.updatedObj = 1
+            req.rdonlyObj = 2
         elif(len(req.worker_attr.updated_attr_sub) >= 1 and sta.obj(req,2) == 'sub'):
             req.updatedObj = 2
+            req.rdonlyObj = 1
         elif(len(req.worker_attr.updated_attr_res) >= 1 and sta.obj(req,1) == 'res'):
             req.updatedObj = 1
+            req.rdonlyObj = 2
         elif(len(req.worker_attr.updated_attr_res) >= 1 and sta.obj(req,2) == 'sub'):
-            req.updatedObj = 2        
+            req.updatedObj = 2
+            req.rdonlyObj = 1
 
         ## send the results ##
         if(req.updatedObj == -1):  # req is read-only.
@@ -150,7 +154,7 @@ class Worker(process):
     def run():
         output(" Worker Thread start ")
         while True:
-            if(some(received(("req_cord", req)))):
+            if(await(some(received(("req_cord", req))))):
                 pass
             elif timeout(TIMEOUT * 10):
                 pass

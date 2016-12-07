@@ -1,6 +1,6 @@
-import json
-import time
-import request 
+import json, sys, os, time
+import request
+sys.path.insert(0, '../config')
 import config
 import staticAnalysis
 config(clock = 'Lamport')

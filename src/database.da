@@ -1,5 +1,4 @@
 import sys, os, json
-
 config(clock='Lamport')
 config(channel='fifo')
 TIMEOUT = 1
@@ -9,85 +8,86 @@ class Database(process):
         self.attributeStore = dict()
         self.attributeStore["resources"] = dict()
         self.attributeStore["subjects"] = dict()
-        self.attributeStore["subjects"]["version"] = dict()
-        self.attributeStore["resources"]["version"] = dict()
         # check error in loading pre init config file for the database
         if getDataFromFile() == False:
             sys.exit(-1)
         # output(self.attributeStore)
 
-    def create_new_version(msg):
-#    /* to create a new dict element , versions and return it.*/
+    def create_new_version(req):
+        # to create a new dict element , versions and return it. #
         v = dict()    
-        v["v_ts"] = msg.timestamp  
-        if(msg.worker_attr.get_updated_attr_sub() != None):            
-            for k, val in msg.worker_attr.updated_attr_sub.items(): 
-                v[k] = val;
+        v["v_ts"] = req.ts
+        if(req.worker_attr.get_updated_attr_sub() != None):
+            for k, val in req.worker_attr.updated_attr_sub.items():
+                v[k] = val
         else:  # res updated
-            for k, val in msg.worker_attr.updated_attr_res.items(): 
-                v[k] = val;
+            for k, val in req.worker_attr.updated_attr_res.items():
+                v[k] = val
         return v
 
-    def handleupdate(msg):
+    def handleupdate(req):
         # need to write the received update to db..
-        output("Database: Database received write request to update attributes for Id:",msg.subj_id)
+        output("Database: Database received write request to update attributes for Id:",req.subj_id)
 
-#   /*check if sub has updated or res*/
-        v = create_new_version(msg)
+        # check if sub has updated or res #
+        v = create_new_version(req)
 
-        if(msg.worker_attr.get_updated_attr_sub() != None):
-            item = self.attributeStore["resources"].get(msg.sub_id)
-            k =item["version"]
-            k.add(v)
+        if(req.worker_attr.get_updated_attr_sub() != None):
+            self.attributeStore["subjects"].get(req.sub_id).add(v)
+            output("Database: Database write request completed for sub Id:", req.subj_id)
         else:
-            self.attributeStore["resources"].get(msg.sub_id)
-            k = item["versions"]
-            k.add(v)
-        output("Database: Database write request completed for Id:",msg.subj_id)
+            self.attributeStore["resources"].get(req.sub_id).add(v)
+            output("Database: Database write request completed for res Id:",req.res_id)
         
 
-    def handleQuery(msg):
-        # read msg query , fetch from dicts and send back a reply to the node which sent the query(how to get target node??)
-        output("Database: Received a query for with ts :", msg.subj_id,msg.timeStamp)
-        item = self.attributeStore["subjects"].get(msg.subj_id)
-        output("item in database is ", item)
-        #for version in item.items():
-        version_list = list(item.items())
+    def handleQuery(req):
+        # read req query , fetch from dicts and send back a reply to the node which sent the query(how to get target node??)
+        output("Database: Received a query for with ts :", req.subj_id, req.ts)
+
+        version_list = self.attributeStore["subjects"][req.subj_id]
+        output("version_list subj in database is ", version_list)
+        index = -1
         for i in range(0,len(version_list)):
             ts = version_list[i].get("v_ts")
-            index = i
-            if(ts > msg.timeStamp):
+            if(ts > req.ts):
+                index = i
                 break
-        if (version_list[i] != None):
-            msg.db_attr.set_sub_attr(version_list[i])
+        if(index != -1):
+            subj_attribs = dict()
+            for k, v in version_list[i].items():
+                if k != "v_ts":
+                    subj_attribs[k] = v
+        req.db_attr.set_sub_attr(subj_attribs)
 
-        item = self.attributeStore["resources"].get(msg.res_id)
-        output("item in database is ", item)
-        #for version in item.items():
-        version_list = list(item.items())
+        version_list = self.attributeStore["resources"][req.res_id]
+        output("version_list res in database is ", version_list)
+        index = -1
         for i in range(0,len(version_list)):
             ts = version_list[i].get("v_ts")
-            index = i
-            if(ts > msg.timeStamp):
+            if(ts > req.ts):
+                index = i
                 break
-        if (version_list[i] != None):
-            msg.db_attr.set_res_attr(version_list[i])
+        if(index != -1):
+            res_attribs = dict()
+            for k, v in version_list[i].items():
+                if k != "v_ts":
+                    res_attribs[k] = v
+        req.db_attr.set_sub_attr(res_attribs)
 
-        output("item in database is ", item)    
-        send(('reply_db_read', msg), to=msg.curr_curr_coordinator)
+        send(('reply_db_read', req), to=req.curr_curr_coordinator)
         output("Database : Message sent to curr_coordinator back after database fetch")
 
     def run():
         while True:
             #clk = logical_clock()
-            if (await(some(received(('req_db_read', msg))))):
+            if (await(some(received(('req_db_read', req))))):
                 pass
-                #print("database received a msg to read")
-                #handleQuery(msg)
-            elif (some(received(('req_db_write', msg)))):
+                #print("database received a req to read")
+                #handleQuery(req)
+            elif (some(received(('req_db_write', req)))):
                 pass
-                #print("database received a msg to write")
-                #handleupdate(msg)
+                #print("database received a req to write")
+                #handleupdate(req)
             elif timeout(TIMEOUT * 10):
                 pass
 
@@ -103,24 +103,15 @@ class Database(process):
             return -1
         try:
             fileData = json.loads(open(data_file).read())
-            output("Database: Loading entries in JSon file to local memory to simulate DB")
+            output("Database: Loading entries from JSon file to local memory to simulate DB")
             for subjects in fileData.get("subjects"):
                 item = subjects.get("id")
-                self.attributeStore["subjects"][item] = dict()
-                for versions in item.get("v_ts"):
-                    self.attributeStore["subjects"][item][versions] = dict
-                    for k, v in versions.items():
-                        if k != "v_ts":
-                            self.attributeStore["subjects"][item][versions][k] = v
-
+                version = subjects.get("version")
+                self.attributeStore["subjects"][item] = version
             for resources in fileData.get("resources"):
                 item = resources.get("id")
-                self.attributeStore["resources"][item] = dict()
-                for versions in item.get("v_ts"):
-                    self.attributeStore["resources"][item][versions] = dict
-                    for k, v in resources.items():
-                        if k != "v_ts":
-                            self.attributeStore["resources"][item][versions][k] = v
+                version = resources.get("version")
+                self.attributeStore["resources"][item] = version
             output("Loading Datasbe entries in JSon file complete, DB Simulator Ready")
             return True
 
