@@ -16,6 +16,7 @@ class Coordinator(process):
         work = new(w.Worker, num=config.num_workers)
         setup(work, (coord_list, config))
         start(work)
+        work_list = list(work)
         ## Dictionary of attribute versions to be used in latestVersion and latestVersionBefore Key used is subject/resource Id + '_' + attr
         self.attrVersionDict = {}
         ## All read requestes which are conflicting with current running write requests will be stored in this
@@ -32,7 +33,6 @@ class Coordinator(process):
         req.curr_coordinator = self
         output("Coordinator: sending attribute read request to DB")
         send(('req_db_read', req), to=data)
-
 
     def update_db_result_with_catched(req):
         output("Coordinator: extract catched and database fetched attributes for use by evaluator worker")
@@ -55,23 +55,32 @@ class Coordinator(process):
         ##ToDO: Update the catch
         output("Coordinator:Attribute set ready for evaluation")
 
-    def latestVersionBefore(x,attr,ts):
+    def latestVersionBefore(x, attr, ts):
         aIdx = x.id+'_'+attr
+        #print("latestVersionBefore")
         #scan attrVersionDict from end  to check for the highest TS with TS value less than passed TS.
-        length = attrVersionDict.len()
-        for i in range(length , 0):
-            if attrVersionDict[aIdx][i].rts < ts:
-                return attrVersionDict[aIdx][i]
-        return createVersionForPreviousSessionRead(x,attr)
+        if(aIdx in attrVersionDict):
+            length = len(attrVersionDict[aIdx])
+            for i in range(length-1 , -1, -1):
+                print (i)
+                print("latestVersionBefore", attrVersionDict[aIdx][i], attrVersionDict[aIdx][i].rts)
+                if attrVersionDict[aIdx][i].rts < ts:
+                    return attrVersionDict[aIdx][i]
+        return createVersionForPreviousSessionRead(x,attr, None)
+
         
     def latestversion(x, attr):
         latestVersionBefore(x, attr, now())
 
-    def createVersionForPreviousSessionRead(x, attr):
-        v = version.Version(0, 0, 0)
+    def createVersionForPreviousSessionRead(x, attr, val):
+        #print("createVersionForPreviousSessionRead called", x.type)
+        v = version.Version(0, 0, val)
         aIdx = x.id+'_'+attr
         ##add at begining
-        attrVersionDict[aIdx].insert(0, v)
+        if(aIdx not in attrVersionDict):
+            attrVersionDict[aIdx] = []
+        attrVersionDict[aIdx].append(v)
+        print(attrVersionDict)
         return attrVersionDict[aIdx][0]
 
     def updateVersionAttribDictAtCoord(req, x):
@@ -85,7 +94,7 @@ class Coordinator(process):
             attrVersionDict[aIdx].append(v)
 
     def findVersionBeforeTs(aIdx, attr, req, resultSet):
-        for i in range(attrVersionDict[aIdx].len(), 0):
+        for i in range(len(attrVersionDict[aIdx]), 0):
             v = attrVersionDict[aIdx][i]
             if(v.rts <= req.ts):
                 resultSet[attr] = v.val
@@ -122,7 +131,7 @@ class Coordinator(process):
         #remove context for this req
         req.generateTimeStamp()
         req.reset_attr_objects()
-        checkAndHandleRequest(req)
+        checkAndHandleRequest(req, 1)
         pass
 
     def checkForConflicts(req, x):
@@ -194,15 +203,21 @@ class Coordinator(process):
         x = sta.obj(req,i)
         for attr in sta.mightReadAttr(x,req):
             v = latestVersionBefore(x, attr, req.ts)
-            v.pendingMightRead.remove(req.id)
-            if attr in req.readAttr[i]:
-                v.rts = req.ts
+            print("handleWorkerResponseForReadRequests",x.type, attr, v)
+            if(len(v.pendingMightRead) >= 1 and req.id in v.pendingMightRead):
+                v.pendingMightRead.remove(req.id)
+            readAttr = (req.worker_attr.read_attr_res, req.worker_attr.read_attr_sub)
+            for r in readAttr:
+                if attr in r:
+                    v.rts = req.ts
 
     # Merging read write flow 
     def handleReqAsCorod1(req):
+        print ("in handleReqAsCorod1")
         x = sta.obj(req,1)
         req.ts = now()
-        
+        #print("defRead",sta.defReadAttr(x,req))
+        #print("mightRead",sta.mightReadAttr(x, req))
         if not sta.mightWriteObj(req): ## this is a read only request and mightWriteObj set is empty
             for attr in sta.defReadAttr(x,req):
                 latestVersionBefore(x, attr, req.ts).rts = req.ts
@@ -210,13 +225,15 @@ class Coordinator(process):
             for attr in sta.defReadAttr(x,req):
                 latestVersionBefore(x,attr, req.ts).pendingMightRead.add(req.id)
         for attr in sta.mightReadAttr(x,req):
-            latestVersionBefore(x,attr, req.ts).pendingMightRead.add(req.id)
+            print("handleReqAsCorod1", latestVersionBefore(x, attr, req.ts))
+            latestVersionBefore(x, attr, req.ts).pendingMightRead.add(req.id)
+        print(latestVersionBefore(x, attr, req.ts).pendingMightRead)
 
         ## req.cachedUpdates[1] = cachedUpdates(x,req) ##
         cachedUpdates(x,req)
         
         ## send req to coord(obj(req,2)) ##
-        send(('handleReq', req), to=sta.coord(sta.obj(req,2)))
+        send(('handleReq', (req, 2)), to=sta.coord(sta.obj(req,2)))
 
     def sendRequestToWorker(req):
         ## choose worker w to evaluate this request ##
@@ -226,6 +243,7 @@ class Coordinator(process):
 
     # Merging read write flow 
     def handleReqAsCorod2(req):
+        print ("in handleReqAsCorod2")
         x = sta.obj(req, 2)
         
         if not sta.mightWriteObj(req): ## this is a read only request and mightWriteObj set is empty
@@ -285,7 +303,7 @@ class Coordinator(process):
         if(needDealyToPreventStarvation(req) == False):
             print ("does not need to delay this req")
             if(sta.mightWriteObj(req)):
-                currRunningWriteReq.add(req)
+                currRunningWriteReq.append(req)
             handleRequest(req, req_type)
         else: ##Need to be delayed after write completion
             print ("need to delay this req")
@@ -294,7 +312,7 @@ class Coordinator(process):
 
     def run():
         while True:
-            if (await(some(received(("handleReq", req))))):
+            if (await(some(received(("handleReq", (req, i)))))):
                 pass
             elif (some(received(("readAttr", (req, i))))):
                 pass

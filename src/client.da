@@ -28,6 +28,7 @@ class Client(process):
         req.subj_id = oper["op"][1].get("sub-id")
         req.position = oper["op"][1].get("position")
         req.res_id = oper["op"][2].get("id")
+        req.req_type = oper["op"][3].get("req_type")
         req.generateReqId(counter)
         req.set_curr_app(self.id)
         

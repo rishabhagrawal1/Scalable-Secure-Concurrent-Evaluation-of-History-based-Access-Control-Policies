@@ -1,33 +1,18 @@
 {
-"num_applications":"3",
-"num_coordinator":"3",
-"num_workers":"3",
+"num_applications":"1",
+"num_coordinator":"1",
+"num_workers":"1",
 "load_application_1": "30",
 "load_application_2": "35",
 "load_application_3": "35",
 "operations":[
 
                 {"op":         
-                        [{"action":"read"},
-                         {"sub-id":"BankA001","position":"employee"},
-                          {"id":"bank A"}]
-                },
-                {"op":         
                         [{"action":"view"},
-                         {"sub-id":"common_man","position":"non_employee"},
-                          {"id":"open_doc"}]
-                },
-                {"op":         
-                        [{"action":"view"},
-                         {"sub-id":"common_man","position":"non_employee"},
-                          {"id":"open_doc"}]
-                },
-                {"op":         
-                        [{"action":"read"},
-                         {"sub-id":"BankA001","position":"employee"},
-                          {"id":"bank A"}]
-                },
-        ]
+                         {"sub-id":"common_man","position":"customer"},
+                          {"id":"open_doc", "type":"news_paper"},
+                          {"req_type":"news_paper"}]
+                }      
+             ]
 } 
-
 

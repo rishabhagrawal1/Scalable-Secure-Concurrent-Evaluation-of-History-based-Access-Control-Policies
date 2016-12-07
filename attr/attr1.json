@@ -1,8 +1,8 @@
 {
-"attribute_properties":[
+    "attribute_properties":[
             	{"position":    	 
                     	[{"read":"might"},
-                      	{"write":"mutable"},
+                      	{"write":"immutable"},
                       	{"obj":"sub"}]
             	},
             	{"history":    	 
@@ -25,14 +25,18 @@
                       	{"write":"mutable"},
                       	{"obj":"res"}]
             	}
-    	]
+    	],
+    "request_properties":[
+            	{"bank":    	 
+                    	["position", "history", "id"]
+            	},
+            	{"movie":    	 
+                    	["position", "type", "viewCount"]
+            	},
+            	{"news_paper":    	 
+                    	["position", "type"]
+            	}
+    	]	
 }
-
-
-
-
-
-
-
 
 

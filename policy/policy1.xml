@@ -37,6 +37,12 @@
 <action name="read"/>
 </rule>
 
+<rule name="Customer Views News Paper">
+<subjectCondition position="common_man"/>
+<resourceCondition type="news_paper"/>
+<action name="view"/>
+</rule>
+
 <rule name="customers collectively can view each movie at most 5 times">
 <subjectCondition position="customer"/>
 <resourceCondition type="movie2" viewCount="&lt;5"/>

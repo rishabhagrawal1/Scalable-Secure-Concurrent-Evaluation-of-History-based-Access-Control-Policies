@@ -76,6 +76,7 @@ class Request:
         self.res_id = -1
         self.action = None
         self.position = None
+        self.req_type = None
         self.ts = 0
         self.id = -1
         self.result = False

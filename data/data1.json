@@ -69,7 +69,8 @@
     }, {
         "id": "open_doc",
         "version": [{
-            "v_ts": "001"
+            "v_ts": "001",
+            "type": "news_paper"
         }]
 
     }, {

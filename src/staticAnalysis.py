@@ -1,4 +1,4 @@
-import sys
+import sys, os
 import request
 import json
 
@@ -13,6 +13,7 @@ class StaticAnalysis:
         self.attr_file = attr_file  
         self.attr_data = None
         self.coord_list = coord_list
+        self.loadAttrFileObj()
     
     def calculateHash(self, id):
         count = 0
@@ -21,52 +22,72 @@ class StaticAnalysis:
         return count
         
     def loadAttrFileObj(self):  
-        try:    
-            if(os.path.exists(attr_file)):
-                with open(attr_file, encoding='utf-8') as attrs:
+        try:
+            if(os.path.exists(self.attr_file)):
+                with open(self.attr_file, encoding='utf-8') as attrs:
                     self.attr_data = json.loads(attrs.read())
-                    output("Trying to print the type of attr_data",type(attr_data))
         except:
-            output("Error in reading Attribute file")
+            print("Error in reading Attribute file")
 
     def mightWriteObj(self, req):
-        req_attr = dir(req)
+        req_attr = []
+        for req_prop in self.attr_data['request_properties']:
+            if(list(req_prop.keys())[0] == req.req_type):
+                req_attr = list(req_prop.values())[0]
+                break
         result_set = set()
         if(not self.attr_data):
             return result_set
         for element in self.attr_data['attribute_properties']:
-            if(element.keys() in req_attr and element.values[0][1]['write'] == 'mutable'):
-               result_set.add(element.values[0][2]['obj'])
+            #print(element.keys(), list(element.keys())[0] in req_attr, list(element.values())[0][1]['write'] == 'mutable')
+            if(list(element.keys())[0] in req_attr and list(element.values())[0][1]['write'] == 'mutable'):
+               result_set.add(list(element.values())[0][2]['obj'])
+        #print("result_set is ", result_set)
         return result_set
         
     def defReadAttr(self, x, req):
-        req_attr = dir(req)
+        req_attr = []
+        for req_prop in self.attr_data['request_properties']:
+            if(list(req_prop.keys())[0] == req.req_type):
+                req_attr = list(req_prop.values())[0]
+                break
         result_set = set()
         if(not self.attr_data):
             return result_set
         for element in self.attr_data['attribute_properties']:
-            if(element.keys() in req_attr and element.values[0][2]['obj'] == x and element.values[0][0]['read'] == 'def'):
-               result_set.add(element.keys())
+            if(list(element.keys())[0] in req_attr and list(element.values())[0][2]['obj'] == x.type and list(element.values())[0][0]['read'] == 'def'):
+               result_set.add(list(element.keys())[0])
         return result_set
     
     def mightReadAttr(self, x, req):
-        req_attr = dir(req)
+        req_attr = []
+        for req_prop in self.attr_data['request_properties']:
+            if(list(req_prop.keys())[0] == req.req_type):
+                req_attr = list(req_prop.values())[0]
+                break
+        #print(req_attr, x.type)
         result_set = set()
         if(not self.attr_data):
             return result_set
+
         for element in self.attr_data['attribute_properties']:
-            if(element.keys() in req_attr and element.values[0][2]['obj'] == x and element.values[0][0]['read'] == 'might'):
-                result_set.add(element.keys())
+            #print(element.keys(), list(element.keys())[0] in req_attr, list(element.values())[0][2]['obj'], list(element.values())[0][0]['read'])
+            if(list(element.keys())[0] in req_attr and list(element.values())[0][2]['obj'] == x.type and list(element.values())[0][0]['read'] == 'might'):
+                result_set.add(list(element.keys())[0])
         return result_set
         
     def mightWriteAttr(self, x, req):
-        req_attr = dir(req)
+        req_attr = []
+        for req_prop in self.attr_data['request_properties']:
+            if(list(req_prop.keys())[0] == req.req_type):
+                req_attr = list(req_prop.values())[0]
+                break
         result_set = set()
         if(not self.attr_data):
             return result_set
         for element in self.attr_data['attribute_properties']:
-            if(element.keys() in req_attr and element.values[0][2]['obj'] == x and element.values[0][1]['write'] == 'mutable'):
-                result_set.add(element.keys())
+            if(list(element.keys())[0] in req_attr and list(element.values())[0][2]['obj'] == x.type and element.values[0][1]['write'] == 'mutable'):
+                result_set.add(list(element.keys())[0])
         return result_set
         
     def obj(self, req, i):

@@ -37,11 +37,11 @@ class Worker(process):
         ## send the results ##
         if(req.updatedObj == -1):  # req is read-only.
             return_result_to_client(req, result)
-            for i in range(2):
-                send((('readAttr'), req), to=sta.coord(sta.obj(req,i)))
+            for i in range(1, 3):
+                send(('readAttr', (req, i)), to=sta.coord(sta.obj(req,i)))
         else: 
             # req updated an object.
-            send((('result'), req), to = sta.coord(sta.obj(req, req.updatedObj))) 
+            send(('result', req), to = sta.coord(sta.obj(req, req.updatedObj)))
       
     def check_attribute(curr_value, policy_value):
         idx = policy_value.find(">")
