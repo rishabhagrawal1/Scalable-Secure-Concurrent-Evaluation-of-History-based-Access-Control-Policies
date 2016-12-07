@@ -14,7 +14,7 @@ class StaticAnalysis:
         self.attr_data = None
         self.coord_list = coord_list
     
-    def calculateHash(id):
+    def calculateHash(self, id):
         count = 0
         for i in id:
             count += ord(i)
@@ -32,6 +32,8 @@ class StaticAnalysis:
     def mightWriteObj(self, req):
         req_attr = dir(req)
         result_set = set()
+        if(not self.attr_data):
+            return result_set
         for element in self.attr_data['attribute_properties']:
             if(element.keys() in req_attr and element.values[0][1]['write'] == 'mutable'):
                result_set.add(element.values[0][2]['obj'])
@@ -40,6 +42,8 @@ class StaticAnalysis:
     def defReadAttr(self, x, req):
         req_attr = dir(req)
         result_set = set()
+        if(not self.attr_data):
+            return result_set
         for element in self.attr_data['attribute_properties']:
             if(element.keys() in req_attr and element.values[0][2]['obj'] == x and element.values[0][0]['read'] == 'def'):
                result_set.add(element.keys())
@@ -48,6 +52,8 @@ class StaticAnalysis:
     def mightReadAttr(self, x, req):
         req_attr = dir(req)
         result_set = set()
+        if(not self.attr_data):
+            return result_set
         for element in self.attr_data['attribute_properties']:
             if(element.keys() in req_attr and element.values[0][2]['obj'] == x and element.values[0][0]['read'] == 'might'):
                 result_set.add(element.keys())
@@ -56,6 +62,8 @@ class StaticAnalysis:
     def mightWriteAttr(self, x, req):
         req_attr = dir(req)
         result_set = set()
+        if(not self.attr_data):
+            return result_set
         for element in self.attr_data['attribute_properties']:
             if(element.keys() in req_attr and element.values[0][2]['obj'] == x and element.values[0][1]['write'] == 'mutable'):
                 result_set.add(element.keys())
@@ -78,8 +86,8 @@ class StaticAnalysis:
             ob = Obj(req.res_id, result)
         return ob
         
-    def coord(obj):
-        return coord_list[caluculateHash(obj.id) % len(coord_list)]
+    def coord(self, obj):
+        return self.coord_list[self.calculateHash(obj.id) % len(self.coord_list)]
         
         
         

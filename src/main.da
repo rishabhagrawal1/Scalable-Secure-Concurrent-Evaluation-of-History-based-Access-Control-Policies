@@ -9,8 +9,8 @@ class Main(process):
     def setup(conf_file:str, policy_file:str, data_file: str, attr_file: str, random_input : bool): pass
 
     def read_configuration(conf_data):
-        config_obj = Config(conf_data, conf_file, policy_file, data_file, attr_file)
-        config_obj.parse_conf_data()
+        config_obj = Config(conf_file, policy_file, data_file, attr_file)
+        config_obj.parse_conf_data(conf_data)
         return config_obj
 
     def init_all_processes(config):
@@ -78,7 +78,7 @@ class Main(process):
             with open(conf_file, encoding='utf-8') as conf:
                 conf_data = json.loads(conf.read())
                 if(random_input == True):
-                    conf_data = generateRandomConfig(conf)
+                    conf_data = generateRandomConfig(conf_data)
             config_obj = read_configuration(conf_data)      
             init_all_processes(config_obj)
             try:

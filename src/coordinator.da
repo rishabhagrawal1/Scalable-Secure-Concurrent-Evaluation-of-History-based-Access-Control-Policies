@@ -14,15 +14,15 @@ TIMEOUT = 1
 class Coordinator(process):
     def setup(config: Config, coord_list: list, worker_count: int, data: object, work_list: list, sta: object):
         work = new(w.Worker, num=config.num_workers)
-        setup(work, (self, coord_list, config))
+        setup(work, (coord_list, config))
         start(work)
         ## Dictionary of attribute versions to be used in latestVersion and latestVersionBefore Key used is subject/resource Id + '_' + attr
         self.attrVersionDict = {}
         ## All read requestes which are conflicting with current running write requests will be stored in this
-        #self.pendingReadReq = []
+        self.pendingReadReq = []
         ## All current Write requests with workers will be stored here
-        #self.currRunningWriteReq = []
-        self.sta = staticAnalysis.StaticAnalysis(config.attr_file, coord_list)
+        self.currRunningWriteReq = []
+        sta = staticAnalysis.StaticAnalysis(config.attr_file, coord_list)
 
     def now():
         return time.time()
@@ -270,22 +270,25 @@ class Coordinator(process):
                 return True
         return False
 
-    def handleRequest(req):  
+    def handleRequest(req, req_type):
         ##coordinator: on receiving request req as coord(obj(req,1))
         req.generateTimeStamp()
-        if(sta.coord(sta.obj(req,1)) == self): 
+        print ("In handle request")
+        if(req_type == 1):
             handleReqAsCorod1(req)
         ##coordinator: on receiving req as coord(obj(req,2))       
-        elif(sta.coord(sta.obj(req,2)) == self):
+        else:
             handleReqAsCorod2(req)
 
     #code to prevent starvation and delay r1- begins
-    def checkAndHandleRequest(req):
+    def checkAndHandleRequest(req, req_type):
         if(needDealyToPreventStarvation(req) == False):
+            print ("does not need to delay this req")
             if(sta.mightWriteObj(req)):
                 currRunningWriteReq.add(req)
-            handleRequest(req)
+            handleRequest(req, req_type)
         else: ##Need to be delayed after write completion
+            print ("need to delay this req")
             pendingReadReq.append(req)
     #code to prevent starvation and delay r1- end
 
@@ -307,19 +310,19 @@ class Coordinator(process):
     def receive(msg = (a, b)):
         output("received req in Coordinator: ", a)
         if(a == "handleReq"):
-            print ("received handleReq message in coordinator")
-            checkAndHandleRequest(b)
+            #print ("received handleReq message in coordinator")
+            checkAndHandleRequest(b[0], b[1])
         elif(a == "readAttr"):
-            print ("received readAttr message in coordinator")
+            #print ("received readAttr message in coordinator")
             handleWorkerResponseForReadRequests(b[0], b[1])
         elif(a == "result"):
-            print ("received result message in coordinator")
+            #print ("received result message in coordinator")
             handleWorkerResponseForWriteRequests(b)
         elif (a == "restart"):
-            print ("received restart message in coordinator")
+            #print ("received restart message in coordinator")
             handleRestartRequest(b)
         elif (a == "reply_db_read"):
-            print ("recived read attributes from db")
+            #print ("recived read attributes from db")
             update_db_result_with_catched(b)
 
 

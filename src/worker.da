@@ -10,8 +10,8 @@ config(channel = 'fifo')
 TIMEOUT = 1
 
 class Worker(process):
-    def setup(coord: Coordinator, coord_list: list, config: Config):
-        output("Worker: Steup Done")
+    def setup(coord_list: list, config: Config):
+        pass
 
     def return_result_to_client(req, result):
         output("Worker: Policy Evaluation complete sending result of read only request to client", result)
@@ -152,7 +152,7 @@ class Worker(process):
         handle_evaluation_result(req, False)
 
     def run():
-        output(" Worker Thread start ")
+        #output(" Worker Thread start ")
         while True:
             if(await(some(received(("req_cord", req))))):
                 pass

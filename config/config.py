@@ -1,8 +1,8 @@
 import sys
 
 class Config:
-    def __init__(self, conf_data, conf_file, policy_file, data_file, attr_file):
-        self.conf_data = conf_data
+    def __init__(self, conf_file, policy_file, data_file, attr_file):
+        #self.conf_data = conf_data
         self.num_client = 1
         self.num_coordinator = 1
         self.num_workers = 1
@@ -11,8 +11,8 @@ class Config:
         self.data_file = data_file
         self.attr_file = attr_file
 
-    def parse_conf_data(self):
-        self.num_applications = int(self.conf_data["num_applications"])
-        self.num_coordinator = int(self.conf_data["num_coordinator"])
-        self.num_workers = int(self.conf_data["num_workers"])
+    def parse_conf_data(self, conf_data):
+        self.num_applications = int(conf_data["num_applications"])
+        self.num_coordinator = int(conf_data["num_coordinator"])
+        self.num_workers = int(conf_data["num_workers"])
 

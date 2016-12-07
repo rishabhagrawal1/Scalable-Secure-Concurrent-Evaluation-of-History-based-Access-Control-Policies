@@ -88,7 +88,7 @@ class Request:
         self.worker_attr = FromWorkerAttributes()
 
     def generateReqId(self, counter):
-        self.ReqId = seed + counter
+        self.id = seed + counter
 
     def generateTimeStamp(self):
         clk = time.time()

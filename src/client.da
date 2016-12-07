@@ -58,7 +58,7 @@ class Client(process):
                     req = readNextOperation(conf_data)
                     counter = counter + config.num_client
                     
-                    send(('req_app', req), to = sta.coord(sta.obj(req, 1)))
+                    send(('handleReq', (req, 1)), to = sta.coord(sta.obj(req, 1)))
                     output("Client: Forward policy evaluation request to First Coordinator")
                     --handle_policy_evaluation_results
                     
