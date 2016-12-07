@@ -16,82 +16,82 @@ class Database(process):
             sys.exit(-1)
         # output(self.attributeStore)
 
-    def create_new_version(req):
+    def create_new_version(msg):
 #    /* to create a new dict element , versions and return it.*/
         v = dict()    
-        v["v_ts"] = req.timestamp  
-        if(req.worker_attr.get_updated_attr_sub() != None):            
-            for k, val in req.worker_attr.updated_attr_sub.items(): 
+        v["v_ts"] = msg.timestamp  
+        if(msg.worker_attr.get_updated_attr_sub() != None):            
+            for k, val in msg.worker_attr.updated_attr_sub.items(): 
                 v[k] = val;
         else:  # res updated
-            for k, val in req.worker_attr.updated_attr_res.items(): 
+            for k, val in msg.worker_attr.updated_attr_res.items(): 
                 v[k] = val;
         return v
 
-    def handleupdate(req):
+    def handleupdate(msg):
         # need to write the received update to db..
-        output("Database: Database received write request to update attributes for Id:",req.subj_id)
+        output("Database: Database received write request to update attributes for Id:",msg.subj_id)
 
 #   /*check if sub has updated or res*/
-        v = create_new_version(req)
+        v = create_new_version(msg)
 
-        if(req.worker_attr.get_updated_attr_sub() != None):
-            item = self.attributeStore["resources"].get(req.sub_id)
-            k = item.[versions]
+        if(msg.worker_attr.get_updated_attr_sub() != None):
+            item = self.attributeStore["resources"].get(msg.sub_id)
+            k =item["version"]
             k.add(v)
         else:
-            self.attributeStore["resources"].get(req.sub_id)
-            k = item.[versions]
+            self.attributeStore["resources"].get(msg.sub_id)
+            k = item["versions"]
             k.add(v)
-        output("Database: Database write request completed for Id:",req.subj_id)
+        output("Database: Database write request completed for Id:",msg.subj_id)
         
 
-    def handleQuery(req):
-        # read req query , fetch from dicts and send back a reply to the node which sent the query(how to get target node??)
-        output("Database: Received a query for with ts :", req.subj_id,req.timeStamp)
-        item = self.attributeStore["subjects"].get(req.subj_id)
+    def handleQuery(msg):
+        # read msg query , fetch from dicts and send back a reply to the node which sent the query(how to get target node??)
+        output("Database: Received a query for with ts :", msg.subj_id,msg.timeStamp)
+        item = self.attributeStore["subjects"].get(msg.subj_id)
         output("item in database is ", item)
         #for version in item.items():
         version_list = list(item.items())
-        for i in xrange(len(version_list)):
+        for i in range(0,len(version_list)):
             ts = version_list[i].get("v_ts")
             index = i
-            if(ts > req.timeStamp):
+            if(ts > msg.timeStamp):
                 break
         if (version_list[i] != None):
-            req.db_attr.set_sub_attr(version_list[i])
+            msg.db_attr.set_sub_attr(version_list[i])
 
-        item = self.attributeStore["resources"].get(req.res_id)
+        item = self.attributeStore["resources"].get(msg.res_id)
         output("item in database is ", item)
         #for version in item.items():
         version_list = list(item.items())
-        for i in xrange(len(version_list)):
+        for i in range(0,len(version_list)):
             ts = version_list[i].get("v_ts")
             index = i
-            if(ts > req.timeStamp):
+            if(ts > msg.timeStamp):
                 break
         if (version_list[i] != None):
-            req.db_attr.set_res_attr(version_list[i])
+            msg.db_attr.set_res_attr(version_list[i])
 
         output("item in database is ", item)    
-        send(('reply_db_read', req), to=req.curr_curr_coordinator)
+        send(('reply_db_read', msg), to=msg.curr_curr_coordinator)
         output("Database : Message sent to curr_coordinator back after database fetch")
 
     def run():
         while True:
             #clk = logical_clock()
-            if (await(some(received(('req_db_read', req))))):
+            if (await(some(received(('req_db_read', msg))))):
                 pass
-                #print("database received a req to read")
-                #handleQuery(req)
-            elif (some(received(('req_db_write', req)))):
+                #print("database received a msg to read")
+                #handleQuery(msg)
+            elif (some(received(('req_db_write', msg)))):
                 pass
-                #print("database received a req to write")
-                #handleupdate(req)
+                #print("database received a msg to write")
+                #handleupdate(msg)
             elif timeout(TIMEOUT * 10):
                 pass
 
-    def receive(req=(a, b)):
+    def receive(msg=(a, b)):
         if a == "req_db_read":
             handleQuery(b)
         elif a == "req_db_write":

@@ -15,34 +15,31 @@ class Worker(process):
 
     def return_result_to_client(req, result):
         output("Worker: Policy Evaluation complete sending result of read only request to client", result)
+        req.set_result(result)
         send(('result', req), to=req.curr_app)
 
     def handle_evaluation_result(req, result):
         sta = staticAnalysis.StaticAnalysis(config.attr_file, coord_list)
-        req.set_result(result)
         ## Update the object got updated ##
         if(len(req.worker_attr.updated_attr_sub) >= 1  and sta.obj(req,1) == 'sub'):
             req.updatedObj = 1
-            req.rdonlyObj = 2
         elif(len(req.worker_attr.updated_attr_sub) >= 1 and sta.obj(req,2) == 'sub'):
             req.updatedObj = 2
-            req.rdonlyObj = 1
         elif(len(req.worker_attr.updated_attr_res) >= 1 and sta.obj(req,1) == 'res'):
             req.updatedObj = 1
-            req.rdonlyObj = 2
         elif(len(req.worker_attr.updated_attr_res) >= 1 and sta.obj(req,2) == 'sub'):
-            req.updatedObj = 2
-            req.rdonlyObj = 1        
+            req.updatedObj = 2        
 
         ## send the results ##
-        if req.updatedObj = -1  # req is read-only.
+        if(req.updatedObj == -1):  # req is read-only.
             return_result_to_client(req, result)
             for i in range(2):
-                send(('readAttr', req, i), to=sta.coord(sta.obj(req,i))
-        else: # req updated an object.
-            send(('result', req), to=sta.coord(sta.obj(req, req.updatedObj)) 
+                send((('readAttr'), req), to=sta.coord(sta.obj(req,i)))
+        else: 
+            # req updated an object.
+            send((('result'), req), to = sta.coord(sta.obj(req, req.updatedObj))) 
       
-   def check_attribute(curr_value, policy_value):
+    def check_attribute(curr_value, policy_value):
         idx = policy_value.find(">")
         if(idx != -1):
             value = policy_value[idx+1:]
@@ -158,7 +155,7 @@ class Worker(process):
             elif timeout(TIMEOUT * 10):
                 pass
 
-    def receive(req=(a, b)):
+    def receive(msg=(a, b)):
         output("received req in worker to evaluate from local co-ordinator: ", a)
         if(a == "req_cord"):
             evaluate_policy(b)

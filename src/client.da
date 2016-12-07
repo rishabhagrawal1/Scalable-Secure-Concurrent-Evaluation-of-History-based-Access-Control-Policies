@@ -80,7 +80,7 @@ class Client(process):
         except ImportError:
             output("Client: Error in read file", sep = "|")
 
-    def receive(req=(a,b)):
+    def receive(msg=(a,b)):
         #output("Client: received policy evaluation")
         if(a == "result_sub"):
             handle_policy_evaluation_result(b)

@@ -24,53 +24,67 @@ class Coordinator(process):
         start(work)
         sta = staticAnalysis.StaticAnalysis(config.attr_file, coord_list)
 
-    def sendPolicyResultToApp(msg):
-        send(('result_sub', msg), to=msg.get_curr_app())
+    def sendPolicyResultToApp(req):
+        send(('result_sub', req), to=req.get_curr_app())
 
-    def send_query_to_resource_coordinator_for_verification(msg):
-        send(('req_sub_conflict_check', msg), to=coord_list[caluculateHash(msg.res_id) % len(coord_list)])
+    def send_query_to_resource_coordinator_for_verification(req):
+        send(('req_sub_conflict_check', req), to=coord_list[caluculateHash(req.res_id) % len(coord_list)])
 
-    def send_response_to_subject_coordinator_after_verification(msg):
-        send(('reply_res', msg), to=coord_list[caluculateHash(msg.subj_id) % len(coord_list)])          
+    def send_response_to_subject_coordinator_after_verification(req):
+        send(('reply_res', req), to=coord_list[caluculateHash(req.subj_id) % len(coord_list)])          
     
     ##Need to be called if not all attributes are available in cache at co-ordinator     
     def send_attr_read_request_to_attr_database(req):
         req.curr_coordinator = self
         output("Coordinator: sending attribute read request to DB")
         send(('req_db_read', req), to=data)    
+    '''
+    def populate_tentative_subj_updates_in_msg(req):
+        if req.subj_id in self.subj_attr_dict:
+            req.tent_attr.set_sub_attr(self.subj_attr_dict[req.subj_id])
+        if(req.subj_id in self.tentative_dict and len(self.tentative_dict[req.subj_id]) > 0):
+            self.tentative_dict[req.subj_id][-1][1].append(req.subj_id)
 
-    def update_db_result_with_tentative(msg):
+    def populate_tentative_res_updates_in_msg(req):
+        print("in populate_tentative_res_updates_in_msg self.res_attr_dict,", self.res_attr_dict, self)
+        if req.subj_id in self.res_attr_dict:
+            req.tent_attr.set_res_attr(self.res_attr_dict[req.res_id])
+
+    def update_db_result_with_tentative(req):
         output("Coordinator: extract catched and database fetched attributes for use by evaluator worker")
-        catched_sub_attr = msg.catched_attr.get_sub_attr()
-        catched_res_attr = msg.catched_attr.get_res_attr()
-        db_sub_attr = msg.db_attr.get_sub_attr()
-        db_res_attr = msg.db_attr.get_res_attr()
+        catched_sub_attr = req.catched_attr.get_sub_attr()
+        catched_res_attr = req.catched_attr.get_res_attr()
+        db_sub_attr = req.db_attr.get_sub_attr()
+        db_res_attr = req.db_attr.get_res_attr()
 
         if(len(catched_sub_attr) > 0):
             for k,v in catched_sub_attr.items():
                 if k in db_sub_attr:
-                    msg.db_attr.get_sub_attr()[k] = v[0]
+                    req.db_attr.get_sub_attr()[k] = v[0]
         if (len(catched_res_attr) > 0):
             for k,v in catched_res_attr.items():
                 if k in db_res_attr:
-                    msg.db_attr.get_res_attr()[k] = v[0]
+                    req.db_attr.get_res_attr()[k] = v[0]
         ##Set everything in catched attributes now and update the local catch as well            
-        req.catched_attr.set_sub_attr(msg.db_attr.get_sub_attr())
-        req.catched_attr.set_res_attr(msg.db_attr.get_res_attr())
+        req.catched_attr.set_sub_attr(req.db_attr.get_sub_attr())
+        req.catched_attr.set_res_attr(req.db_attr.get_res_attr())
         ##ToDO: Update the catch         
         output("Coordinator:Attribute set ready for evaluation")
-
+    '''
+#comment
     def latestVersionBefore(x,attr,ts):
         aIdx = x.id+'_'+attr
         #scan attrVersionDict from end  to check for the highest TS with TS value less than passed TS.
         length = attrVersionDict.len()
         for i in xrange(length , 0):
-            if attrVersionDict[aIdx][i].rts < ts
+#umesh   
+            v = attrVersionDict[aIdx][i]   
+            if v.rts < ts:
                 return attrVersionDict[aIdx][i]
         return CreateversionForPreviousSessionRead(x,attr)        
         
     def latestversion(x, attr):
-        latestVersionBefore(x, attr, now())
+        latestVersionBefore(x,attr,now())
 
     def createVersionForPreviousSessionRead(x, attr):   
         v = version.Version(0, 0, 0)
@@ -81,19 +95,16 @@ class Coordinator(process):
 
     def updateVersionAttribDictAtCoord(req, x):
         ##create new version object and add in list of the attribute
-        updates = req.worker_attr.get_updated_attr_sub()
-        if(len(req.worker_attr.get_updated_attr_res()) >= 1):
-            updates = req.worker_attr.get_updated_attr_res()
-        for attr,val in updates:
-            v = version.Version(req.ts, req.ts, val)
-            aIdx = x.id+'_'+attr
-            attrVersionDict[aIdx].append(v)
+        for attr,val in req.updates:
+          v = version.Version(req.ts, req.ts, val)
+          aIdx = x.id+'_'+attr
+          attrVersionDict[aIdx].append(v)
 
     def findVersionBeforeTs(aIdx, resultSet):
         for i in xrange(attrVersionDict[aIdx].len(), 0):
-            v = attrVersionDict[aIdx][i]
-            if(v.rts <= req.ts):
-                resultSet[attr] = v.val
+          v = attrVersionDict[aIdx][i]
+          if(v.rts <= req.ts):
+            resultSet[attr] = v.val
             return True
         return False
 
@@ -117,19 +128,23 @@ class Coordinator(process):
         ## read remaining attributes from attribute database ##
         if(needDataFromDb == True):
             send_attr_read_request_to_attr_database(req)
-            await(some(received(("req_res", req)))))
+            await(some(received(("req_res", req))))
 
     ##coordinator: on receiving <"restart", req>
     def handleRestartRequest(req): 
-        send(('restart', req), to=sta.coord(sta.obj(req,req.rdonlyObj)))
+        send ((("restart"), req) ,to= sta.coord(sta.obj(req, req.rdonlyObj)))
+        #remove context for this req from this coordinator    
+        pass
+    def update_rts_for_read_only_obj(req):
+        pass
 
     def checkForConflicts(req):
-        for <attr, val> in req.updates:
-            # note: if x.attr has not been read or written in this session, then
-            # v is the special version with v.rts=0 and v.wts=0.
-            v = latestVersionBefore(x,attr,req.ts)
-            if v.rts > req.ts:
-                return true
+        for attr, val in req.updates:
+          # note: if x.attr has not been read or written in this session, then
+          # v is the special version with v.rts=0 and v.wts=0.
+          v = latestVersionBefore(x,attr,req.ts)
+          if v.rts > req.ts:
+            return true
         return false
 
     ##coordinator: on receiving <"result", req> as coord(obj(req,req.updatedObj))
@@ -167,35 +182,31 @@ class Coordinator(process):
                 for attr in uniounAttr:
                     v = latestVersionBefore(x, attr, req.ts)
                     v.pendingMightRead.remove(req.id)
-                    readAttr = req.worker_attr.read_attr_sub
-                    if(not req.worker_attr.updated_attr_sub):
-                        readAttr = req.worker_attr.read_attr_res
-                    if attr in read_attr:
-                        v.rts = req.ts
-
-            ## send <req.id, req.decision> to req.client ##
-            send(('result', req), to=req.curr_app)
+                    if(req.worker_attr.get_updated_attr_sub() != None):
+                        if attr in req.worker_attr.get_read_attr_sub()[req.updatedObj]:
+                            v.rts = req.ts
+#umesh: req.id and req.decision to be placed in a tuple and sent with a msg tag
+            #send <req.id, req.decision> to req.client
+            # notify coordinator of read-only object that req committed, so it can
+            # update read timestamps.
+            send ((("readAttr"), req, req.rdonlyObj), to=sta.coord(sta.obj(req, req.rdonlyObj)))
+            ## Remove self from current running write reqests
             
-            ## notify coordinator of read-only object that req committed, so it can ##
-            ## update read timestamps. send <"readAttr", req, req.rdonlyObj> to sta.coord(sta.obj(req, req.rdonlyObj)) ##
-            send(('readAttr', req, req.rdonlyObj), to=sta.coord(sta.obj(req, req.rdonlyObj))
-
-            ## Remove self from current running write reqests and Start any pending and not conflicting read request 
             currRunningWriteReq.remove(req)
-            startDelayedRequest()          
-          else:
+            ## Start any pending and not conflicting read request 
+            startDelayedRequest()
+        else:
             restart(req)
-        else:  
-          restart(req)
+#    else:  
+#        restart(req)
 
     #coordinator: on receiving <"readAttr", req, i>
-    def handleWorkerResponseForReadRequests(req, i): 
+    def handleWorkerResponseForReadRequests(req): 
         x = sta.obj(req,i)
-        for attr in mightReadAttr(x,req)
-            v = latestVersionBefore(x, attr, req.ts)
+        for attr in mightReadAttr(x,req):
+            v = latestVersionBefore(x,attr,req.ts)
             v.pendingMightRead.remove(req.id)
-            readAttr = req.worker_attr.read_attr_res | req.worker_attr.read_attr_sub
-            if attr in readAttr:
+            if attr in req.readAttr[i]:
                 v.rts = req.ts
 
     # Merging read write flow 
@@ -239,7 +250,7 @@ class Coordinator(process):
             latestVersionBefore(x,attr, req.ts).pendingMightRead.add(req.id)
         
         ## req.cachedUpdates[2] = cachedUpdates(x,req) ##
-        cachedUpdates(x,req))
+        cachedUpdates(x,req)
         
         ## send req to w ##
         sendRequestToWorker(req)
@@ -256,15 +267,15 @@ class Coordinator(process):
 
     def needDealyToPreventStarvation(req):
         if mightWriteObj(req):
-            return False
-        ## Unioun set of read attributes need to be checked with each running write request mightWriteAttr set ##
+          return False
+        ##unioun set of read attributes need to be checked with each running write request mightWriteAttr set
         defRead = defReadAttr(x, req)
         mightRead = mightReadAttr(x, req)
         uniounAttr = defRead | mightRead
         for wrq in currRunningWriteReq:
-            mightWrite = mightWriteAttr(wrq)
-            if (mightWrite & uniounAttr) is not empty:
-                return True
+          mightWrite = mightWriteAttr(wrq)
+          if (mightWrite & uniounAttr) is not empty:
+              return True
         return False
 
     def handleRequest(req):  
@@ -289,27 +300,33 @@ class Coordinator(process):
             clk = logical_clock()
             if (await(some(received(("handleReq", req),clk=rclk), has=(rclk > clk)))):
                 checkAndHandleRequest(req)
-            elif (some(received(("readAttr", req, i), clk=rclk), has=(rclk > clk))):
-                handleWorkerResponseForReadRequests(req, i)
+            elif (some(received(("readAttr", req), clk=rclk), has=(rclk > clk))):
+                handleWorkerResponseForReadRequests(req)
             elif (some(received(("result", req), clk=rclk), has=(rclk > clk))):
                 handleWorkerResponseForWriteRequests(req)    
             elif (some(received(("restart", req), clk=rclk), has=(rclk > clk))):
                 handleRestartRequest(req)
             elif (some(received(("reply_db_read", req), clk=rclk), has=(rclk > clk))):
-                update_db_result_with_tentative(req) 
+                update_db_result_with_tentative(req)
+            elif (some(received(("update_rdobj_rts", req), clk=rclk), has=(rclk > clk))):
+                update_rts_for_read_only_obj(req)    
             elif timeout(TIMEOUT * 10):
                 output('timeout because of inactivity')
 
-    def receive(req = (a, b)):
+    def receive(msg = (a, b)):
         if(a == "handleReq"):
-            print "received handleReq message in coordinator"
+            print("received handleReq message in coordinator")
         elif(a == "readAttr"):
-            print "received readAttr message in coordinator"
+            print ("received readAttr message in coordinator")
         elif(a == "result"):
-            print "received result message in coordinator"
+            print ("received result message in coordinator")
         elif (a == "restart"):
-            print "received restart message in coordinator"
+            print ("received restart message in coordinator")
         elif (a == "reply_db_read"):
-            print "recived read attributes from db"    
+            print ("recived read attributes from db")
+        elif (a == "update_rdobj_rts"):
+            print ("recived request to update read attributes on readonly object")
+        elif (a == "req_res"):
+            output("rcvd res from db")  
     
 
