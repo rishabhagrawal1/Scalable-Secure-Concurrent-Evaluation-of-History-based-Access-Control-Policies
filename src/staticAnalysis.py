@@ -82,12 +82,14 @@ class StaticAnalysis:
             if(list(req_prop.keys())[0] == req.req_type):
                 req_attr = list(req_prop.values())[0]
                 break
+        print("mightWriteAttr xtype reqid", x.type, req.id)
         result_set = set()
         if(not self.attr_data):
             return result_set
         for element in self.attr_data['attribute_properties']:
-            if(list(element.keys())[0] in req_attr and list(element.values())[0][2]['obj'] == x.type and element.values[0][1]['write'] == 'mutable'):
+            if(list(element.keys())[0] in req_attr and list(element.values())[0][2]['obj'] == x.type and list(element.values())[0][1]['write'] == 'mutable'):
                 result_set.add(list(element.keys())[0])
+        print("mightWriteAttr result_set", result_set)
         return result_set
         
     def obj(self, req, i):

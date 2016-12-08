@@ -91,10 +91,10 @@ class Main(process):
             output("error in opening file")
 
 def main():
-    conf_file = sys.argv[1] if len(sys.argv) > 1 else "../test/conf1.json"
-    policy_file = sys.argv[2] if len(sys.argv) > 2 else "../policy/policy1.xml"
-    data_file = sys.argv[3] if len(sys.argv) > 3 else "../data/data1.json"
-    attr_file = sys.argv[4] if len(sys.argv) > 4 else "../attr/attr1.json"
+    conf_file = sys.argv[1] if len(sys.argv) > 1 else "../tests/test/conf2.json"
+    policy_file = sys.argv[2] if len(sys.argv) > 2 else "../tests/policy/policy2.xml"
+    data_file = sys.argv[3] if len(sys.argv) > 3 else "../tests/data/data2.json"
+    attr_file = sys.argv[4] if len(sys.argv) > 4 else "../tests/attr/attr2.json"
     random_input = sys.argv[5] if len(sys.argv) > 5 else False
     print(random_input)
     m = new(Main)

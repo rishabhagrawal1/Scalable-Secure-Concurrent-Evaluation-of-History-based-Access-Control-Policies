@@ -30,6 +30,7 @@ class Client(process):
         req.res_id = oper["op"][2].get("id")
         req.req_type = oper["op"][3].get("req_type")
         req.generateReqId(counter)
+        print("req created with id", req.id)
         req.set_curr_app(self.id)
         
         ##add request unique id to req id list
@@ -39,11 +40,11 @@ class Client(process):
 
     def handle_policy_evaluation_result(req):
         if(req.id in self.req_queue):
-            print("Got policy evaluation result for req with req id: ", req.id)
-            print("evaluation result is: ", req.result)
+            print("Got policy evaluation result as",req.result, "for req with req id: ", req.id)
+            #print("evaluation result is: ", req.result)
             self.req_queue.remove(req.id)
         else:
-            print("Got some random message")
+            print("Got some random message with req_id ", req.id)
 
     def run():
         output("Client:  Client started")
@@ -58,21 +59,23 @@ class Client(process):
                     output("Client: Client fetches next policy evaluation request #:" ,counter)
                     req = readNextOperation(conf_data)
                     counter = counter + config.num_client
-                    
+
+                    output("Client: Forward policy evaluation request to First Coordinator for req id", req.id)
                     send(('handleReq', (req, 1)), to = sta.coord(sta.obj(req, 1)))
-                    output("Client: Forward policy evaluation request to First Coordinator")
-                    --handle_policy_evaluation_results
+
+                    #--handle_policy_evaluation_results
                     
                     if(await(some(received(('result', req))))):
-                        output("Client: Policy Evaluation result received")
+                        pass
+                        #output("Client: Policy Evaluation result received")
                     elif timeout(TIMEOUT * 0.1):
                         pass
 
             while len(req_queue) > 0:
                 #print("waiting for policy result in Client")
-                if (await(some(received(('result_sub', req))))):
-                    #handle_policy_evaluation_result(req)
-                    pass#output("Client: Policy Evaluation result received")
+                if (await(some(received(('result', req))))):
+                    #output("Client: Policy Evaluation result received")
+                    pass
                 elif timeout(TIMEOUT * 1):
                     pass
                     #print("timeout while waiting for co-ordinator responses")
@@ -82,7 +85,7 @@ class Client(process):
             output("Client: Error in read file", sep = "|")
 
     def receive(msg=(a,b)):
-        #output("Client: received policy evaluation")
+        output("Client: received policy evaluation")
         if(a == "result"):
             handle_policy_evaluation_result(b)
             

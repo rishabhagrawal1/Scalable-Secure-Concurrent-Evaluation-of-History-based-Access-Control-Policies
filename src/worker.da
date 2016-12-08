@@ -14,26 +14,26 @@ class Worker(process):
         pass
 
     def return_result_to_client(req, result):
-        output("Worker: Policy Evaluation complete sending result of read only request to client", result)
+        output("Worker: Policy Evaluation complete sending result ",result, " of read only request with id ", req.id," to client")
         send(('result', req), to=req.curr_app)
 
     def handle_evaluation_result(req, result):
         sta = staticAnalysis.StaticAnalysis(config.attr_file, coord_list)
         req.set_result(result)
         ## Update the object got updated ##
-        if(len(req.worker_attr.updated_attr_sub) >= 1  and sta.obj(req,1) == 'sub'):
+        if(len(req.worker_attr.updated_attr_sub) >= 1  and sta.obj(req,1).type == 'sub'):
             req.updatedObj = 1
             req.rdonlyObj = 2
-        elif(len(req.worker_attr.updated_attr_sub) >= 1 and sta.obj(req,2) == 'sub'):
+        elif(len(req.worker_attr.updated_attr_sub) >= 1 and sta.obj(req,2).type == 'sub'):
             req.updatedObj = 2
             req.rdonlyObj = 1
-        elif(len(req.worker_attr.updated_attr_res) >= 1 and sta.obj(req,1) == 'res'):
+        elif(len(req.worker_attr.updated_attr_res) >= 1 and sta.obj(req,1).type == 'res'):
             req.updatedObj = 1
             req.rdonlyObj = 2
-        elif(len(req.worker_attr.updated_attr_res) >= 1 and sta.obj(req,2) == 'sub'):
+        elif(len(req.worker_attr.updated_attr_res) >= 1 and sta.obj(req,2).type == 'sub'):
             req.updatedObj = 2
             req.rdonlyObj = 1
-
+        print("handle_evaluation_result req id is", req.id, "updated obj is", req.updatedObj)
         ## send the results ##
         if(req.updatedObj == -1):  # req is read-only.
             return_result_to_client(req, result)
@@ -53,7 +53,7 @@ class Worker(process):
         if (idx != -1):
             value = policy_value[idx+1:]
             if (value.isnumeric() and int(curr_value) + 1 < int(value)):
-                print("check_attribute, policy value ", value,"curr_value ", curr_value)
+                #print("check_attribute, policy value ", value,"curr_value ", curr_value)
                 return True 
 
         ##Init attribute lists to compare##
@@ -61,13 +61,13 @@ class Worker(process):
             plist = []
         else:
             plist = policy_value.split(',')
-            print (plist)
+        print ("policy_value, plist", policy_value, plist)
 
         if(curr_value == "empty" or curr_value == ""):
             dlist = []
         else:
             dlist = curr_value.split(',')
-            print (dlist)
+        print ("curr_value, dlist", curr_value, dlist)
 
         ##Unequal length return false##
         if(len(dlist) != len(plist)):
@@ -80,7 +80,7 @@ class Worker(process):
         return False
 
     def update_attributes(update_attr, curr_attr, req, type):
-        output("Worker: update_attributes : find attributes to be updated in DB")
+        output("Worker: update_attributes : find attributes to be updated in DB for ", type)
         if update_attr != None:
             for k, v in update_attr.attrib.items():
                 if (k in curr_attr):
@@ -99,14 +99,14 @@ class Worker(process):
                         req.worker_attr.get_updated_attr_sub()[k] = value
                     elif(type ==  "res"):
                         req.worker_attr.get_updated_attr_res()[k] = value
-        output("Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB")
+        output("Worker: update_attributes : Attributes collected, will be sent to co ordinator to write on DB for", type)
                 
     def evaluate_rule(sc, rc, act, su, ru, req, sub_attr, res_attr):
-        #output("Worker: evaluate rule Entry")
+        output("Worker: evaluate rule Entry")
         if (sc.attrib.get('position') == req.position):
             if ((rc.attrib.get('id') == req.res_id) or ('type' in dir(req) and rc.attrib.get('type') == req.type)):
                 if (act.attrib.get('name') == req.action):
-                    #print("a rule matched")
+                    print("a rule matched")
                     for k, v in sc.attrib.items():
                         if k in sub_attr:
                             print("sc.attrib.items",sub_attr[k], v)
@@ -120,26 +120,29 @@ class Worker(process):
                             req.worker_attr.get_read_attr_sub()[k] = v
                     for k, v in rc.attrib.items():
                         if k in res_attr:
-                            print(res_attr[k], v)
+                            print("rc.attrib.items", res_attr[k], v)
+                            print(check_attribute(res_attr[k], v))
                         #if k == 'id' or k == 'type':
                         #    continue
                         if k not in res_attr or check_attribute(res_attr[k], v) == False:
                             return False
                         else:  ##Update read attributes of resource##
                             req.worker_attr.get_read_attr_res()[k] = v
-                    #print("in evaluate_rule reaching to update ")
+                    print("in evaluate_rule reaching to update ")
                     update_attributes(su, sub_attr, req, "sub")
                     update_attributes(ru, res_attr, req, "res")
                     return True
         return False
 
     def evaluate_policy(req):
-        output("Worker: evaluate policy Entry")
+        output("Worker: evaluate policy Entry for req id", req.id)
         tree = ET.parse(config.policy_file)
         root = tree.getroot()
         print("Entry Evaluate policy")
         sub_attr = req.catched_attr.get_sub_attr()
         res_attr = req.catched_attr.get_res_attr()
+        print("sub_attr", sub_attr)
+        print("res_attr", res_attr)
         for rule in root.iter('rule'):
             sc = rule.find('subjectCondition')
             rc = rule.find('resourceCondition')
@@ -163,7 +166,7 @@ class Worker(process):
                 pass
 
     def receive(msg=(a, b)):
-        output("received req in worker to evaluate from local co-ordinator: ", a)
+        output("received req with id ", b.id, b.req_type, "in worker to evaluate from local co-ordinator: ", a)
         if(a == "req_cord"):
             evaluate_policy(b)
             
