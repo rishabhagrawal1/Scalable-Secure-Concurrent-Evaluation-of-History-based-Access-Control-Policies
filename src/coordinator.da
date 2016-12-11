@@ -35,41 +35,49 @@ class Coordinator(process):
         output("Coordinator: sending attribute read request to DB")
         send(('req_db_read', req), to=data)
 
-    def update_db_result_with_catched(req):
+    def update_db_result_with_catched(x, req):
         #print("update_db_result_with_catched entry")
         output("Coordinator: extract catched and database fetched attributes for use by evaluator worker")
-        catched_sub_attr = req.catched_attr.get_sub_attr()
-        catched_res_attr = req.catched_attr.get_res_attr()
-        db_sub_attr = req.db_attr.get_sub_attr()
-        db_res_attr = req.db_attr.get_res_attr()
-        print("db sub",db_sub_attr)
-        print("db res",db_res_attr)
-        if (len(catched_sub_attr) > 0):
-            for k, v in catched_sub_attr.items():
-                if k in db_sub_attr:
-                    req.db_attr.get_sub_attr()[k] = v[0]
-        if (len(catched_res_attr) > 0):
-            for k, v in catched_res_attr.items():
-                if k in db_res_attr:
-                    req.db_attr.get_res_attr()[k] = v[0]
+        if(x.type == 'sub'):
+            catched_sub_attr = req.catched_attr.get_sub_attr()
+            db_sub_attr = req.db_attr.get_sub_attr()
+            print("db sub",db_sub_attr)
+            if (len(catched_sub_attr) > 0):
+                for k, v in catched_sub_attr.items():
+                    print ("k,v sub ",k, v)
+                    if k in db_sub_attr:
+                        req.db_attr.get_sub_attr()[k] = v
 
-        ##Set everything in catched attributes now and update the local catch as well
-        req.catched_attr.set_sub_attr(req.db_attr.get_sub_attr())
-        req.catched_attr.set_res_attr(req.db_attr.get_res_attr())
-        print("catched sub", req.catched_attr.get_sub_attr())
-        print("catched res",req.catched_attr.get_res_attr())
-        ## Update the catch ##
-        x = staticAnalysis.Obj(req.subj_id, 'sub')
-        for k, v in req.catched_attr.get_sub_attr().items():
-            print("adding version for", k, v)
-            print(createVersionForPreviousSessionRead(x, k, v).val)
-        x = staticAnalysis.Obj(req.res_id, 'res')
-        for k, v in req.catched_attr.get_res_attr().items():
-            print("adding version for", k, v)
-            print(createVersionForPreviousSessionRead(x, k, v).val)
+            ##Set everything in catched attributes now and update the local catch as well
+            req.catched_attr.set_sub_attr(req.db_attr.get_sub_attr())
+            print("catched sub", req.catched_attr.get_sub_attr())
+            ## Update the catch ##
+            x = staticAnalysis.Obj(req.subj_id, 'sub')
+            for k, v in req.catched_attr.get_sub_attr().items():
+                print("adding version for", k, v)
+                print(createVersionForPreviousSessionRead(x, k, v).val)
+            print("after db read", req.catched_attr.get_sub_attr())
 
-        print("after db read", req.catched_attr.get_sub_attr())
-        print("after db read", req.catched_attr.get_res_attr())
+        else:
+            catched_res_attr = req.catched_attr.get_res_attr()
+            db_res_attr = req.db_attr.get_res_attr()
+            print("db res",db_res_attr)
+            if (len(catched_res_attr) > 0):
+                for k, v in catched_res_attr.items():
+                    print ("k,v res ",k, v)
+                    if k in db_res_attr:
+                        req.db_attr.get_res_attr()[k] = v
+
+            ##Set everything in catched attributes now and update the local catch as well
+            req.catched_attr.set_res_attr(req.db_attr.get_res_attr())
+            print("catched res",req.catched_attr.get_res_attr())
+            ## Update the catch ##
+            x = staticAnalysis.Obj(req.res_id, 'res')
+            for k, v in req.catched_attr.get_res_attr().items():
+                print("adding version for", k, v)
+                print(createVersionForPreviousSessionRead(x, k, v).val)
+            print("after db read", req.catched_attr.get_res_attr())
+        print(attrVersionDict)
         output("Coordinator:Attribute set ready for evaluation req id is ")
 
     def latestVersionBefore(x, attr, ts):
@@ -126,13 +134,14 @@ class Coordinator(process):
         uniounAttr = defRead | mightRead
         resultSet = {}
         needDataFromDb = False
-        print(uniounAttr)
-        print(attrVersionDict)
+        print("uniounAttr",uniounAttr)
+        print("attrVersionDict",attrVersionDict)
         for attr in uniounAttr:
             aIdx = x.id+'_'+attr
             if(findVersionBeforeTs(aIdx, attr, req, resultSet) == False):
                 needDataFromDb = True
 
+        print(attrVersionDict)
         print("needDataFromDb", needDataFromDb, x.type)
         print("resultSet", resultSet)
 
@@ -146,10 +155,13 @@ class Coordinator(process):
         if(needDataFromDb == True):
             send_attr_read_request_to_attr_database(req)
             await(some(received(("reply_db_read", req1)), has=(req1.id == req.id)))
-            req.db_attr.set_sub_attr(req1.db_attr.get_sub_attr())
-            req.db_attr.set_res_attr(req1.db_attr.get_res_attr())
-            update_db_result_with_catched(req)
+            if(x.type == 'sub'):
+                req.db_attr.set_sub_attr(req1.db_attr.get_sub_attr())
+            else:
+                req.db_attr.set_res_attr(req1.db_attr.get_res_attr())
+            update_db_result_with_catched(x, req)
             #print("cachedUpdates", type(req), req)
+        return req
 
     def restart(req):
         print("In restart")
@@ -267,7 +279,8 @@ class Coordinator(process):
         #print("mightRead",sta.mightReadAttr(x, req))
 
         print("handleReqAsCorod1 before cachedUpdates req id", req.id)
-        cachedUpdates(x,req)
+        req = cachedUpdates(x,req)
+        print("in handleReqAsCorod1", attrVersionDict)
         print("handleReqAsCorod1 after cachedUpdates req id", req.id)
 
         if not sta.mightWriteObj(req): ## this is a read only request and mightWriteObj set is empty
@@ -296,7 +309,13 @@ class Coordinator(process):
     def handleReqAsCorod2(req):
         print ("in handleReqAsCorod2 req id", req.id)
         x = sta.obj(req, 2)
-        
+
+        ## req.cachedUpdates[2] = cachedUpdates(x,req) ##
+        print(" handleReqAsCorod2 before cachedUpdates req id", req.id)
+        req = cachedUpdates(x,req)
+        print("in handleReqAsCorod2", attrVersionDict)
+        print("handleReqAsCorod2 after cachedUpdates req id", req.id)
+
         if not sta.mightWriteObj(req): ## this is a read only request and mightWriteObj set is empty
             for attr in sta.defReadAttr(x,req):
                 latestVersionBefore(x, attr, req.ts).rts = req.ts
@@ -305,11 +324,6 @@ class Coordinator(process):
                 latestVersionBefore(x,attr, req.ts).pendingMightRead.add(req.id)
         for attr in sta.mightReadAttr(x,req):
             latestVersionBefore(x,attr, req.ts).pendingMightRead.add(req.id)
-        
-        ## req.cachedUpdates[2] = cachedUpdates(x,req) ##
-        print(" handleReqAsCorod2 before cachedUpdates req id", req.id)
-        cachedUpdates(x,req)
-        print("handleReqAsCorod2 after cachedUpdates req id", req.id)
 
         ## send req to w ##
         sendRequestToWorker(req)
