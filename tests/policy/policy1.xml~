@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!--
+ sample policy.  CSE 535, Fall 2016, Scott Stoller.  2016-10-03 
+-->
+<policy>
+
+<rule name="access bank A first time">
+<subjectCondition position="employee" history="empty"/>
+<resourceCondition id="bank A"/>
+<!--  the action authorized by this rule.  -->
+<action name="read"/>
+<subjectUpdate history="bank A"/>
+</rule>
+
+<rule name="access bank A again">
+<subjectCondition position="employee" history="bank A"/>
+<resourceCondition id="bank A"/>
+<action name="read"/>
+</rule>
+
+<rule name="access bank B first time">
+<subjectCondition position="employee" history="empty"/>
+<resourceCondition id="bank B"/>
+<action name="read"/>
+<subjectUpdate history="bank B"/>
+</rule>
+
+<rule name="access bank B again">
+<subjectCondition position="employee" history="bank B"/>
+<resourceCondition id="bank B"/>
+<action name="read"/>
+</rule>
+
+<rule name="access bank C open Document">
+<subjectCondition position="employee"/>
+<resourceCondition id="bank C"/>
+<action name="read"/>
+</rule>
+
+<rule name="Customer Views News Paper">
+<subjectCondition position="common_man"/>
+<resourceCondition type="news_paper"/>
+<action name="view"/>
+</rule>
+
+<rule name="customers collectively can view each movie at most 5 times">
+<subjectCondition position="customer"/>
+<resourceCondition type="movie2" viewCount="&lt;5"/>
+<action name="view"/>
+<resourceUpdate viewCount="++"/>
+</rule>
+
+
+<rule name="customers collectively can view each movie at most 5 times">
+<subjectCondition position="customer"/>
+<resourceCondition type="movie" viewCount=">0"/>
+<action name="view"/>
+<resourceUpdate viewCount="--"/>
+</rule>
+
+<rule name="customers collectively can view each movie at most 5 times">
+<subjectCondition position="customer1"/>
+<resourceCondition type="movie3_cust_specific" viewCount=">0"/>
+<action name="view"/>
+<resourceUpdate viewCount="--"/>
+</rule>
+
+<rule name="Bank A employee trying to access Bank B doc">
+<subjectCondition position="manager" history="empty"/>
+<resourceCondition id="bank B"/>
+<subjectUpdate history="bank B"/>
+<action name="read"/>
+</rule>
+
+
+<rule name="Bank A employee trying to access Bank B doc">
+<subjectCondition position="manager" history="bank B"/>
+<resourceCondition id="bank A"/>
+<subjectUpdate history="bank B,bank A"/>
+<action name="read"/>
+</rule>
+
+<rule name="Bank A employee trying to access Bank B doc">
+<subjectCondition position="manager" history="bank B,bank A"/>
+<resourceCondition id="bank A"/>
+<action name="read"/>
+</rule>
+
+
+</policy>
+

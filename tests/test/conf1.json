@@ -1,0 +1,22 @@
+{
+"num_applications":"1",
+"num_coordinator":"1",
+"num_workers":"1",
+"load_application_1": "30",
+"load_application_2": "35",
+"load_application_3": "35",
+"operations":[
+                {"op":         
+                        [{"action":"read"},
+                         {"sub-id":"BankA001","position":"employee"},
+                          {"id":"bank A"},
+                          {"req_type":"bank"}]
+                },
+                {"op":         
+                        [{"action":"view"},
+                         {"sub-id":"common_man","position":"non_employee"},
+                          {"id":"open_doc", "type":"news_paper"},
+                          {"req_type":"news_paper"}]
+                }       ]
+} 
+

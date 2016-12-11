@@ -1,0 +1,32 @@
+{
+"num_applications":"3",
+"num_coordinator":"3",
+"num_workers":"3",
+"load_application_1": "30",
+"load_application_2": "35",
+"load_application_3": "35",
+"operations":[
+
+                {"op":         
+                        [{"action":"read"},
+                         {"sub-id":"BankA001","position":"employee"},
+                          {"id":"bank A"}]
+                },
+                {"op":         
+                        [{"action":"view"},
+                         {"sub-id":"common_man","position":"non_employee"},
+                          {"id":"open_doc"}]
+                },
+                {"op":         
+                        [{"action":"view"},
+                         {"sub-id":"BankA001","position":"manager"},
+                          {"id":"bank A"}]
+                },
+                {"op":         
+                        [{"action":"view"},
+                         {"sub-id":"BankA001","position":"manager"},
+                          {"id":"bank B"}]
+                },        ]
+} 
+
+

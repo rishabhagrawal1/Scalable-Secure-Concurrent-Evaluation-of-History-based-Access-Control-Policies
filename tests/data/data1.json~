@@ -1,0 +1,96 @@
+{
+    "subjects": [{
+            "sub-id": "BankA001",
+            "version": [{
+                "v_ts": "001",
+                "position": "employee",
+                "history": "bank B"
+            }]
+        }, {
+            "sub-id": "BankB_employee_001",
+            "version": [{
+                "v_ts": "001",
+                "position": "employee",
+                "history": "bank B"
+            }]
+        }, {
+            "sub-id": "BankA_Manager_001",
+            "version": [{
+                "v_ts": "001",
+                "position": "manager",
+                "history": "empty"
+            }]
+        }, {
+            "sub-id": "common_man",
+            "version": [{
+                "v_ts": "001",
+                "position": "common_man"
+            }]
+        }, {
+            "sub-id": "Movie_customer1",
+            "version": [{
+                "v_ts": "001",
+                "position": "customer",
+                "movies": [{
+                    "movieC": {
+                        "maxCount": "4",
+                        "currentCount": "0"
+                    }
+                }]
+            }]
+        }, {
+            "sub-id": "Movie_customer2",
+            "version": [{
+                "v_ts": "001",
+                "position": "customer"
+            }]
+        }, {
+            "sub-id": "Movie_customer3",
+            "version": [{
+                "v_ts": "001",
+                "id": "Movie_customer3",
+                "position": "customer1"
+            }]
+
+        }
+
+    ],
+    "resources": [{
+        "id": "bank A",
+        "version": [{
+            "v_ts": "001"
+        }]
+    }, {
+        "id": "bank B",
+        "version": [{
+            "v_ts": "001"
+        }]
+
+    }, {
+        "id": "open_doc",
+        "version": [{
+            "v_ts": "001",
+            "type": "news_paper"
+        }]
+
+    }, {
+        "id": "mov1",
+        "version": [{
+            "v_ts": "001",
+            "type": "movie",
+            "viewCount": "5"
+        }]
+    }, {
+        "id": "mov2",
+        "version": [{
+            "v_ts": "001"
+        }]
+    }, {
+        "id": "mov3",
+        "version": [{
+            "v_ts": "001",
+            "type": "movie3_cust_specific",
+            "viewCount": "2"
+        }]
+    }]
+}
