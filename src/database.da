@@ -56,7 +56,7 @@ class Database(process):
         index = -1
         for i in range(0,len(version_list)):
             ts = version_list[i].get("v_ts")
-            if(int(ts) < int(req.ts)):
+            if(float(ts) < float(req.ts)):
                 index = i
                 break
         if(index != -1):
@@ -71,7 +71,7 @@ class Database(process):
         index = -1
         for i in range(0,len(version_list)):
             ts = version_list[i].get("v_ts")
-            if(int(ts) < int(req.ts)):
+            if(float(ts) < float(req.ts)):
                 index = i
                 break
         if(index != -1):

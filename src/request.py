@@ -92,7 +92,7 @@ class Request:
         self.id = seed + counter
 
     def generateTimeStamp(self):
-        clk = int(time.time())
+        clk = time.time()
         self.ts = clk
 
     def reset_attr_objects(self):

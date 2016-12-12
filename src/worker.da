@@ -61,13 +61,13 @@ class Worker(process):
             plist = []
         else:
             plist = policy_value.split(',')
-        print ("policy_value, plist", policy_value, plist)
+        #print ("policy_value, plist", policy_value, plist)
 
         if(curr_value == "empty" or curr_value == ""):
             dlist = []
         else:
             dlist = curr_value.split(',')
-        print ("curr_value, dlist", curr_value, dlist)
+        #print ("curr_value, dlist", curr_value, dlist)
 
         ##Unequal length return false##
         if(len(dlist) != len(plist)):
@@ -102,15 +102,15 @@ class Worker(process):
         output("Worker: update_attributes : Attributes collected, will be sent to co ordinator to write on DB for", type)
                 
     def evaluate_rule(sc, rc, act, su, ru, req, sub_attr, res_attr):
-        output("Worker: evaluate rule Entry")
+        #output("Worker: evaluate rule Entry")
         if (sc.attrib.get('position') == req.position):
             if ((rc.attrib.get('id') == req.res_id) or ('type' in dir(req) and rc.attrib.get('type') == req.type)):
                 if (act.attrib.get('name') == req.action):
-                    print("a rule matched")
+                    #print("a rule matched")
                     for k, v in sc.attrib.items():
-                        if k in sub_attr:
-                            print("sc.attrib.items",sub_attr[k], v)
-                            print(check_attribute(sub_attr[k], v))
+                        #if k in sub_attr:
+                        #    print("sc.attrib.items",sub_attr[k], v)
+                        #    print(check_attribute(sub_attr[k], v))
                         #if k == 'position':
                         #    continue
                         if k not in sub_attr or check_attribute(sub_attr[k], v) == False:
@@ -119,9 +119,9 @@ class Worker(process):
                             #print("sub k and v is: ", k, v)
                             req.worker_attr.get_read_attr_sub()[k] = v
                     for k, v in rc.attrib.items():
-                        if k in res_attr:
-                            print("rc.attrib.items", res_attr[k], v)
-                            print(check_attribute(res_attr[k], v))
+                        #if k in res_attr:
+                        #    print("rc.attrib.items", res_attr[k], v)
+                        #    print(check_attribute(res_attr[k], v))
                         #if k == 'id' or k == 'type':
                         #    continue
                         if k not in res_attr or check_attribute(res_attr[k], v) == False:
@@ -135,14 +135,15 @@ class Worker(process):
         return False
 
     def evaluate_policy(req):
-        output("Worker: evaluate policy Entry for req id", req.id)
+        #output("Worker: evaluate policy Entry for req id", req.id)
+        print("Worker: evaluate policy Entry for req id", req.id)
         tree = ET.parse(config.policy_file)
         root = tree.getroot()
         print("Entry Evaluate policy")
         sub_attr = req.catched_attr.get_sub_attr()
         res_attr = req.catched_attr.get_res_attr()
-        print("sub_attr", sub_attr)
-        print("res_attr", res_attr)
+        #print("sub_attr", sub_attr)
+        #print("res_attr", res_attr)
         for rule in root.iter('rule'):
             sc = rule.find('subjectCondition')
             rc = rule.find('resourceCondition')

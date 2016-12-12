@@ -1,0 +1,136 @@
+[2016-12-11 18:56:04,365]da.api:INFO: Running iteration 1 ...
+False
+[2016-12-11 18:56:04,387]da.api:INFO: Terminating...
+[2016-12-11 18:56:04,413]Client[('localhost', 29596)]:INFO: Client:  Client Setup in done
+[2016-12-11 18:56:04,413]Client[('localhost', 31488)]:INFO: Client:  Client Setup in done
+[2016-12-11 18:56:04,414]Client[('localhost', 38832)]:INFO: Client:  Client Setup in done
+[2016-12-11 18:56:04,414]Client[('localhost', 29596)]:INFO: Client:  Client started
+[2016-12-11 18:56:04,414]Client[('localhost', 31488)]:INFO: Client:  Client started
+[2016-12-11 18:56:04,415]Database[('localhost', 39987)]:INFO: Database: Loading entries from JSon file to local memory to simulate DB
+[2016-12-11 18:56:04,415]Database[('localhost', 39987)]:INFO: Loading Datasbe entries in JSon file complete, DB Simulator Ready
+[2016-12-11 18:56:04,421]Client[('localhost', 38832)]:INFO: Client:  Client started
+[2016-12-11 18:56:05,416]Client[('localhost', 31488)]:INFO: Client: Client fetches next policy evaluation request #: 1
+[2016-12-11 18:56:05,416]Client[('localhost', 29596)]:INFO: Client: Client fetches next policy evaluation request #: 0
+[2016-12-11 18:56:05,416]Client[('localhost', 29596)]:INFO: Client: Fetching Next Request to evaluate policy ,from Config
+[2016-12-11 18:56:05,416]Client[('localhost', 31488)]:INFO: Client: Fetching Next Request to evaluate policy ,from Config
+[2016-12-11 18:56:05,416]Client[('localhost', 29596)]:INFO: Client: A new Evaluation Request is created with req id:  1000
+[2016-12-11 18:56:05,416]Client[('localhost', 31488)]:INFO: Client: A new Evaluation Request is created with req id:  1001
+[2016-12-11 18:56:05,416]Client[('localhost', 31488)]:INFO: Client: Forward policy evaluation request to First Coordinator for req id 1001
+[2016-12-11 18:56:05,416]Client[('localhost', 29596)]:INFO: Client: Forward policy evaluation request to First Coordinator for req id 1000
+[2016-12-11 18:56:05,418]Coordinator[('localhost', 35907)]:INFO: received msg in Coordinator handleReq  with req id 1001
+[2016-12-11 18:56:05,421]Coordinator[('localhost', 35907)]:INFO: Coordinator: sending attribute read request to DB
+[2016-12-11 18:56:05,423]Database[('localhost', 39987)]:INFO: received req in Database:  req_db_read
+[2016-12-11 18:56:05,423]Database[('localhost', 39987)]:INFO: Database: Received a query for with ts : BankA001 1481500565.421705
+[2016-12-11 18:56:05,423]Database[('localhost', 39987)]:INFO: version_list subj in database is  [{'position': 'employee', 'v_ts': '001', 'history': 'bank A'}]
+[2016-12-11 18:56:05,423]Database[('localhost', 39987)]:INFO: version_list res in database is  [{'v_ts': '001'}]
+[2016-12-11 18:56:05,424]Client[('localhost', 38832)]:INFO: Client: Client fetches next policy evaluation request #: 2
+[2016-12-11 18:56:05,424]Client[('localhost', 38832)]:INFO: Client: Fetching Next Request to evaluate policy ,from Config
+[2016-12-11 18:56:05,424]Client[('localhost', 38832)]:INFO: Client: A new Evaluation Request is created with req id:  1002
+[2016-12-11 18:56:05,424]Database[('localhost', 39987)]:INFO: Database : Message sent to curr_coordinator back after database fetch
+[2016-12-11 18:56:05,425]Coordinator[('localhost', 35907)]:INFO: received msg in Coordinator handleReq  with req id 1000
+[2016-12-11 18:56:05,425]Coordinator[('localhost', 35907)]:INFO: Coordinator: sending attribute read request to DB
+[2016-12-11 18:56:05,432]Client[('localhost', 38832)]:INFO: Client: Forward policy evaluation request to First Coordinator for req id 1002
+[2016-12-11 18:56:05,436]Coordinator[('localhost', 35907)]:INFO: received msg in Coordinator reply_db_read  with req id ,  1001
+[2016-12-11 18:56:05,437]Coordinator[('localhost', 35907)]:INFO: received msg in Coordinator handleReq  with req id 1002
+[2016-12-11 18:56:05,438]Coordinator[('localhost', 35907)]:INFO: Coordinator: sending attribute read request to DB
+[2016-12-11 18:56:05,440]Database[('localhost', 39987)]:INFO: received req in Database:  req_db_read
+[2016-12-11 18:56:05,442]Database[('localhost', 39987)]:INFO: Database: Received a query for with ts : common_man 1481500565.4256895
+[2016-12-11 18:56:05,442]Database[('localhost', 39987)]:INFO: version_list subj in database is  [{'position': 'non_employee', 'v_ts': '001'}]
+[2016-12-11 18:56:05,443]Database[('localhost', 39987)]:INFO: version_list res in database is  [{'v_ts': '001', 'type': 'news_paper'}]
+[2016-12-11 18:56:05,443]Database[('localhost', 39987)]:INFO: Database : Message sent to curr_coordinator back after database fetch
+[2016-12-11 18:56:05,444]Database[('localhost', 39987)]:INFO: received req in Database:  req_db_read
+[2016-12-11 18:56:05,444]Database[('localhost', 39987)]:INFO: Database: Received a query for with ts : BankA001 1481500565.4379983
+[2016-12-11 18:56:05,444]Database[('localhost', 39987)]:INFO: version_list subj in database is  [{'position': 'employee', 'v_ts': '001', 'history': 'bank A'}]
+[2016-12-11 18:56:05,444]Database[('localhost', 39987)]:INFO: version_list res in database is  [{'v_ts': '001'}]
+[2016-12-11 18:56:05,444]Coordinator[('localhost', 35907)]:INFO: received msg in Coordinator reply_db_read  with req id ,  1000
+[2016-12-11 18:56:05,445]Database[('localhost', 39987)]:INFO: Database : Message sent to curr_coordinator back after database fetch
+[2016-12-11 18:56:05,445]Coordinator[('localhost', 35907)]:INFO: received msg in Coordinator reply_db_read  with req id ,  1002
+[2016-12-11 18:56:05,445]Coordinator[('localhost', 35907)]:INFO: Coordinator: extract catched and database fetched attributes for use by evaluator worker
+[2016-12-11 18:56:05,446]Coordinator[('localhost', 35907)]:INFO: Coordinator:Attribute set ready for evaluation req id is 
+[2016-12-11 18:56:05,447]Coordinator[('localhost', 35907)]:INFO: Coordinator: extract catched and database fetched attributes for use by evaluator worker
+[2016-12-11 18:56:05,448]Coordinator[('localhost', 35907)]:INFO: Coordinator:Attribute set ready for evaluation req id is 
+[2016-12-11 18:56:05,449]Coordinator[('localhost', 35907)]:INFO: Coordinator: extract catched and database fetched attributes for use by evaluator worker
+[2016-12-11 18:56:05,449]Coordinator[('localhost', 35907)]:INFO: Coordinator:Attribute set ready for evaluation req id is 
+[2016-12-11 18:56:05,468]Coordinator[('localhost', 34973)]:INFO: received msg in Coordinator handleReq  with req id 1002
+[2016-12-11 18:56:05,472]Coordinator[('localhost', 34973)]:INFO: Coordinator: sending attribute read request to DB
+[2016-12-11 18:56:05,484]Coordinator[('localhost', 34973)]:INFO: received msg in Coordinator handleReq  with req id 1000
+[2016-12-11 18:56:05,485]Coordinator[('localhost', 34973)]:INFO: Coordinator: sending attribute read request to DB
+[2016-12-11 18:56:05,487]Coordinator[('localhost', 34973)]:INFO: received msg in Coordinator handleReq  with req id 1001
+[2016-12-11 18:56:05,488]Database[('localhost', 39987)]:INFO: received req in Database:  req_db_read
+[2016-12-11 18:56:05,488]Database[('localhost', 39987)]:INFO: Database: Received a query for with ts : BankA001 1481500565
+[2016-12-11 18:56:05,488]Database[('localhost', 39987)]:INFO: version_list subj in database is  [{'position': 'employee', 'v_ts': '001', 'history': 'bank A'}]
+[2016-12-11 18:56:05,488]Database[('localhost', 39987)]:INFO: version_list res in database is  [{'v_ts': '001'}]
+[2016-12-11 18:56:05,489]Database[('localhost', 39987)]:INFO: Database : Message sent to curr_coordinator back after database fetch
+[2016-12-11 18:56:05,490]Coordinator[('localhost', 34973)]:INFO: Coordinator: sending attribute read request to DB
+[2016-12-11 18:56:05,491]Database[('localhost', 39987)]:INFO: received req in Database:  req_db_read
+[2016-12-11 18:56:05,493]Coordinator[('localhost', 34973)]:INFO: received msg in Coordinator reply_db_read  with req id ,  1002
+[2016-12-11 18:56:05,493]Database[('localhost', 39987)]:INFO: Database: Received a query for with ts : common_man 1481500565
+[2016-12-11 18:56:05,493]Database[('localhost', 39987)]:INFO: version_list subj in database is  [{'position': 'non_employee', 'v_ts': '001'}]
+[2016-12-11 18:56:05,493]Database[('localhost', 39987)]:INFO: version_list res in database is  [{'v_ts': '001', 'type': 'news_paper'}]
+[2016-12-11 18:56:05,494]Database[('localhost', 39987)]:INFO: Database : Message sent to curr_coordinator back after database fetch
+[2016-12-11 18:56:05,496]Database[('localhost', 39987)]:INFO: received req in Database:  req_db_read
+[2016-12-11 18:56:05,497]Coordinator[('localhost', 34973)]:INFO: received msg in Coordinator reply_db_read  with req id ,  1000
+[2016-12-11 18:56:05,497]Database[('localhost', 39987)]:INFO: Database: Received a query for with ts : BankA001 1481500565
+[2016-12-11 18:56:05,498]Database[('localhost', 39987)]:INFO: version_list subj in database is  [{'position': 'employee', 'v_ts': '001', 'history': 'bank A'}]
+[2016-12-11 18:56:05,498]Database[('localhost', 39987)]:INFO: version_list res in database is  [{'v_ts': '001'}]
+[2016-12-11 18:56:05,499]Database[('localhost', 39987)]:INFO: Database : Message sent to curr_coordinator back after database fetch
+[2016-12-11 18:56:05,503]Coordinator[('localhost', 34973)]:INFO: received msg in Coordinator reply_db_read  with req id ,  1001
+[2016-12-11 18:56:05,503]Coordinator[('localhost', 34973)]:INFO: Coordinator: extract catched and database fetched attributes for use by evaluator worker
+[2016-12-11 18:56:05,504]Coordinator[('localhost', 34973)]:INFO: Coordinator:Attribute set ready for evaluation req id is 
+[2016-12-11 18:56:05,509]Worker[('localhost', 24725)]:INFO: received req with id  1001 bank in worker to evaluate from local co-ordinator:  req_cord
+[2016-12-11 18:56:05,510]Worker[('localhost', 24725)]:INFO: Worker: update_attributes : find attributes to be updated in DB for  sub
+[2016-12-11 18:56:05,510]Worker[('localhost', 24725)]:INFO: Worker: update_attributes : Attributes collected, will be sent to co ordinator to write on DB for sub
+[2016-12-11 18:56:05,510]Worker[('localhost', 24725)]:INFO: Worker: update_attributes : find attributes to be updated in DB for  res
+[2016-12-11 18:56:05,510]Worker[('localhost', 24725)]:INFO: Worker: update_attributes : Attributes collected, will be sent to co ordinator to write on DB for res
+[2016-12-11 18:56:05,510]Worker[('localhost', 24725)]:INFO: Worker: Policy Evaluation complete sending result  True  of read only request with id  1001  to client
+[2016-12-11 18:56:05,511]Coordinator[('localhost', 34973)]:INFO: Coordinator: extract catched and database fetched attributes for use by evaluator worker
+[2016-12-11 18:56:05,512]Coordinator[('localhost', 34973)]:INFO: Coordinator:Attribute set ready for evaluation req id is 
+[2016-12-11 18:56:05,513]Coordinator[('localhost', 34973)]:INFO: Coordinator: extract catched and database fetched attributes for use by evaluator worker
+[2016-12-11 18:56:05,513]Coordinator[('localhost', 34973)]:INFO: Coordinator:Attribute set ready for evaluation req id is 
+[2016-12-11 18:56:05,513]Worker[('localhost', 31706)]:INFO: received req with id  1000 news_paper in worker to evaluate from local co-ordinator:  req_cord
+[2016-12-11 18:56:05,516]Client[('localhost', 31488)]:INFO: Client: received policy evaluation
+[2016-12-11 18:56:05,516]Worker[('localhost', 22428)]:INFO: received req with id  1002 bank in worker to evaluate from local co-ordinator:  req_cord
+[2016-12-11 18:56:05,516]Client[('localhost', 31488)]:INFO: Client: All Evaluation requests for this Client are over
+req created with id 1001
+Got policy evaluation result as True for req with req id:  1001
+[2016-12-11 18:56:05,520]Client[('localhost', 29596)]:INFO: Client: Client fetches next policy evaluation request #: 3
+[2016-12-11 18:56:05,520]Client[('localhost', 29596)]:INFO: Client: Fetching Next Request to evaluate policy ,from Config
+[2016-12-11 18:56:05,521]Worker[('localhost', 31706)]:INFO: Worker: update_attributes : find attributes to be updated in DB for  sub
+[2016-12-11 18:56:05,521]Client[('localhost', 29596)]:INFO: Client: A new Evaluation Request is created with req id:  1003
+[2016-12-11 18:56:05,521]Worker[('localhost', 31706)]:INFO: Worker: update_attributes : Attributes collected, will be sent to co ordinator to write on DB for sub
+[2016-12-11 18:56:05,521]Client[('localhost', 29596)]:INFO: Client: Forward policy evaluation request to First Coordinator for req id 1003
+[2016-12-11 18:56:05,521]Worker[('localhost', 31706)]:INFO: Worker: update_attributes : find attributes to be updated in DB for  res
+[2016-12-11 18:56:05,521]Worker[('localhost', 31706)]:INFO: Worker: update_attributes : Attributes collected, will be sent to co ordinator to write on DB for res
+[2016-12-11 18:56:05,522]Worker[('localhost', 31706)]:INFO: Worker: Policy Evaluation complete sending result  True  of read only request with id  1000  to client
+[2016-12-11 18:56:05,525]Client[('localhost', 29596)]:INFO: Client: received policy evaluation
+[2016-12-11 18:56:05,527]Worker[('localhost', 22428)]:INFO: Worker: update_attributes : find attributes to be updated in DB for  sub
+[2016-12-11 18:56:05,527]Worker[('localhost', 22428)]:INFO: Worker: update_attributes : Attributes collected, will be sent to co ordinator to write on DB for sub
+[2016-12-11 18:56:05,528]Worker[('localhost', 22428)]:INFO: Worker: update_attributes : find attributes to be updated in DB for  res
+[2016-12-11 18:56:05,528]Worker[('localhost', 22428)]:INFO: Worker: update_attributes : Attributes collected, will be sent to co ordinator to write on DB for res
+[2016-12-11 18:56:05,528]Worker[('localhost', 22428)]:INFO: Worker: Policy Evaluation complete sending result  True  of read only request with id  1002  to client
+[2016-12-11 18:56:05,530]Client[('localhost', 38832)]:INFO: Client: received policy evaluation
+[2016-12-11 18:56:05,530]Client[('localhost', 38832)]:INFO: Client: All Evaluation requests for this Client are over
+req created with id 1002
+Got policy evaluation result as True for req with req id:  1002
+[2016-12-11 18:56:05,536]Coordinator[('localhost', 35907)]:INFO: received msg in Coordinator handleReq  with req id 1003
+[2016-12-11 18:56:05,537]Coordinator[('localhost', 32930)]:INFO: received msg in Coordinator readAttr  with req id ,  1000
+[2016-12-11 18:56:05,564]Coordinator[('localhost', 34973)]:INFO: received msg in Coordinator handleReq  with req id 1003
+[2016-12-11 18:56:05,573]Coordinator[('localhost', 35907)]:INFO: received msg in Coordinator readAttr  with req id ,  1001
+[2016-12-11 18:56:05,576]Worker[('localhost', 24725)]:INFO: received req with id  1003 bank in worker to evaluate from local co-ordinator:  req_cord
+[2016-12-11 18:56:05,579]Worker[('localhost', 24725)]:INFO: Worker: update_attributes : find attributes to be updated in DB for  sub
+[2016-12-11 18:56:05,579]Worker[('localhost', 24725)]:INFO: Worker: update_attributes : Attributes collected, will be sent to co ordinator to write on DB for sub
+[2016-12-11 18:56:05,580]Worker[('localhost', 24725)]:INFO: Worker: update_attributes : find attributes to be updated in DB for  res
+[2016-12-11 18:56:05,580]Worker[('localhost', 24725)]:INFO: Worker: update_attributes : Attributes collected, will be sent to co ordinator to write on DB for res
+[2016-12-11 18:56:05,580]Worker[('localhost', 24725)]:INFO: Worker: Policy Evaluation complete sending result  True  of read only request with id  1003  to client
+[2016-12-11 18:56:05,595]Coordinator[('localhost', 35907)]:INFO: received msg in Coordinator readAttr  with req id ,  1001
+[2016-12-11 18:56:05,596]Client[('localhost', 29596)]:INFO: Client: received policy evaluation
+[2016-12-11 18:56:05,596]Client[('localhost', 29596)]:INFO: Client: All Evaluation requests for this Client are over
+[2016-12-11 18:56:05,596]Coordinator[('localhost', 35907)]:INFO: received msg in Coordinator readAttr  with req id ,  1000
+req created with id 1000
+req created with id 1003
+Got policy evaluation result as True for req with req id:  1000
+Got policy evaluation result as True for req with req id:  1003
+[2016-12-11 18:56:05,598]Coordinator[('localhost', 35907)]:INFO: received msg in Coordinator readAttr  with req id ,  1002
+[2016-12-11 18:56:05,601]Coordinator[('localhost', 35907)]:INFO: received msg in Coordinator readAttr  with req id ,  1002
+[2016-12-11 18:56:05,620]Coordinator[('localhost', 35907)]:INFO: received msg in Coordinator readAttr  with req id ,  1003
+[2016-12-11 18:56:05,622]Coordinator[('localhost', 35907)]:INFO: received msg in Coordinator readAttr  with req id ,  1003
