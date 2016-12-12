@@ -12,7 +12,7 @@ class Config:
         self.attr_file = attr_file
 
     def parse_conf_data(self, conf_data):
-        self.num_applications = int(conf_data["num_applications"])
+        self.num_client = int(conf_data["num_client"])
         self.num_coordinator = int(conf_data["num_coordinator"])
         self.num_workers = int(conf_data["num_workers"])
 
