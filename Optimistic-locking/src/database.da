@@ -1,0 +1,90 @@
+import sys, os, json
+
+config(clock='Lamport')
+config(channel='fifo')
+TIMEOUT = 1
+
+class Database(process):
+    def setup(data_file: str):
+        self.attributeStore = dict()
+        self.attributeStore["resources"] = dict()
+        self.attributeStore["subjects"] = dict()
+        # check error in loading pre init config file for the database
+        if loadConfig() == False:
+            sys.exit(-1)
+        # output(self.attributeStore)
+
+    def handleupdate(msg):
+        # need to write the received update to db..
+        output("Database: Database received write request to update attributes for Id:",msg.subj_id)
+        for k, v in msg.worker_attr.updated_attr_sub.items():
+            print("k and v are available")
+            if k in self.attributeStore["subjects"].get(msg.subj_id):
+                self.attributeStore["subjects"].get(msg.subj_id)[k] = v
+
+        for k, v in msg.worker_attr.updated_attr_res.items():
+            if k in self.attributeStore["resources"].get(msg.res_id):
+                self.attributeStore["resources"].get(msg.res_id)[k] = v
+        output("Database: Database write request completed for Id:",msg.subj_id)
+        
+
+    def handleQuery(msg):
+        # read msg query , fetch from dicts and send back a reply to the node which sent the query(how to get target node??)
+        output("Database: Received a query for :", msg.subj_id)
+        item = self.attributeStore["subjects"].get(msg.subj_id)
+        output("item in database is ", item)
+        if (item != None):
+            msg.db_attr.set_sub_attr(item)
+        item = self.attributeStore["resources"].get(msg.res_id)
+        if (item != None):
+            msg.db_attr.set_res_attr(item)
+        output("item in database is ", item)    
+        send(('reply_db_read', msg), to=msg.curr_worker)
+        output("Database : Message sent to worker back after database fetch")
+
+    def run():
+        while True:
+            #clk = logical_clock()
+            if (await(some(received(('req_db_read', msg))))):
+                pass
+                #print("database received a msg to read")
+                #handleQuery(msg)
+            elif (some(received(('req_db_write', msg)))):
+                pass
+                #print("database received a msg to write")
+                #handleupdate(msg)
+            elif timeout(TIMEOUT * 10):
+                pass
+
+    def receive(msg=(a, b)):
+        if a == "req_db_read":
+            handleQuery(b)
+        elif a == "req_db_write":
+            handleupdate(b)
+
+    def loadConfig():
+        if not os.path.exists(data_file):
+            output("Database: preInit Config file %s not found" % data_file)
+            return -1
+        try:
+            preConfigData = json.loads(open(data_file).read())
+            output("Database: Loading entries in JSon file to local memory to simulate DB")
+            for subjects in preConfigData.get("subjects"):
+                item = subjects.get("id")
+                self.attributeStore["subjects"][item] = dict()
+                for k, v in subjects.items():
+                    if k != "id":
+                        self.attributeStore["subjects"][item][k] = v
+
+            for resources in preConfigData.get("resources"):
+                item = resources.get("id")
+                self.attributeStore["resources"][item] = dict()
+                for k, v in resources.items():
+                    if k != "id":
+                        self.attributeStore["resources"][item][k] = v
+            output("Loading Datasbe entries in JSon file complete, DB Simulator Ready")
+            return True
+
+        except:
+            output("Database: Json file not in correct syntax")
+            return False

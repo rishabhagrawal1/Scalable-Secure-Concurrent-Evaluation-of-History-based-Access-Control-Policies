@@ -1,0 +1,1188 @@
+[2016-10-17 07:05:53,506]da.api:INFO: Running iteration 1 ...
+[2016-10-17 07:05:53,508]runtime.TcpEndPoint(localhost_16041):DEBUG: TcpEndPoint ('localhost', 16041) initialization complete
+[2016-10-17 07:05:53,551]da.api:DEBUG: Current process is ('localhost', 16041)
+[2016-10-17 07:05:53,551]da.api:DEBUG: Creating 1 instances of <class 'main.Main'>..
+[2016-10-17 07:05:53,557]da.api:DEBUG: 1 instances of Main created.
+[2016-10-17 07:05:53,560]runtime.TcpEndPoint(localhost_15821):DEBUG: TcpEndPoint ('localhost', 15821) initialization complete
+[2016-10-17 07:05:53,562]Main[('localhost', 15821)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:53,564]Main[('localhost', 15821)]:DEBUG: Running setup..
+[2016-10-17 07:05:53,564]da.api:DEBUG: Starting ('localhost', 15821)...
+[2016-10-17 07:05:53,565]Main[('localhost', 15821)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:53,568]da.api:INFO: Terminating...
+[2016-10-17 07:05:53,585]da.api:DEBUG: Current process is ('localhost', 15821)
+[2016-10-17 07:05:53,585]da.api:DEBUG: Creating 3 instances of <class 'coordinator.Coordinator'>..
+[2016-10-17 07:05:53,592]da.api:DEBUG: 3 instances of Coordinator created.
+[2016-10-17 07:05:53,594]runtime.TcpEndPoint(localhost_31200):DEBUG: TcpEndPoint ('localhost', 31200) initialization complete
+[2016-10-17 07:05:53,600]runtime.TcpEndPoint(localhost_14082):DEBUG: TcpEndPoint ('localhost', 14082) initialization complete
+[2016-10-17 07:05:53,603]runtime.TcpEndPoint(localhost_15298):DEBUG: TcpEndPoint ('localhost', 15298) initialization complete
+[2016-10-17 07:05:53,605]Coordinator[('localhost', 14082)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:53,606]Coordinator[('localhost', 15298)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:53,606]Coordinator[('localhost', 31200)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:53,609]da.api:DEBUG: Current process is ('localhost', 15821)
+[2016-10-17 07:05:53,609]da.api:DEBUG: Creating 1 instances of <class 'database.Database'>..
+[2016-10-17 07:05:53,616]runtime.TcpEndPoint(localhost_30296):DEBUG: TcpEndPoint ('localhost', 30296) initialization complete
+[2016-10-17 07:05:53,612]da.api:DEBUG: 1 instances of Database created.
+[2016-10-17 07:05:53,617]Database[('localhost', 30296)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:53,619]da.api:DEBUG: Current process is ('localhost', 15821)
+[2016-10-17 07:05:53,619]da.api:DEBUG: Creating 3 instances of <class 'application.Application'>..
+[2016-10-17 07:05:53,626]da.api:DEBUG: 3 instances of Application created.
+[2016-10-17 07:05:53,627]runtime.TcpEndPoint(localhost_22719):DEBUG: TcpEndPoint ('localhost', 22719) initialization complete
+[2016-10-17 07:05:53,631]Application[('localhost', 22719)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:53,632]runtime.TcpEndPoint(localhost_29940):DEBUG: TcpEndPoint ('localhost', 29940) initialization complete
+[2016-10-17 07:05:53,633]Application[('localhost', 29940)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:53,634]runtime.TcpEndPoint(localhost_13592):DEBUG: TcpEndPoint ('localhost', 13592) initialization complete
+[2016-10-17 07:05:53,635]Application[('localhost', 13592)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:53,637]Application[('localhost', 29940)]:DEBUG: Running setup..
+[2016-10-17 07:05:53,638]Application[('localhost', 22719)]:DEBUG: Running setup..
+[2016-10-17 07:05:53,639]Application[('localhost', 22719)]:INFO: Application:  Application Setup in done
+[2016-10-17 07:05:53,638]Application[('localhost', 29940)]:INFO: Application:  Application Setup in done
+[2016-10-17 07:05:53,640]Coordinator[('localhost', 31200)]:DEBUG: Running setup..
+[2016-10-17 07:05:53,641]Coordinator[('localhost', 15298)]:DEBUG: Running setup..
+[2016-10-17 07:05:53,639]Coordinator[('localhost', 14082)]:DEBUG: Running setup..
+[2016-10-17 07:05:53,642]Application[('localhost', 13592)]:DEBUG: Running setup..
+[2016-10-17 07:05:53,642]da.api:DEBUG: Current process is ('localhost', 31200)
+[2016-10-17 07:05:53,643]da.api:DEBUG: Current process is ('localhost', 15298)
+[2016-10-17 07:05:53,642]da.api:DEBUG: Current process is ('localhost', 14082)
+[2016-10-17 07:05:53,644]da.api:DEBUG: Creating 1 instances of <class 'worker.Worker'>..
+[2016-10-17 07:05:53,644]da.api:DEBUG: Creating 1 instances of <class 'worker.Worker'>..
+[2016-10-17 07:05:53,645]da.api:DEBUG: Creating 1 instances of <class 'worker.Worker'>..
+[2016-10-17 07:05:53,642]Application[('localhost', 13592)]:INFO: Application:  Application Setup in done
+[2016-10-17 07:05:53,651]Database[('localhost', 30296)]:DEBUG: Running setup..
+[2016-10-17 07:05:53,653]Database[('localhost', 30296)]:INFO: Database: Loading entries in JSon file to local memory to simulate DB
+[2016-10-17 07:05:53,653]Database[('localhost', 30296)]:INFO: Loading Datasbe entries in JSon file complete, DB Simulator Ready
+[2016-10-17 07:05:53,654]da.api:DEBUG: Starting {<Application('localhost', 13592)>, <Application('localhost', 29940)>, <Application('localhost', 22719)>}...
+[2016-10-17 07:05:53,656]da.api:DEBUG: 1 instances of Worker created.
+[2016-10-17 07:05:53,657]Application[('localhost', 13592)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:53,658]Application[('localhost', 29940)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:53,658]da.api:DEBUG: Starting {<Coordinator('localhost', 14082)>, <Coordinator('localhost', 31200)>, <Coordinator('localhost', 15298)>}...
+[2016-10-17 07:05:53,659]Application[('localhost', 22719)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:53,660]da.api:DEBUG: Starting {<Database('localhost', 30296)>}...
+[2016-10-17 07:05:53,659]Application[('localhost', 22719)]:INFO: Application:  Application started
+[2016-10-17 07:05:53,658]da.api:DEBUG: 1 instances of Worker created.
+[2016-10-17 07:05:53,659]Application[('localhost', 29940)]:INFO: Application:  Application started
+[2016-10-17 07:05:53,661]Database[('localhost', 30296)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:53,658]Application[('localhost', 13592)]:INFO: Application:  Application started
+[2016-10-17 07:05:53,647]da.api:DEBUG: 1 instances of Worker created.
+[2016-10-17 07:05:53,677]runtime.TcpEndPoint(localhost_34723):DEBUG: TcpEndPoint ('localhost', 34723) initialization complete
+[2016-10-17 07:05:53,671]runtime.TcpEndPoint(localhost_39665):DEBUG: TcpEndPoint ('localhost', 39665) initialization complete
+[2016-10-17 07:05:53,681]runtime.TcpEndPoint(localhost_20960):DEBUG: TcpEndPoint ('localhost', 20960) initialization complete
+[2016-10-17 07:05:53,683]Worker[('localhost', 34723)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:53,684]da.api:DEBUG: Starting {<Worker('localhost', 34723)>}...
+[2016-10-17 07:05:53,685]Coordinator[('localhost', 31200)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:53,686]Worker[('localhost', 34723)]:DEBUG: Running setup..
+[2016-10-17 07:05:53,686]Worker[('localhost', 34723)]:INFO: Worker: Steup Done
+[2016-10-17 07:05:53,687]Worker[('localhost', 34723)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:53,686]Worker[('localhost', 20960)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:53,687]Worker[('localhost', 34723)]:INFO:  Worker Thread start 
+[2016-10-17 07:05:53,688]Worker[('localhost', 39665)]:DEBUG: Sending id to parent...
+[2016-10-17 07:05:53,689]da.api:DEBUG: Starting {<Worker('localhost', 20960)>}...
+[2016-10-17 07:05:53,690]Coordinator[('localhost', 14082)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:53,692]da.api:DEBUG: Starting {<Worker('localhost', 39665)>}...
+[2016-10-17 07:05:53,692]Worker[('localhost', 20960)]:DEBUG: Running setup..
+[2016-10-17 07:05:53,693]Worker[('localhost', 20960)]:INFO: Worker: Steup Done
+[2016-10-17 07:05:53,693]Coordinator[('localhost', 15298)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:53,694]Worker[('localhost', 20960)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:53,696]Worker[('localhost', 39665)]:DEBUG: Running setup..
+[2016-10-17 07:05:53,697]Worker[('localhost', 20960)]:INFO:  Worker Thread start 
+[2016-10-17 07:05:53,697]Worker[('localhost', 39665)]:INFO: Worker: Steup Done
+[2016-10-17 07:05:53,698]Worker[('localhost', 39665)]:DEBUG: 'start' command received, commencing...
+[2016-10-17 07:05:53,698]Worker[('localhost', 39665)]:INFO:  Worker Thread start 
+[2016-10-17 07:05:54,662]Application[('localhost', 22719)]:INFO: Application: Application fetches next policy evaluation request #: 2
+[2016-10-17 07:05:54,662]Application[('localhost', 22719)]:INFO: Application: Fetching Next Request to evaluate policy ,from Config
+[2016-10-17 07:05:54,663]Application[('localhost', 22719)]:INFO: Application: A new Evaluation Request is created with msgId:  1002
+[2016-10-17 07:05:54,663]Application[('localhost', 22719)]:INFO: Application coord list is this <class 'message.DrmMessage'>
+[2016-10-17 07:05:54,664]Application[('localhost', 13592)]:INFO: Application: Application fetches next policy evaluation request #: 0
+[2016-10-17 07:05:54,664]Application[('localhost', 29940)]:INFO: Application: Application fetches next policy evaluation request #: 1
+[2016-10-17 07:05:54,665]Application[('localhost', 13592)]:INFO: Application: Fetching Next Request to evaluate policy ,from Config
+[2016-10-17 07:05:54,668]Application[('localhost', 13592)]:INFO: Application: A new Evaluation Request is created with msgId:  1000
+[2016-10-17 07:05:54,669]Application[('localhost', 13592)]:INFO: Application coord list is this <class 'message.DrmMessage'>
+[2016-10-17 07:05:54,671]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e699e8b70>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,672]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:1 to:None from:<Application('localhost', 22719)> msg:('req_app', <message.DrmMessage object at 0x7f4e699ea780>)>
+[2016-10-17 07:05:54,675]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:54,665]Application[('localhost', 29940)]:INFO: Application: Fetching Next Request to evaluate policy ,from Config
+[2016-10-17 07:05:54,729]Application[('localhost', 29940)]:INFO: Application: A new Evaluation Request is created with msgId:  1001
+[2016-10-17 07:05:54,729]Application[('localhost', 29940)]:INFO: Application coord list is this <class 'message.DrmMessage'>
+[2016-10-17 07:05:54,734]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e699e8f60>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,734]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e699ea978>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,735]Application[('localhost', 29940)]:DEBUG: triggering event <SentEvent time:1 to:<Coordinator('localhost', 14082)> from:<Application('localhost', 29940)> msg:('req_app', <message.DrmMessage object at 0x7f4e699e82e8>)>
+[2016-10-17 07:05:54,736]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:3 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e699c5400>)>
+[2016-10-17 07:05:54,737]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,741]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e699e8d68>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,741]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,741]Application[('localhost', 29940)]:INFO: Application: Application: Forward policy evaluation request to Subject Co ordinator
+[2016-10-17 07:05:54,742]Application[('localhost', 13592)]:DEBUG: triggering event <SentEvent time:1 to:<Coordinator('localhost', 14082)> from:<Application('localhost', 13592)> msg:('req_app', <message.DrmMessage object at 0x7f4e699dfba8>)>
+[2016-10-17 07:05:54,744]Application[('localhost', 22719)]:DEBUG: triggering event <SentEvent time:1 to:<Coordinator('localhost', 14082)> from:<Application('localhost', 22719)> msg:('req_app', <message.DrmMessage object at 0x7f4e699e8cc0>)>
+[2016-10-17 07:05:54,755]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:3 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e699eaac8>)>
+[2016-10-17 07:05:54,759]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,759]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,760]Application[('localhost', 13592)]:INFO: Application: Application: Forward policy evaluation request to Subject Co ordinator
+[2016-10-17 07:05:54,760]Application[('localhost', 22719)]:INFO: Application: Application: Forward policy evaluation request to Subject Co ordinator
+[2016-10-17 07:05:54,763]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e699c5358>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:54,763]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:5 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e699eaa58>)>
+[2016-10-17 07:05:54,765]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:5 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e699c5400>)>
+[2016-10-17 07:05:54,766]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,767]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:1 to:None from:<Application('localhost', 13592)> msg:('req_app', <message.DrmMessage object at 0x7f4e699c5438>)>
+[2016-10-17 07:05:54,770]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:54,773]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e699c5668>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,774]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:7 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e699c54a8>)>
+[2016-10-17 07:05:54,775]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,770]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:54,775]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:1 to:None from:<Application('localhost', 29940)> msg:('req_app', <message.DrmMessage object at 0x7f4e699c56a0>)>
+[2016-10-17 07:05:54,782]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:54,783]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e699c5400>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,785]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:7 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699e85c0>)>
+[2016-10-17 07:05:54,785]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:9 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e699c5668>)>
+[2016-10-17 07:05:54,787]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:54,787]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:54,788]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '5'}
+[2016-10-17 07:05:54,789]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,792]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:7 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6b52d048>)>
+[2016-10-17 07:05:54,793]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e699e8898>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:54,795]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e699c5400>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:54,797]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e699c5400>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:54,796]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:11 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6b52d668>)>
+[2016-10-17 07:05:54,798]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,798]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:7 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e6b52d048>)>
+[2016-10-17 07:05:54,798]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:9 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6b52d358>)>
+[2016-10-17 07:05:54,802]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e699c5668>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:54,802]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,802]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:9 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699c5780>)>
+[2016-10-17 07:05:54,803]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:13 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6b52d080>)>
+[2016-10-17 07:05:54,805]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:9 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699dfba8>)>
+[2016-10-17 07:05:54,804]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:54,806]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:54,806]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:54,808]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,807]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:54,808]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:54,813]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,818]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:54,842]Application[('localhost', 29940)]:INFO: Application: Application fetches next policy evaluation request #: 4
+[2016-10-17 07:05:54,842]Application[('localhost', 29940)]:INFO: Application: Fetching Next Request to evaluate policy ,from Config
+[2016-10-17 07:05:54,843]Application[('localhost', 29940)]:INFO: Application: A new Evaluation Request is created with msgId:  1004
+[2016-10-17 07:05:54,843]Application[('localhost', 29940)]:INFO: Application coord list is this <class 'message.DrmMessage'>
+[2016-10-17 07:05:54,844]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e699e8f28>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,841]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:54,844]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:54,845]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:54,846]Application[('localhost', 29940)]:DEBUG: triggering event <SentEvent time:2 to:<Coordinator('localhost', 14082)> from:<Application('localhost', 29940)> msg:('req_app', <message.DrmMessage object at 0x7f4e699e82e8>)>
+[2016-10-17 07:05:54,845]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:54,847]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator True
+[2016-10-17 07:05:54,848]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e699c54e0>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,849]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,849]Application[('localhost', 29940)]:INFO: Application: Application: Forward policy evaluation request to Subject Co ordinator
+[2016-10-17 07:05:54,850]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:11 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6b52a828>)>
+[2016-10-17 07:05:54,851]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,851]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:11 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e699c5278>)>
+[2016-10-17 07:05:54,859]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:2 to:None from:<Application('localhost', 29940)> msg:('req_app', <message.DrmMessage object at 0x7f4e6b52d668>)>
+[2016-10-17 07:05:54,862]Application[('localhost', 22719)]:INFO: Application: Application fetches next policy evaluation request #: 5
+[2016-10-17 07:05:54,862]Application[('localhost', 13592)]:INFO: Application: Application fetches next policy evaluation request #: 3
+[2016-10-17 07:05:54,864]Application[('localhost', 22719)]:INFO: Application: Fetching Next Request to evaluate policy ,from Config
+[2016-10-17 07:05:54,864]Application[('localhost', 13592)]:INFO: Application: Fetching Next Request to evaluate policy ,from Config
+[2016-10-17 07:05:54,865]Application[('localhost', 22719)]:INFO: Application: A new Evaluation Request is created with msgId:  1005
+[2016-10-17 07:05:54,866]Application[('localhost', 13592)]:INFO: Application: A new Evaluation Request is created with msgId:  1003
+[2016-10-17 07:05:54,867]Application[('localhost', 22719)]:INFO: Application coord list is this <class 'message.DrmMessage'>
+[2016-10-17 07:05:54,879]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e699df6a0>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,877]Application[('localhost', 13592)]:INFO: Application coord list is this <class 'message.DrmMessage'>
+[2016-10-17 07:05:54,885]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e699dfeb8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,886]Application[('localhost', 22719)]:DEBUG: triggering event <SentEvent time:2 to:<Coordinator('localhost', 14082)> from:<Application('localhost', 22719)> msg:('req_app', <message.DrmMessage object at 0x7f4e699c5400>)>
+[2016-10-17 07:05:54,888]Application[('localhost', 13592)]:DEBUG: triggering event <SentEvent time:2 to:<Coordinator('localhost', 14082)> from:<Application('localhost', 13592)> msg:('req_app', <message.DrmMessage object at 0x7f4e699c5438>)>
+[2016-10-17 07:05:54,889]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,889]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,890]Application[('localhost', 22719)]:INFO: Application: Application: Forward policy evaluation request to Subject Co ordinator
+[2016-10-17 07:05:54,891]Application[('localhost', 13592)]:INFO: Application: Application: Forward policy evaluation request to Subject Co ordinator
+[2016-10-17 07:05:54,860]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:54,893]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e699eadd8>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:54,893]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:54,902]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:13 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e6b52d2b0>)>
+[2016-10-17 07:05:54,904]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,904]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:13 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6b52d128>)>
+[2016-10-17 07:05:54,905]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e699ea908>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,905]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:13 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699c54a8>)>
+[2016-10-17 07:05:54,906]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:16 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6a279668>)>
+[2016-10-17 07:05:54,909]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,910]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:11 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6b52d710>)>
+[2016-10-17 07:05:54,909]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:54,909]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:54,913]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e6b52d048>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:54,912]Coordinator[('localhost', 14082)]:INFO: Coordinator: store tentative updates to tentative list 
+[2016-10-17 07:05:54,912]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:54,918]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e699eacc0>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,917]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '5'}
+[2016-10-17 07:05:54,919]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e699c55c0>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:54,920]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:15 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e6b52d2b0>)>
+[2016-10-17 07:05:54,921]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:18 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e699ea908>)>
+[2016-10-17 07:05:54,922]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,922]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:15 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699c5320>)>
+[2016-10-17 07:05:54,923]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:15 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699eabe0>)>
+[2016-10-17 07:05:54,925]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,927]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,927]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:54,928]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:2 to:None from:<Application('localhost', 22719)> msg:('req_app', <message.DrmMessage object at 0x7f4e699ead30>)>
+[2016-10-17 07:05:54,929]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:54,929]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:15 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699c5470>)>
+[2016-10-17 07:05:54,928]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:54,934]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:54,935]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e6b52a4a8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,936]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:21 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6b52aa90>)>
+[2016-10-17 07:05:54,937]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,938]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:2 to:None from:<Application('localhost', 13592)> msg:('req_app', <message.DrmMessage object at 0x7f4e699eada0>)>
+[2016-10-17 07:05:54,939]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:54,941]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e6b52aa90>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,942]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:23 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6a279668>)>
+[2016-10-17 07:05:54,942]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,943]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:16 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e699f1080>)>
+[2016-10-17 07:05:54,944]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:54,946]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:54,947]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e699ea6a0>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:54,948]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:25 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6a279668>)>
+[2016-10-17 07:05:54,948]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,945]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:54,953]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:54,952]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:54,946]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:54,954]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '5'}
+[2016-10-17 07:05:54,955]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e699c55c0>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:54,956]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:18 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e699f12e8>)>
+[2016-10-17 07:05:54,959]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:54,960]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:54,964]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:54,965]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:17 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699df6a0>)>
+[2016-10-17 07:05:54,965]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:54,965]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,966]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:54,966]Coordinator[('localhost', 14082)]:INFO: send cached updates and verified resource attributes
+[2016-10-17 07:05:54,966]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator True
+[2016-10-17 07:05:54,971]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e6b52d048>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,973]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_res', <message.DrmMessage object at 0x7f4e699eaf98>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,974]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:28 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e699ea6a0>)>
+[2016-10-17 07:05:54,973]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:17 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e699f1828>)>
+[2016-10-17 07:05:54,975]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,977]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:54,978]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:25 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e699eaef0>)>
+[2016-10-17 07:05:54,979]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:54,980]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:54,985]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e699c5470>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:54,987]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:27 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e6b52d2b0>)>
+[2016-10-17 07:05:54,987]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:54,988]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:17 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699f1668>)>
+[2016-10-17 07:05:54,988]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:21 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e699f11d0>)>
+[2016-10-17 07:05:54,989]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:54,994]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:54,995]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:54,996]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:55,001]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:55,002]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:55,003]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:55,003]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:55,002]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e6b52a400>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:55,005]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:27 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699c5898>)>
+[2016-10-17 07:05:55,004]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator True
+[2016-10-17 07:05:55,007]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e699c52b0>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,007]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:31 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e699eae80>)>
+[2016-10-17 07:05:55,009]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,009]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:29 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e699ea8d0>)>
+[2016-10-17 07:05:55,010]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:55,010]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:23 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e699f19b0>)>
+[2016-10-17 07:05:55,011]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:55,011]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,012]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:31 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e699f1a20>)>
+[2016-10-17 07:05:55,012]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '5'}
+[2016-10-17 07:05:55,017]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e699ea908>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:55,017]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e6b52d1d0>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:55,014]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:55,024]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e699df6a0>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:55,025]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:33 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e6b52d2b0>)>
+[2016-10-17 07:05:55,026]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:29 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699c5668>)>
+[2016-10-17 07:05:55,027]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,019]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:33 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6b52a400>)>
+[2016-10-17 07:05:55,028]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:55,028]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,029]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:17 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e699f1b00>)>
+[2016-10-17 07:05:55,031]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,031]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:33 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e699c5470>)>
+[2016-10-17 07:05:55,033]Coordinator[('localhost', 14082)]:INFO: Coordinator: store tentative updates to tentative list 
+[2016-10-17 07:05:55,035]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e699eaf98>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,036]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:35 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e699ea908>)>
+[2016-10-17 07:05:55,028]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:33 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e6b52a780>)>
+[2016-10-17 07:05:55,035]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:55,039]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e6b52d2b0>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:55,039]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:35 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699df6a0>)>
+[2016-10-17 07:05:55,041]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,042]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:28 to:None from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e699f1320>)>
+[2016-10-17 07:05:55,043]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,039]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:55,044]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:29 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699eae48>)>
+[2016-10-17 07:05:55,044]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:55,045]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '5'}
+[2016-10-17 07:05:55,046]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:55,046]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e699c52b0>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:55,052]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:35 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699c5780>)>
+[2016-10-17 07:05:55,053]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,055]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:55,057]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:55,057]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:35 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e6b52ad68>)>
+[2016-10-17 07:05:55,057]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:55,059]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:55,059]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:55,061]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:55,061]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:55,062]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '5'}
+[2016-10-17 07:05:55,062]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:55,064]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:55,065]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e699c5668>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:55,066]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:37 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e6a8c7cc0>)>
+[2016-10-17 07:05:55,067]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,064]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:55,067]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator True
+[2016-10-17 07:05:55,069]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e6b52d2b0>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,070]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:37 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cda95f8>)>
+[2016-10-17 07:05:55,067]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:55,080]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,081]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:35 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e6b52ae10>)>
+[2016-10-17 07:05:55,082]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:55,082]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:55,083]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:55,083]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:55,085]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:55,085]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:55,085]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:55,086]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:55,086]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator True
+[2016-10-17 07:05:55,087]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e699df6a0>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,089]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:39 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cda9080>)>
+[2016-10-17 07:05:55,092]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,093]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:37 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e6cda9438>)>
+[2016-10-17 07:05:55,094]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:55,104]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:55,105]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:55,105]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:55,106]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:55,107]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:55,107]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:55,107]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:55,108]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator True
+[2016-10-17 07:05:55,109]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e6b52d2b0>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,110]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:41 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cda9080>)>
+[2016-10-17 07:05:55,110]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,115]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_write', <message.DrmMessage object at 0x7f4e699f15f8>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:55,116]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:37 to:{<Database('localhost', 30296)>} from:<Coordinator('localhost', 14082)> msg:('req_db_write', <message.DrmMessage object at 0x7f4e6cdaa2e8>)>
+[2016-10-17 07:05:55,116]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,118]Application[('localhost', 22719)]:DEBUG: triggering event <ReceivedEvent time:38 to:None from:<Coordinator('localhost', 14082)> msg:('result_sub', <message.DrmMessage object at 0x7f4e699dfeb8>)>
+[2016-10-17 07:05:55,121]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('result_sub', <message.DrmMessage object at 0x7f4e699f15f8>) to <Application('localhost', 22719)>.
+[2016-10-17 07:05:55,129]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:38 to:<Application('localhost', 22719)> from:<Coordinator('localhost', 14082)> msg:('result_sub', <message.DrmMessage object at 0x7f4e6cdaa2e8>)>
+[2016-10-17 07:05:55,130]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,131]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:37 to:None from:<Coordinator('localhost', 14082)> msg:('req_db_write', <message.DrmMessage object at 0x7f4e699c5390>)>
+[2016-10-17 07:05:55,131]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:55,132]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:55,138]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:29 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e699f42b0>)>
+[2016-10-17 07:05:55,132]Database[('localhost', 30296)]:INFO: Database: Database received write request to update attributes for Id: Movie_customer2
+[2016-10-17 07:05:55,144]Database[('localhost', 30296)]:INFO: Database: Database write request completed for Id: Movie_customer2
+[2016-10-17 07:05:55,152]Coordinator[('localhost', 14082)]:INFO: Coordinator: store tentative updates to tentative list 
+[2016-10-17 07:05:55,155]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e699f42e8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,159]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:42 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e699f4278>)>
+[2016-10-17 07:05:55,169]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,170]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:55,171]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:55,172]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:35 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e699f18d0>)>
+[2016-10-17 07:05:55,183]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e6b52a400>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,184]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:46 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e699c54a8>)>
+[2016-10-17 07:05:55,185]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,192]Coordinator[('localhost', 14082)]:INFO: send cached updates and verified resource attributes
+[2016-10-17 07:05:55,193]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_res', <message.DrmMessage object at 0x7f4e6b52a400>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,194]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:47 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e699f15f8>)>
+[2016-10-17 07:05:55,195]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,195]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:55,196]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:37 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e699f4860>)>
+[2016-10-17 07:05:55,200]Coordinator[('localhost', 14082)]:INFO: Coordinator: store tentative updates to tentative list 
+[2016-10-17 07:05:55,202]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e699ea908>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,203]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:50 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6b52a400>)>
+[2016-10-17 07:05:55,212]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,213]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:55,214]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:39 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e699f49b0>)>
+[2016-10-17 07:05:55,223]Coordinator[('localhost', 14082)]:INFO: Coordinator: store tentative updates to tentative list 
+[2016-10-17 07:05:55,225]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e699f16d8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,226]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:53 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e699f1390>)>
+[2016-10-17 07:05:55,232]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,232]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:55,233]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:41 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e699f4ac8>)>
+[2016-10-17 07:05:55,241]Coordinator[('localhost', 14082)]:INFO: Coordinator: store tentative updates to tentative list 
+[2016-10-17 07:05:55,249]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e699ea908>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,250]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:56 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e699ea6a0>)>
+[2016-10-17 07:05:55,259]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,260]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:55,261]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:42 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e699eaf98>)>
+[2016-10-17 07:05:55,272]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e699f16d8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,273]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:59 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e699f1390>)>
+[2016-10-17 07:05:55,284]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,285]Coordinator[('localhost', 14082)]:INFO: send cached updates and verified resource attributes
+[2016-10-17 07:05:55,290]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_res', <message.DrmMessage object at 0x7f4e699f16d8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,291]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:60 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e699eae80>)>
+[2016-10-17 07:05:55,292]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,292]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:46 to:None from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e699f45f8>)>
+[2016-10-17 07:05:55,293]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:55,310]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e699ea6a0>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,311]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:62 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6b52a400>)>
+[2016-10-17 07:05:55,320]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,321]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:47 to:None from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdaa668>)>
+[2016-10-17 07:05:55,329]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:50 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e699f15f8>)>
+[2016-10-17 07:05:55,341]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e699ea908>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,351]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:65 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e699f1390>)>
+[2016-10-17 07:05:55,351]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,352]Coordinator[('localhost', 14082)]:INFO: send cached updates and verified resource attributes
+[2016-10-17 07:05:55,357]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_res', <message.DrmMessage object at 0x7f4e699ea908>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,358]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:66 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e699ea6a0>)>
+[2016-10-17 07:05:55,359]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,359]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:53 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e699f4cc0>)>
+[2016-10-17 07:05:55,374]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e699f4278>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,375]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:68 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6a279668>)>
+[2016-10-17 07:05:55,384]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,385]Coordinator[('localhost', 14082)]:INFO: send cached updates and verified resource attributes
+[2016-10-17 07:05:55,391]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_res', <message.DrmMessage object at 0x7f4e699f4278>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,396]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:69 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e699eae80>)>
+[2016-10-17 07:05:55,400]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,401]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:56 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e699f4f60>)>
+[2016-10-17 07:05:55,414]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e699f1390>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,417]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:71 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e699f4278>)>
+[2016-10-17 07:05:55,425]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,425]Coordinator[('localhost', 14082)]:INFO: send cached updates and verified resource attributes
+[2016-10-17 07:05:55,426]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_res', <message.DrmMessage object at 0x7f4e699f1390>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,427]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:72 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e699ea6a0>)>
+[2016-10-17 07:05:55,439]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,441]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:59 to:None from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e699f4ef0>)>
+[2016-10-17 07:05:55,446]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:55,456]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e699f1390>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,461]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:74 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdaaf98>)>
+[2016-10-17 07:05:55,468]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,469]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:60 to:None from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdae048>)>
+[2016-10-17 07:05:55,479]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:62 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdae400>)>
+[2016-10-17 07:05:55,491]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e699f16d8>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:55,492]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:77 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6cdae3c8>)>
+[2016-10-17 07:05:55,496]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:77 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e699f1e80>)>
+[2016-10-17 07:05:55,496]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,505]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:65 to:None from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdae5f8>)>
+[2016-10-17 07:05:55,506]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:55,508]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e699f11d0>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:55,507]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:55,513]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e6cdaaf98>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,514]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:79 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e699f16d8>)>
+[2016-10-17 07:05:55,515]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:79 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699f1da0>)>
+[2016-10-17 07:05:55,516]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,519]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,529]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:66 to:None from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdae898>)>
+[2016-10-17 07:05:55,538]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:68 to:None from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdaeb00>)>
+[2016-10-17 07:05:55,543]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:55,547]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e6cdaaf98>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,550]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:82 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e699f1f98>)>
+[2016-10-17 07:05:55,554]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:79 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699df6a0>)>
+[2016-10-17 07:05:55,555]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:55,557]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,556]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:55,558]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:69 to:None from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdaed68>)>
+[2016-10-17 07:05:55,558]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '4'}
+[2016-10-17 07:05:55,561]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e6b52a668>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:55,562]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:81 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e6b52a4a8>)>
+[2016-10-17 07:05:55,563]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,565]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:55,572]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:81 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699f1358>)>
+[2016-10-17 07:05:55,577]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:55,581]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:55,581]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:71 to:None from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdae7f0>)>
+[2016-10-17 07:05:55,581]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:55,585]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:55,586]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:55,586]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:55,587]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:55,587]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:55,589]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator True
+[2016-10-17 07:05:55,592]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e699f1ef0>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,593]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:83 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e699f1fd0>)>
+[2016-10-17 07:05:55,588]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:55,601]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,605]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e6cdaeac8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,607]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:85 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e699f1f98>)>
+[2016-10-17 07:05:55,608]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,610]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:72 to:None from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdb1278>)>
+[2016-10-17 07:05:55,613]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:74 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdb14e0>)>
+[2016-10-17 07:05:55,625]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e6cdae3c8>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:55,627]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:88 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6cdb14a8>)>
+[2016-10-17 07:05:55,628]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,628]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:79 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdb16d8>)>
+[2016-10-17 07:05:55,637]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:88 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e699f15f8>)>
+[2016-10-17 07:05:55,643]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e6cdb14a8>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:55,644]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:90 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e699f4278>)>
+[2016-10-17 07:05:55,639]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:55,647]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e6b52aeb8>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:55,653]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:90 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699df6a0>)>
+[2016-10-17 07:05:55,654]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,655]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:55,655]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:90 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699c5780>)>
+[2016-10-17 07:05:55,655]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:82 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdb1a20>)>
+[2016-10-17 07:05:55,660]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,660]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:90 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6cda99b0>)>
+[2016-10-17 07:05:55,660]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:55,661]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:55,662]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '4'}
+[2016-10-17 07:05:55,672]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e699e8e10>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:55,673]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:92 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e6b52a668>)>
+[2016-10-17 07:05:55,674]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,674]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:55,662]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:55,680]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e699f4278>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:55,681]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:93 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6cdaecf8>)>
+[2016-10-17 07:05:55,685]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e699f1ef0>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:55,686]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:92 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e6cda9cc0>)>
+[2016-10-17 07:05:55,691]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:92 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699e8be0>)>
+[2016-10-17 07:05:55,692]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,693]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,694]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:92 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e6cda99e8>)>
+[2016-10-17 07:05:55,696]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:83 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cdb1cf8>)>
+[2016-10-17 07:05:55,696]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:55,704]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:55,695]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:55,704]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '4'}
+[2016-10-17 07:05:55,705]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:55,708]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e699e8f98>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:55,707]Coordinator[('localhost', 14082)]:INFO: Coordinator: store tentative updates to tentative list 
+[2016-10-17 07:05:55,708]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:55,710]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:55,712]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdaeac8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,713]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:95 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdaef98>)>
+[2016-10-17 07:05:55,714]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:94 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e6b52a828>)>
+[2016-10-17 07:05:55,725]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,724]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:55,727]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,727]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:85 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdb1ba8>)>
+[2016-10-17 07:05:55,725]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:55,726]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:55,730]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:55,733]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:55,739]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator True
+[2016-10-17 07:05:55,745]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e6cdb1550>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:55,746]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:97 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6cdb1940>)>
+[2016-10-17 07:05:55,746]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e699ea8d0>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,747]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:94 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cda9e10>)>
+[2016-10-17 07:05:55,754]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,755]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:55,756]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,756]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:93 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6cda9400>)>
+[2016-10-17 07:05:55,761]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:55,759]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:55,765]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:55,766]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:95 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdb19b0>)>
+[2016-10-17 07:05:55,771]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e699f1ef0>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:55,773]Coordinator[('localhost', 14082)]:INFO: send cached updates and verified resource attributes
+[2016-10-17 07:05:55,772]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:96 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699ea8d0>)>
+[2016-10-17 07:05:55,774]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_res', <message.DrmMessage object at 0x7f4e699f4278>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,775]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,777]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:102 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e699f1f98>)>
+[2016-10-17 07:05:55,778]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,779]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:94 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e699eae80>)>
+[2016-10-17 07:05:55,780]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:94 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e6cda9ac8>)>
+[2016-10-17 07:05:55,792]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:96 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699e8a58>)>
+[2016-10-17 07:05:55,795]Coordinator[('localhost', 14082)]:INFO: Coordinator: store tentative updates to tentative list 
+[2016-10-17 07:05:55,797]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdae828>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,798]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:104 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e699f4278>)>
+[2016-10-17 07:05:55,804]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,805]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:55,781]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:55,807]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:102 to:None from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdb77f0>)>
+[2016-10-17 07:05:55,793]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:55,807]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:55,809]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:55,816]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:55,828]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:55,828]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:55,829]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:55,808]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:55,830]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:55,832]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '4'}
+[2016-10-17 07:05:55,832]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator True
+[2016-10-17 07:05:55,834]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e6b52ad68>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,835]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e699e8eb8>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:55,836]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:98 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e699f30f0>)>
+[2016-10-17 07:05:55,838]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:98 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699e8a20>)>
+[2016-10-17 07:05:55,839]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,842]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,842]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:97 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e699f3860>)>
+[2016-10-17 07:05:55,843]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:55,853]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_write', <message.DrmMessage object at 0x7f4e6cdb1fd0>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:55,854]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:107 to:{<Database('localhost', 30296)>} from:<Coordinator('localhost', 14082)> msg:('req_db_write', <message.DrmMessage object at 0x7f4e6cdb7438>)>
+[2016-10-17 07:05:55,856]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,845]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:55,858]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e6b52ad68>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:55,859]Application[('localhost', 13592)]:DEBUG: triggering event <ReceivedEvent time:108 to:None from:<Coordinator('localhost', 14082)> msg:('result_sub', <message.DrmMessage object at 0x7f4e699df908>)>
+[2016-10-17 07:05:55,864]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('result_sub', <message.DrmMessage object at 0x7f4e6cdb1fd0>) to <Application('localhost', 13592)>.
+[2016-10-17 07:05:55,865]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:100 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699f1ef0>)>
+[2016-10-17 07:05:55,866]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,867]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:98 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699f3c88>)>
+[2016-10-17 07:05:55,869]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:107 to:None from:<Coordinator('localhost', 14082)> msg:('req_db_write', <message.DrmMessage object at 0x7f4e699e8e10>)>
+[2016-10-17 07:05:55,869]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:55,874]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:108 to:<Application('localhost', 13592)> from:<Coordinator('localhost', 14082)> msg:('result_sub', <message.DrmMessage object at 0x7f4e6cdb7438>)>
+[2016-10-17 07:05:55,870]Database[('localhost', 30296)]:INFO: Database: Database received write request to update attributes for Id: Movie_customer2
+[2016-10-17 07:05:55,875]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,875]Database[('localhost', 30296)]:INFO: Database: Database write request completed for Id: Movie_customer2
+[2016-10-17 07:05:55,880]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:100 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699f2588>)>
+[2016-10-17 07:05:55,882]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:55,875]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:55,891]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:55,891]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:55,892]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:55,893]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:55,893]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:55,894]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:104 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e699f16d8>)>
+[2016-10-17 07:05:55,893]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:55,883]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:55,897]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:55,898]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator True
+[2016-10-17 07:05:55,908]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e6b52ad68>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,909]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:102 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e699f3470>)>
+[2016-10-17 07:05:55,898]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '3'}
+[2016-10-17 07:05:55,912]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e6cdb1eb8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,913]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,914]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:110 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699f39e8>)>
+[2016-10-17 07:05:55,915]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e699f2710>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:55,917]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:111 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdbb2b0>)>
+[2016-10-17 07:05:55,918]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:110 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699e8a20>)>
+[2016-10-17 07:05:55,919]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,919]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,915]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:55,920]Coordinator[('localhost', 14082)]:INFO: send cached updates and verified resource attributes
+[2016-10-17 07:05:55,919]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:55,929]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:55,931]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_res', <message.DrmMessage object at 0x7f4e6cdb1eb8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,932]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:112 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdbb5f8>)>
+[2016-10-17 07:05:55,933]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,931]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:55,934]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:55,941]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:55,941]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:55,944]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:55,944]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:55,945]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator True
+[2016-10-17 07:05:55,934]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:98 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e699ea908>)>
+[2016-10-17 07:05:55,949]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e6b52ad68>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,956]Coordinator[('localhost', 14082)]:INFO: Coordinator: store tentative updates to tentative list 
+[2016-10-17 07:05:55,959]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:112 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e699f3be0>)>
+[2016-10-17 07:05:55,959]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdb7a20>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,961]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:114 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdb1eb8>)>
+[2016-10-17 07:05:55,962]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:55,976]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:55,976]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:55,981]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:55,982]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:102 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cdb7b38>)>
+[2016-10-17 07:05:56,007]Coordinator[('localhost', 14082)]:INFO: Coordinator: store tentative updates to tentative list 
+[2016-10-17 07:05:56,008]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdb7f28>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,020]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:118 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdae3c8>)>
+[2016-10-17 07:05:56,021]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,021]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:56,022]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:111 to:None from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdbb208>)>
+[2016-10-17 07:05:56,027]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:56,036]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e6cdb7f28>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,038]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:121 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdb7780>)>
+[2016-10-17 07:05:56,044]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,044]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:112 to:None from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdbb630>)>
+[2016-10-17 07:05:56,057]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:112 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cdbb5f8>)>
+[2016-10-17 07:05:56,067]Coordinator[('localhost', 14082)]:INFO: Coordinator: store tentative updates to tentative list 
+[2016-10-17 07:05:56,068]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdb7780>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,069]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:124 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdb7f28>)>
+[2016-10-17 07:05:56,074]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,075]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:114 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdbb978>)>
+[2016-10-17 07:05:56,091]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e6cdb7a20>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,092]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:126 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdb7780>)>
+[2016-10-17 07:05:56,104]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,104]Coordinator[('localhost', 14082)]:INFO: send cached updates and verified resource attributes
+[2016-10-17 07:05:56,112]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_res', <message.DrmMessage object at 0x7f4e6cdb7a20>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,114]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:127 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdb79b0>)>
+[2016-10-17 07:05:56,123]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,123]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:56,124]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:118 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdbb1d0>)>
+[2016-10-17 07:05:56,145]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e6cdbbf60>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,147]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:130 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdb7a20>)>
+[2016-10-17 07:05:56,152]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,153]Coordinator[('localhost', 14082)]:INFO: send cached updates and verified resource attributes
+[2016-10-17 07:05:56,163]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_res', <message.DrmMessage object at 0x7f4e6cdbbf60>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,164]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:131 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdae828>)>
+[2016-10-17 07:05:56,173]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,180]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:121 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdbb240>)>
+[2016-10-17 07:05:56,191]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e6cdbbe80>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:56,192]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:133 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e699f1f98>)>
+[2016-10-17 07:05:56,197]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:133 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6b52a828>)>
+[2016-10-17 07:05:56,199]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,204]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:124 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdbb438>)>
+[2016-10-17 07:05:56,198]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:56,212]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e6cda9e48>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:56,213]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:135 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e6cda9c18>)>
+[2016-10-17 07:05:56,218]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e6cdae3c8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,219]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,220]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:135 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdbde48>)>
+[2016-10-17 07:05:56,226]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:135 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699f26a0>)>
+[2016-10-17 07:05:56,224]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,228]Coordinator[('localhost', 14082)]:INFO: send cached updates and verified resource attributes
+[2016-10-17 07:05:56,241]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_res', <message.DrmMessage object at 0x7f4e6cdae3c8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,242]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:136 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdbde48>)>
+[2016-10-17 07:05:56,228]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:56,243]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:56,243]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '3'}
+[2016-10-17 07:05:56,244]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e699f29e8>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:56,245]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:137 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699e8a20>)>
+[2016-10-17 07:05:56,246]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,246]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:126 to:None from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdbd4e0>)>
+[2016-10-17 07:05:56,250]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:137 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e6cda9240>)>
+[2016-10-17 07:05:56,246]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,252]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:56,252]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:56,265]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e699f1f98>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,266]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:138 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdae3c8>)>
+[2016-10-17 07:05:56,251]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:56,267]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:56,267]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:56,268]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:56,269]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,270]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:127 to:None from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdbd7b8>)>
+[2016-10-17 07:05:56,285]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:56,285]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:56,286]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:130 to:None from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdb7780>)>
+[2016-10-17 07:05:56,286]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:56,288]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:56,296]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator True
+[2016-10-17 07:05:56,297]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e6cda9cc0>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,298]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:139 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e699f32e8>)>
+[2016-10-17 07:05:56,288]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:56,300]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e6cdbb5c0>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,301]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:141 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdae3c8>)>
+[2016-10-17 07:05:56,302]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,312]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,313]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:131 to:None from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdbdbe0>)>
+[2016-10-17 07:05:56,324]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:56,325]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:135 to:None from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdbdf28>)>
+[2016-10-17 07:05:56,326]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:56,345]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e6cdb7eb8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,347]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:145 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdb7a20>)>
+[2016-10-17 07:05:56,356]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,358]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:136 to:None from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdc1160>)>
+[2016-10-17 07:05:56,365]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:138 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdc13c8>)>
+[2016-10-17 07:05:56,385]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e6cdb7eb8>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:56,386]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:148 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6cdb7a20>)>
+[2016-10-17 07:05:56,390]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,392]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:139 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cdc1710>)>
+[2016-10-17 07:05:56,394]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:148 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e699f35c0>)>
+[2016-10-17 07:05:56,400]Coordinator[('localhost', 14082)]:INFO: Coordinator: store tentative updates to tentative list 
+[2016-10-17 07:05:56,395]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:56,412]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdbbf60>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,413]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:150 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdae828>)>
+[2016-10-17 07:05:56,414]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e699f3b38>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:56,415]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:150 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e6cda9e48>)>
+[2016-10-17 07:05:56,417]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,419]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,420]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:56,421]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:141 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdc15c0>)>
+[2016-10-17 07:05:56,435]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:150 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699f2860>)>
+[2016-10-17 07:05:56,441]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e6cdb7eb8>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:56,442]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:153 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e699f1f98>)>
+[2016-10-17 07:05:56,436]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:56,443]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:56,446]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '3'}
+[2016-10-17 07:05:56,447]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e699f2c18>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:56,448]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,451]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:145 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdbd470>)>
+[2016-10-17 07:05:56,454]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:152 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699f27b8>)>
+[2016-10-17 07:05:56,454]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:153 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e699f3f60>)>
+[2016-10-17 07:05:56,459]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,456]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:56,468]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e699f32e8>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:56,469]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:155 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699f3208>)>
+[2016-10-17 07:05:56,470]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,471]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:152 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699f34a8>)>
+[2016-10-17 07:05:56,473]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e6cdbbf60>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:56,481]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:155 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6cdae3c8>)>
+[2016-10-17 07:05:56,460]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:56,482]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:155 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699f2cf8>)>
+[2016-10-17 07:05:56,472]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:56,483]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:56,484]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:56,485]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,484]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:56,485]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:56,485]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '3'}
+[2016-10-17 07:05:56,486]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:56,486]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:150 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdc1128>)>
+[2016-10-17 07:05:56,490]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e699f2a90>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:56,491]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:157 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699f2d30>)>
+[2016-10-17 07:05:56,493]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:56,494]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:56,494]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:56,496]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,495]Coordinator[('localhost', 14082)]:INFO: send cached updates and verified resource attributes
+[2016-10-17 07:05:56,495]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:56,498]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_res', <message.DrmMessage object at 0x7f4e6cdbbf60>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,499]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:157 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdbde48>)>
+[2016-10-17 07:05:56,496]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:56,498]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator True
+[2016-10-17 07:05:56,508]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e699f3198>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,509]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:157 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cdaf7f0>)>
+[2016-10-17 07:05:56,510]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,511]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:155 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6cdaf240>)>
+[2016-10-17 07:05:56,514]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,514]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:56,515]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:56,516]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:157 to:None from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdc1c18>)>
+[2016-10-17 07:05:56,526]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:56,532]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e699f35f8>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:56,533]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:159 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699f3b38>)>
+[2016-10-17 07:05:56,537]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,537]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:157 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e6cdaf6a0>)>
+[2016-10-17 07:05:56,539]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:56,544]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:56,545]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:159 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699f2b00>)>
+[2016-10-17 07:05:56,545]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:56,546]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:56,547]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:56,547]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:56,548]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '3'}
+[2016-10-17 07:05:56,551]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e699f2710>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:56,552]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:56,570]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:161 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699f2630>)>
+[2016-10-17 07:05:56,569]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:56,573]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:56,574]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:56,575]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,574]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator True
+[2016-10-17 07:05:56,576]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e699f32e8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,577]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:56,582]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:161 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cdad2e8>)>
+[2016-10-17 07:05:56,593]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,594]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:161 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e6cdad128>)>
+[2016-10-17 07:05:56,595]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_write', <message.DrmMessage object at 0x7f4e6cdc1e10>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:56,596]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:161 to:{<Database('localhost', 30296)>} from:<Coordinator('localhost', 14082)> msg:('req_db_write', <message.DrmMessage object at 0x7f4e6cdbbef0>)>
+[2016-10-17 07:05:56,597]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,599]Application[('localhost', 29940)]:DEBUG: triggering event <ReceivedEvent time:162 to:None from:<Coordinator('localhost', 14082)> msg:('result_sub', <message.DrmMessage object at 0x7f4e699e8fd0>)>
+[2016-10-17 07:05:56,602]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('result_sub', <message.DrmMessage object at 0x7f4e6cdc1e10>) to <Application('localhost', 29940)>.
+[2016-10-17 07:05:56,604]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:162 to:<Application('localhost', 29940)> from:<Coordinator('localhost', 14082)> msg:('result_sub', <message.DrmMessage object at 0x7f4e6cdc6978>)>
+[2016-10-17 07:05:56,606]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:161 to:None from:<Coordinator('localhost', 14082)> msg:('req_db_write', <message.DrmMessage object at 0x7f4e699f2c18>)>
+[2016-10-17 07:05:56,612]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,605]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:56,613]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:157 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cdc62e8>)>
+[2016-10-17 07:05:56,620]Coordinator[('localhost', 14082)]:INFO: Coordinator: store tentative updates to tentative list 
+[2016-10-17 07:05:56,626]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdae828>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,626]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:56,627]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:164 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdb7a20>)>
+[2016-10-17 07:05:56,627]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:56,625]Database[('localhost', 30296)]:INFO: Database: Database received write request to update attributes for Id: Movie_customer2
+[2016-10-17 07:05:56,628]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:56,630]Database[('localhost', 30296)]:INFO: Database: Database write request completed for Id: Movie_customer2
+[2016-10-17 07:05:56,636]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,637]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:56,637]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:56,641]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:56,641]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:56,642]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:161 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e699f1f98>)>
+[2016-10-17 07:05:56,642]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:56,643]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:56,650]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator True
+[2016-10-17 07:05:56,657]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e699f3b38>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,658]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:163 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cdad2e8>)>
+[2016-10-17 07:05:56,660]Coordinator[('localhost', 14082)]:INFO: Coordinator: store tentative updates to tentative list 
+[2016-10-17 07:05:56,665]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdb7eb8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,666]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:168 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdc6d68>)>
+[2016-10-17 07:05:56,672]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,677]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,677]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:56,686]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:164 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdc6860>)>
+[2016-10-17 07:05:56,700]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e6cdc1f98>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,701]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:171 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdc1e10>)>
+[2016-10-17 07:05:56,708]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,708]Coordinator[('localhost', 14082)]:INFO: send cached updates and verified resource attributes
+[2016-10-17 07:05:56,717]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_res', <message.DrmMessage object at 0x7f4e6cdc1f98>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,718]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:172 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdc1f60>)>
+[2016-10-17 07:05:56,728]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,728]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:163 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cdc19e8>)>
+[2016-10-17 07:05:56,744]Coordinator[('localhost', 14082)]:INFO: Coordinator: store tentative updates to tentative list 
+[2016-10-17 07:05:56,757]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdb7eb8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,758]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:174 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdbbef0>)>
+[2016-10-17 07:05:56,772]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,776]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:56,778]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:168 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdc6ac8>)>
+[2016-10-17 07:05:56,791]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e6cdc6fd0>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,792]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:177 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdc6eb8>)>
+[2016-10-17 07:05:56,806]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,806]Coordinator[('localhost', 14082)]:INFO: send cached updates and verified resource attributes
+[2016-10-17 07:05:56,816]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_res', <message.DrmMessage object at 0x7f4e6cdc6fd0>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,828]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:178 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdc1f60>)>
+[2016-10-17 07:05:56,829]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,829]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:171 to:None from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdc6d68>)>
+[2016-10-17 07:05:56,831]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:56,850]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e6cdc1e10>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,851]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:180 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdc1f98>)>
+[2016-10-17 07:05:56,859]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,860]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:172 to:None from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdca438>)>
+[2016-10-17 07:05:56,874]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:174 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdca630>)>
+[2016-10-17 07:05:56,891]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e6cdc6cf8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,897]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:183 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdc6fd0>)>
+[2016-10-17 07:05:56,904]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,904]Coordinator[('localhost', 14082)]:INFO: send cached updates and verified resource attributes
+[2016-10-17 07:05:56,910]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_res', <message.DrmMessage object at 0x7f4e6cdc6cf8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,911]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:184 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdc6eb8>)>
+[2016-10-17 07:05:56,924]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,924]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:177 to:None from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdbde10>)>
+[2016-10-17 07:05:56,933]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:56,947]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e6cdc1f60>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:56,948]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:186 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdc1e10>)>
+[2016-10-17 07:05:56,956]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,957]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:178 to:None from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdcab38>)>
+[2016-10-17 07:05:56,976]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:180 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdcada0>)>
+[2016-10-17 07:05:56,988]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e6cdc1f60>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:56,998]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:189 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6cdcad68>)>
+[2016-10-17 07:05:56,999]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:56,999]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:183 to:None from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdcae10>)>
+[2016-10-17 07:05:57,009]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:189 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e699f33c8>)>
+[2016-10-17 07:05:57,001]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:57,019]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e6cdcad68>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,020]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:191 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdca668>)>
+[2016-10-17 07:05:57,010]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:57,023]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e6cdaf320>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:57,028]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:191 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699f3208>)>
+[2016-10-17 07:05:57,032]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,032]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:184 to:None from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdce278>)>
+[2016-10-17 07:05:57,034]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:191 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e699f2b70>)>
+[2016-10-17 07:05:57,034]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,040]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:57,051]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:186 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdce4e0>)>
+[2016-10-17 07:05:57,048]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:57,052]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '2'}
+[2016-10-17 07:05:57,063]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e6cda85c0>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:57,064]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:193 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699e8a20>)>
+[2016-10-17 07:05:57,065]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e6cdc6fd0>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:57,066]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:194 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6cdc6eb8>)>
+[2016-10-17 07:05:57,067]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,068]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,069]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:193 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e6cdafeb8>)>
+[2016-10-17 07:05:57,069]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:57,079]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:191 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdce6d8>)>
+[2016-10-17 07:05:57,075]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:57,088]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:57,089]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:57,089]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:57,092]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e6cdc6b38>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:57,093]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:196 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6cdc1f60>)>
+[2016-10-17 07:05:57,095]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:57,096]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:57,099]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,101]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:57,099]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:57,105]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:57,117]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator True
+[2016-10-17 07:05:57,131]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:195 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cdc6b38>)>
+[2016-10-17 07:05:57,125]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e6cdaf358>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,134]Coordinator[('localhost', 14082)]:INFO: Coordinator: store tentative updates to tentative list 
+[2016-10-17 07:05:57,136]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdc6908>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,137]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:199 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdc6cf8>)>
+[2016-10-17 07:05:57,146]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,146]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:199 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdce9b0>)>
+[2016-10-17 07:05:57,147]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:195 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cdad160>)>
+[2016-10-17 07:05:57,159]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,159]Coordinator[('localhost', 14082)]:INFO: send cached updates and verified resource attributes
+[2016-10-17 07:05:57,160]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:194 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6cdaff98>)>
+[2016-10-17 07:05:57,165]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_res', <message.DrmMessage object at 0x7f4e6cdb7a20>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,166]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:201 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdc6908>)>
+[2016-10-17 07:05:57,166]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:57,174]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e6cdafef0>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:57,175]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,175]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:57,180]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:201 to:None from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdcedd8>)>
+[2016-10-17 07:05:57,181]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:197 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e6cdaf358>)>
+[2016-10-17 07:05:57,181]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,183]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:196 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6cdad0b8>)>
+[2016-10-17 07:05:57,191]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:197 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e6cda8390>)>
+[2016-10-17 07:05:57,189]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:57,193]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:57,204]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e6cdaf860>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:57,212]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:57,213]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '2'}
+[2016-10-17 07:05:57,214]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e6cda87f0>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:57,205]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:199 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e6cdafef0>)>
+[2016-10-17 07:05:57,216]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:199 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699e8a20>)>
+[2016-10-17 07:05:57,216]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,217]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:199 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e6cdadd68>)>
+[2016-10-17 07:05:57,218]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,220]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:57,226]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:199 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e6cda8908>)>
+[2016-10-17 07:05:57,219]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:57,226]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:57,228]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:57,229]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:57,228]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:57,230]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:57,236]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '2'}
+[2016-10-17 07:05:57,243]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e6cda87f0>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:57,242]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:57,244]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:57,246]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:201 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e699e8a20>)>
+[2016-10-17 07:05:57,245]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:57,247]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:57,247]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator True
+[2016-10-17 07:05:57,252]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e6cdafac8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,253]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,259]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:201 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cdad048>)>
+[2016-10-17 07:05:57,258]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:57,264]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,268]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:201 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e6cdb9160>)>
+[2016-10-17 07:05:57,279]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:57,281]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_write', <message.DrmMessage object at 0x7f4e6cdc6cf8>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:57,281]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:57,282]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:57,282]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:204 to:{<Database('localhost', 30296)>} from:<Coordinator('localhost', 14082)> msg:('req_db_write', <message.DrmMessage object at 0x7f4e6cdd1518>)>
+[2016-10-17 07:05:57,283]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,282]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:57,284]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('result_sub', <message.DrmMessage object at 0x7f4e6cdc6cf8>) to <Application('localhost', 29940)>.
+[2016-10-17 07:05:57,285]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:205 to:<Application('localhost', 29940)> from:<Coordinator('localhost', 14082)> msg:('result_sub', <message.DrmMessage object at 0x7f4e6cdd1518>)>
+[2016-10-17 07:05:57,286]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,288]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:57,289]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:204 to:None from:<Coordinator('localhost', 14082)> msg:('req_db_write', <message.DrmMessage object at 0x7f4e6cda8748>)>
+[2016-10-17 07:05:57,287]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:57,289]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:57,298]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:57,298]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:201 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cdd12b0>)>
+[2016-10-17 07:05:57,298]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : find attributes to be updated in DB
+[2016-10-17 07:05:57,299]Worker[('localhost', 20960)]:INFO: Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB
+[2016-10-17 07:05:57,299]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator True
+[2016-10-17 07:05:57,300]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e6cdaf8d0>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,300]Database[('localhost', 30296)]:INFO: Database: Database received write request to update attributes for Id: Movie_customer2
+[2016-10-17 07:05:57,305]Application[('localhost', 29940)]:DEBUG: triggering event <ReceivedEvent time:205 to:None from:<Coordinator('localhost', 14082)> msg:('result_sub', <message.DrmMessage object at 0x7f4e699c5438>)>
+[2016-10-17 07:05:57,304]Database[('localhost', 30296)]:INFO: Database: Database write request completed for Id: Movie_customer2
+[2016-10-17 07:05:57,310]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:203 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cdadc18>)>
+[2016-10-17 07:05:57,311]Coordinator[('localhost', 14082)]:INFO: Coordinator: store tentative updates to tentative list 
+[2016-10-17 07:05:57,311]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,319]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdcee48>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,320]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:209 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdc1f60>)>
+[2016-10-17 07:05:57,318]Application[('localhost', 29940)]:INFO: Application: All Evaluation requests for this Application are over
+[2016-10-17 07:05:57,335]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('totalusrtime', 0) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,336]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('totalsystime', 0) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,336]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('totaltime', 0) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,337]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,337]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:57,338]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:203 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cdcef28>)>
+[2016-10-17 07:05:57,348]runtime.TcpEndPoint(localhost_14082):DEBUG: Remote connection <socket.socket fd=26, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 14082), raddr=('127.0.0.1', 60242)> terminated.
+[2016-10-17 07:05:57,352]Coordinator[('localhost', 14082)]:INFO: Coordinator: store tentative updates to tentative list 
+[2016-10-17 07:05:57,355]runtime.TcpEndPoint(localhost_15821):DEBUG: Remote connection <socket.socket fd=13, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 15821), raddr=('127.0.0.1', 44320)> terminated.
+[2016-10-17 07:05:57,360]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdce940>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,369]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:212 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdcee48>)>
+[2016-10-17 07:05:57,372]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,373]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:57,374]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:209 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdd1828>)>
+[2016-10-17 07:05:57,398]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e6cdc1f60>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,399]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:215 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdcee48>)>
+[2016-10-17 07:05:57,406]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,406]Coordinator[('localhost', 14082)]:INFO: send cached updates and verified resource attributes
+[2016-10-17 07:05:57,419]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_res', <message.DrmMessage object at 0x7f4e6cdc1f60>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,420]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:216 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdce940>)>
+[2016-10-17 07:05:57,423]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,424]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:212 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub_conflict_check', <message.DrmMessage object at 0x7f4e6cdd1588>)>
+[2016-10-17 07:05:57,440]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_app', <message.DrmMessage object at 0x7f4e6cdc6908>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,441]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:218 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdc6cf8>)>
+[2016-10-17 07:05:57,452]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,452]Coordinator[('localhost', 14082)]:INFO: send cached updates and verified resource attributes
+[2016-10-17 07:05:57,460]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_res', <message.DrmMessage object at 0x7f4e6cdc6908>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,461]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:219 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdcec50>)>
+[2016-10-17 07:05:57,466]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,466]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:215 to:None from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdd11d0>)>
+[2016-10-17 07:05:57,478]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:57,485]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e6cdce550>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,486]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:221 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdc1f60>)>
+[2016-10-17 07:05:57,492]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,493]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:216 to:None from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdd1dd8>)>
+[2016-10-17 07:05:57,510]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:218 to:None from:<Coordinator('localhost', 14082)> msg:('req_app', <message.DrmMessage object at 0x7f4e6cdd7240>)>
+[2016-10-17 07:05:57,515]Coordinator[('localhost', 14082)]:INFO: Coordinator: piggyback tentative updates to msg
+[2016-10-17 07:05:57,519]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_sub', <message.DrmMessage object at 0x7f4e6cdce940>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,520]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:224 to:<Coordinator('localhost', 14082)> from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdc1f60>)>
+[2016-10-17 07:05:57,536]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,541]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:219 to:None from:<Coordinator('localhost', 14082)> msg:('reply_res', <message.DrmMessage object at 0x7f4e6cdd74a8>)>
+[2016-10-17 07:05:57,550]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:221 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdd7710>)>
+[2016-10-17 07:05:57,561]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e6cdd1748>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:57,562]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:227 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6cdd17b8>)>
+[2016-10-17 07:05:57,566]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,572]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:224 to:None from:<Coordinator('localhost', 14082)> msg:('req_sub', <message.DrmMessage object at 0x7f4e6cdd7908>)>
+[2016-10-17 07:05:57,579]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:227 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6cdaf320>)>
+[2016-10-17 07:05:57,581]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:57,583]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e6cdaf358>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:57,584]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_res', <message.DrmMessage object at 0x7f4e6cdce940>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:57,585]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:229 to:<Worker('localhost', 20960)> from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6cdc1f60>)>
+[2016-10-17 07:05:57,585]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,585]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:229 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e6cdafac8>)>
+[2016-10-17 07:05:57,589]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,593]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:229 to:None from:<Coordinator('localhost', 14082)> msg:('req_res', <message.DrmMessage object at 0x7f4e6cdad940>)>
+[2016-10-17 07:05:57,594]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:229 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e6cda8860>)>
+[2016-10-17 07:05:57,595]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  req_res
+[2016-10-17 07:05:57,597]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('req_db_read', <message.DrmMessage object at 0x7f4e6cdaf518>) to <Database('localhost', 30296)>.
+[2016-10-17 07:05:57,604]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:57,595]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:57,601]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:231 to:{<Database('localhost', 30296)>} from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e6cdaf358>)>
+[2016-10-17 07:05:57,611]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,609]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:57,612]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '1'}
+[2016-10-17 07:05:57,613]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e6cda8f28>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:57,614]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:231 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e6cda87f0>)>
+[2016-10-17 07:05:57,618]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,618]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:57,620]Database[('localhost', 30296)]:DEBUG: triggering event <ReceivedEvent time:231 to:None from:<Worker('localhost', 20960)> msg:('req_db_read', <message.DrmMessage object at 0x7f4e6cda8c50>)>
+[2016-10-17 07:05:57,622]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:57,621]Database[('localhost', 30296)]:INFO: Database: Received a query for : Movie_customer2
+[2016-10-17 07:05:57,641]Database[('localhost', 30296)]:INFO: item in database is  None
+[2016-10-17 07:05:57,642]Database[('localhost', 30296)]:INFO: item in database is  {'type': 'movie', 'viewCount': '1'}
+[2016-10-17 07:05:57,643]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_db_read', <message.DrmMessage object at 0x7f4e6cda88d0>) to <Worker('localhost', 20960)>.
+[2016-10-17 07:05:57,644]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:231 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e6cdafac8>)>
+[2016-10-17 07:05:57,645]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:57,646]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:57,646]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:57,647]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:57,649]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator False
+[2016-10-17 07:05:57,649]Database[('localhost', 30296)]:DEBUG: triggering event <SentEvent time:233 to:<Worker('localhost', 20960)> from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e6cda8f28>)>
+[2016-10-17 07:05:57,650]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e6cdada58>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,655]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:233 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cdc6cf8>)>
+[2016-10-17 07:05:57,658]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:233 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cdb9128>)>
+[2016-10-17 07:05:57,662]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,664]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,664]Worker[('localhost', 20960)]:DEBUG: triggering event <ReceivedEvent time:233 to:None from:<Database('localhost', 30296)> msg:('reply_db_read', <message.DrmMessage object at 0x7f4e6cdad748>)>
+[2016-10-17 07:05:57,665]Database[('localhost', 30296)]:INFO: Database : Message sent to worker back after database fetch
+[2016-10-17 07:05:57,669]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('result_sub', <message.DrmMessage object at 0x7f4e6cdceb38>) to <Application('localhost', 22719)>.
+[2016-10-17 07:05:57,670]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:235 to:<Application('localhost', 22719)> from:<Coordinator('localhost', 14082)> msg:('result_sub', <message.DrmMessage object at 0x7f4e6cdd1748>)>
+[2016-10-17 07:05:57,666]Worker[('localhost', 20960)]:INFO: received message in worker to evaluate:  reply_db_read
+[2016-10-17 07:05:57,676]Worker[('localhost', 20960)]:INFO: Worker: extract tentative and database fetched attributes for use by evaluator
+[2016-10-17 07:05:57,677]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,677]Worker[('localhost', 20960)]:INFO: Worker:Attribute set ready for evaluation
+[2016-10-17 07:05:57,678]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:57,678]Worker[('localhost', 20960)]:INFO: Worker: evaluate policy Entry
+[2016-10-17 07:05:57,681]Application[('localhost', 22719)]:DEBUG: triggering event <ReceivedEvent time:235 to:None from:<Coordinator('localhost', 14082)> msg:('result_sub', <message.DrmMessage object at 0x7f4e699c54e0>)>
+[2016-10-17 07:05:57,683]Worker[('localhost', 20960)]:INFO: Worker: Policy Evaluation complete sending %s to Subject Coordinator False
+[2016-10-17 07:05:57,693]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('reply_work', <message.DrmMessage object at 0x7f4e6cdad2e8>) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,692]Application[('localhost', 22719)]:INFO: Application: All Evaluation requests for this Application are over
+[2016-10-17 07:05:57,694]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('totalusrtime', 0) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,695]Worker[('localhost', 20960)]:DEBUG: triggering event <SentEvent time:235 to:<Coordinator('localhost', 14082)> from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cdb90b8>)>
+[2016-10-17 07:05:57,700]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('totalsystime', 0) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,701]runtime.TcpEndPoint(localhost_14082):DEBUG: Sent packet ('sent', 1) to <Coordinator('localhost', 14082)>.
+[2016-10-17 07:05:57,702]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('totaltime', 0) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,711]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:235 to:None from:<Worker('localhost', 20960)> msg:('reply_work', <message.DrmMessage object at 0x7f4e6cdceb38>)>
+[2016-10-17 07:05:57,716]runtime.TcpEndPoint(localhost_14082):DEBUG: Remote connection <socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 14082), raddr=('127.0.0.1', 60236)> terminated.
+[2016-10-17 07:05:57,717]runtime.TcpEndPoint(localhost):DEBUG: Sent packet ('result_sub', <message.DrmMessage object at 0x7f4e6cdd7438>) to <Application('localhost', 13592)>.
+[2016-10-17 07:05:57,725]Coordinator[('localhost', 14082)]:DEBUG: triggering event <SentEvent time:238 to:<Application('localhost', 13592)> from:<Coordinator('localhost', 14082)> msg:('result_sub', <message.DrmMessage object at 0x7f4e6cdd1748>)>
+[2016-10-17 07:05:57,726]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('sent', 1) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,727]Coordinator[('localhost', 14082)]:DEBUG: triggering event <ReceivedEvent time:0 to:None from:<Worker('localhost', 20960)> msg:('sent', 1)>
+[2016-10-17 07:05:57,728]runtime.TcpEndPoint(localhost_15821):DEBUG: Remote connection <socket.socket fd=17, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 15821), raddr=('127.0.0.1', 44326)> terminated.
+[2016-10-17 07:05:57,733]Application[('localhost', 13592)]:DEBUG: triggering event <ReceivedEvent time:238 to:None from:<Coordinator('localhost', 14082)> msg:('result_sub', <message.DrmMessage object at 0x7f4e699c54e0>)>
+[2016-10-17 07:05:57,735]Application[('localhost', 13592)]:INFO: Application: All Evaluation requests for this Application are over
+[2016-10-17 07:05:57,744]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('totalusrtime', 0) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,745]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('totalsystime', 0) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,745]runtime.TcpEndPoint(localhost_15821):DEBUG: Sent packet ('totaltime', 0) to <Main('localhost', 15821)>.
+[2016-10-17 07:05:57,756]runtime.TcpEndPoint(localhost_14082):DEBUG: Remote connection <socket.socket fd=21, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 14082), raddr=('127.0.0.1', 60238)> terminated.
+[2016-10-17 07:05:57,768]runtime.TcpEndPoint(localhost_15821):DEBUG: Remote connection <socket.socket fd=16, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 15821), raddr=('127.0.0.1', 44324)> terminated.
+[2016-10-17 07:06:00,402]Coordinator[('localhost', 14082)]:DEBUG: Received KeyboardInterrupt, exiting
+[2016-10-17 07:06:00,402]Worker[('localhost', 20960)]:DEBUG: Received KeyboardInterrupt, exiting
+[2016-10-17 07:06:00,403]Coordinator[('localhost', 15298)]:DEBUG: Received KeyboardInterrupt, exiting
+[2016-10-17 07:06:00,404]Coordinator[('localhost', 31200)]:DEBUG: Received KeyboardInterrupt, exiting
+[2016-10-17 07:06:00,404]Worker[('localhost', 34723)]:DEBUG: Received KeyboardInterrupt, exiting
+[2016-10-17 07:06:00,405]runtime.TcpEndPoint(localhost_14082):DEBUG: Remote connection <socket.socket fd=28, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 14082), raddr=('127.0.0.1', 60258)> terminated.
+[2016-10-17 07:06:00,408]Database[('localhost', 30296)]:DEBUG: Received KeyboardInterrupt, exiting
+[2016-10-17 07:06:00,413]runtime.TcpEndPoint(localhost_15821):DEBUG: Remote connection <socket.socket fd=14, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 15821), raddr=('127.0.0.1', 44322)> terminated.
+[2016-10-17 07:06:00,418]runtime.TcpEndPoint(localhost_15821):DEBUG: Remote connection <socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 15821), raddr=('127.0.0.1', 44336)> terminated.
+[2016-10-17 07:06:00,412]Main[('localhost', 15821)]:INFO: User requested abort
+[2016-10-17 07:06:00,403]Worker[('localhost', 39665)]:DEBUG: Received KeyboardInterrupt, exiting

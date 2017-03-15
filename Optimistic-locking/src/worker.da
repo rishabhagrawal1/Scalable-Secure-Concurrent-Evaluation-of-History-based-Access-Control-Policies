@@ -1,0 +1,207 @@
+import sys
+import xml.etree.ElementTree as ET
+TIMEOUT = 1
+d = import_da("database")
+config(clock = 'Lamport')
+config(channel = 'fifo')
+
+class Worker(process):
+    def setup(coord_list: list, policy_file: string, data: Database):
+        output("Worker: Steup Done")
+        pass
+
+    def send_attr_request(msg):
+        output("Worker: sending attribute read request to DB")
+        send(('req_db_read', msg), to=data)
+
+    def caluculateHash(sub_id):
+        count = 0
+        for i in sub_id:
+            count += ord(i)
+        return count
+
+    def return_result_to_sub_id(msg, result):
+        output("Worker: Policy Evaluation complete sending to Subject Coordinator", result)
+        msg.set_result(result)
+        send(('reply_work', msg), to=coord_list[caluculateHash(msg.subj_id) % len(coord_list)])
+
+    def update_db_result_with_tentative(msg):
+        output("Worker: extract tentative and database fetched attributes for use by evaluator")
+        tent_sub_attr = msg.tent_attr.get_sub_attr()
+        tent_res_attr = msg.tent_attr.get_res_attr()
+        db_sub_attr = msg.db_attr.get_sub_attr()
+        db_res_attr = msg.db_attr.get_res_attr()
+
+        if(len(tent_sub_attr) > 0):
+            for k,v in tent_sub_attr.items():
+                if k in db_sub_attr:
+                    msg.db_attr.get_sub_attr()[k] = v[0]
+        if (len(tent_res_attr) > 0):
+            for k,v in tent_res_attr.items():
+                if k in db_res_attr:
+                    msg.db_attr.get_res_attr()[k] = v[0]
+        output("Worker:Attribute set ready for evaluation")
+
+    # This is the function to parse the policies to determine 
+    # which rule fits best for evaluation of a given request    
+    def parse_policy(msg):
+        output("Worker: parse policy file to identify the relevant policy")
+        tree = ET.parse(policy_file)
+        root = tree.getroot()
+        output("Worker: Parse tree created" )
+        for rule in root.iter('rule'):
+            print('rule', rule.attrib['name'])
+            sc=rule.find('subjectCondition')
+            for neighbor in sc.iter():
+                print(neighbor.attrib)
+            rc=rule.find('resourceCondition')
+            for neighbor in rc.iter():
+                print(neighbor.attrib)
+            act=rule.find('action')
+            for neighbor in act.iter():
+                print(neighbor.attrib)
+            su=rule.find('subjectUpdate')
+            if su != None:
+                for neighbor in su.iter():
+                    print(neighbor.attrib)
+            ru=rule.find('resourceUpdate')
+            if ru != None:
+                for neighbor in ru.iter():
+                   print(neighbor.attrib)
+        output("Worker: Rule found")           
+
+    def check_attribute(db_value, policy_value):
+        idx = policy_value.find(">")
+        if(idx != -1):
+            value = policy_value[idx+1:]
+            if(value.isnumeric() and int(db_value) - 1 > int(value)):
+                return True
+        idx = policy_value.find("<")
+        if (idx != -1):
+            value = policy_value[idx+1:]
+            if (value.isnumeric() and int(db_value) + 1 < int(value)):
+                print("check_attribute, policy value ", value,"db_value ", db_value)
+                return True
+
+        ##Init attribute lists to compare
+        if(policy_value == "empty" or policy_value == ""):
+            plist = []
+        else:
+            plist = policy_value.split(',')
+        if(db_value == "empty" or db_value == ""):
+            dlist = []
+        else:
+            print("type of db_value",type(db_value))
+            dlist = db_value.split(',')
+
+        ##Unequal length return false
+        if(len(dlist) != len(plist)):
+            return False
+        else:  ##Compare each element
+            for item in dlist:
+                if item not in plist:
+                    return False
+            return True
+        return False
+
+    def update_attributes(update_attr, db_attr, msg, type):
+        output("Worker: update_attributes : find attributes to be updated in DB")
+        if update_attr != None:
+            for k, v in update_attr.attrib.items():
+                if (k in db_attr):
+                    if (v == "++" and db_attr[k].isnumeric()):
+                        value = str(int(db_attr[k]) + 1)
+                    elif (v == "--" and db_attr[k].isnumeric()):
+                        value =  str(int(db_attr[k]) - 1)
+                    elif (not db_attr[k].isnumeric()):  ##History based rule need append
+                        if(db_attr[k] == "" or db_attr[k] == "empty"):
+                            value = v
+                        else:
+                            value = db_attr[k] + "," + v
+                    else:
+                        value = db_attr[k]
+                    if(type == "sub"):
+                        msg.worker_attr.get_updated_attr_sub()[k] = value
+                    elif(type ==  "res"):
+                        msg.worker_attr.get_updated_attr_res()[k] = value
+        output("Worker: update_attributes : Attributes collected, will be sent to subject co ordinator to write on DB")
+                
+
+    def evaluate_rule(sc, rc, act, su, ru, msg, db_sub_attr, db_res_attr):
+        #output("Worker: evaluate rule Entry")
+        if (sc.attrib.get('position') == msg.position):
+            if ((rc.attrib.get('id') == msg.res_id) or ('type' in dir(msg) and rc.attrib.get('type') == msg.type)):
+                if (act.attrib.get('name') == msg.action):
+                    print("matched")
+                    for k, v in sc.attrib.items():
+                        if k in db_sub_attr:
+                            print("sc.attrib.items",db_sub_attr[k], v)
+                            print(check_attribute(db_sub_attr[k], v))
+                        if k == 'position':
+                            continue
+                        elif k not in db_sub_attr or check_attribute(db_sub_attr[k], v) == False:
+                            return False
+                        else:  ##Update read attributes of subject
+                            print("sub k and v is: ", k, v)
+                            msg.worker_attr.get_read_attr_sub()[k] = v
+                    for k, v in rc.attrib.items():
+                        if k in db_res_attr:
+                            print(db_res_attr[k], v)
+                        if k == 'id' or k == 'type':
+                            continue
+                        elif k not in db_res_attr or check_attribute(db_res_attr[k], v) == False:
+                            return False
+                        else:  ##Update read attributes of resource
+                            msg.worker_attr.get_read_attr_res()[k] = v
+                    print("in evaluate_rule reaching to update ")
+                    update_attributes(su, db_sub_attr, msg, "sub")
+                    update_attributes(ru, db_res_attr, msg, "res")
+                    return True
+        return False
+
+    def evaluate_policy(msg):
+        output("Worker: evaluate policy Entry")
+        tree = ET.parse(policy_file)
+        root = tree.getroot()
+        print("Entry Evaluate policy")
+        db_sub_attr = msg.db_attr.get_sub_attr()
+        db_res_attr = msg.db_attr.get_res_attr()
+        #print(len(db_sub_attr), db_sub_attr)
+        #print(len(db_res_attr), db_res_attr)
+        for rule in root.iter('rule'):
+            sc = rule.find('subjectCondition')
+            rc = rule.find('resourceCondition')
+            act = rule.find('action')
+            su = rule.find('subjectUpdate')
+            ru = rule.find('resourceUpdate')
+            msg.worker_attr.set_read_attr_sub({})
+            msg.worker_attr.set_read_attr_res({})
+            #print(sc.attrib, msg.position)
+            #print(rc.attrib, msg.res_id, msg.type)
+            #print(act.attrib, msg.action)
+            ##Check if this rule matches
+            if(evaluate_rule(sc, rc, act, su, ru, msg, db_sub_attr, db_res_attr) == True):
+                return return_result_to_sub_id(msg, True)
+        return_result_to_sub_id(msg, False)
+
+    def run():
+        output(" Worker Thread start ")
+        while True:
+            if (await(some(received(("req_res", msg))))):
+                #evaluate_policy(msg)
+                pass
+            elif(some(received(("reply_db_read", msg)))):
+                #print("received message from db")
+                pass
+            elif timeout(TIMEOUT * 10):
+                pass
+
+    def receive(msg=(a, b)):
+        output("received message in worker to evaluate: ", a)
+        if(a == "req_res"):
+            print("recived message from resource co-ordinator")
+            send_attr_request(b)
+        if(a == "reply_db_read"):
+            print("recived reply from database")
+            update_db_result_with_tentative(b)
+            evaluate_policy(b)

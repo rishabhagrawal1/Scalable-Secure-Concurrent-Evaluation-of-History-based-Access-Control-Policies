@@ -1,0 +1,94 @@
+import json
+import message
+import time 
+config(clock = 'Lamport')
+config(channel = 'fifo')
+TIMEOUT = 1
+
+class Application(process):
+    def setup(coord_list: list, conf_file:str, num_applications: int, counter: int):
+        self.msg_queue = []
+        #print ("In application received list of size" + str(len(coord_list)))
+        output("Application:  Application Setup in done")
+        pass
+
+    def caluculateHash(subj_id):
+        count = 0
+        for i in subj_id:
+            count += ord(i)
+        return count
+
+    def msgFactory(type):
+        if type == None:
+            msg = message.HistoryMessage()
+        else:
+            msg = message.DrmMessage(type)
+        return msg
+
+
+    def readNextOperation(conf_data):
+        output("Application: Fetching Next Request to evaluate policy ,from Config")
+        oper = conf_data["operations"][counter]
+        msg = msgFactory(oper["op"][2].get("type"))
+        msg.action = oper["op"][0].get("action")
+        msg.subj_id = oper["op"][1].get("sub-id")
+        msg.position = oper["op"][1].get("position")
+        msg.res_id = oper["op"][2].get("id")
+        msg.generateMsgId(counter)
+        msg.set_curr_app(self.id)
+        ##add request unique id to msg id list
+        self.msg_queue.append(msg.MsgId)
+        #msg.print_msg()
+        output("Application: A new Evaluation Request is created with msgId: ",msg.MsgId)
+        return msg
+
+
+    def handle_policy_evaluation_result(msg):
+        if(msg.MsgId in self.msg_queue):
+            print("Got policy evaluation result for msg with msg id: ", msg.MsgId)
+            print("evaluation result is: ", msg.result)
+            self.msg_queue.remove(msg.MsgId)
+        else:
+            print("Got some random message")
+
+    def run():
+        output("Application:  Application started")
+        try:
+            with open(conf_file, encoding='utf-8') as conf:
+                ##Need to enable simultaneous read/write in test file to simulate dynamic user requests##
+                conf_data = json.loads(conf.read())
+                num_operations =  len(conf_data["operations"])
+                time.sleep(1)
+                while(counter < num_operations):
+                    output("Application: Application fetches next policy evaluation request #:" ,counter)
+                    msg = readNextOperation(conf_data)
+                    counter = counter + num_applications
+                    output("Application coord list is this", type(msg))
+                    
+                    send(('req_app', msg), to = coord_list[caluculateHash(msg.subj_id) % len(coord_list)])
+                    output("Application: Application: Forward policy evaluation request to Subject Co ordinator")
+                    --handle_policy_evaluation_results
+                    if(await(some(received(('result_sub', msg))))):
+                        output("Application: Application: Application: Policy Evaluation result received")
+                        #handle_policy_evaluation_result(msg)
+                    elif timeout(TIMEOUT * 0.1):
+                        pass
+                        #print("timeout")
+
+            while len(msg_queue) > 0:
+                #print("waiting for policy result in application")
+                if (await(some(received(('result_sub', msg))))):
+                    #handle_policy_evaluation_result(msg)
+                    pass#output("Application: Policy Evaluation result received")
+                elif timeout(TIMEOUT * 1):
+                    pass
+                    #print("timeout while waiting for co-ordinator responses")
+            output("Application: All Evaluation requests for this Application are over")        
+
+        except ImportError:
+            output("Application: Error in read file", sep = "|")
+
+    def receive(msg=(a,b)):
+        #output("Application: received policy evaluation")
+        if(a == "result_sub"):
+            handle_policy_evaluation_result(b)

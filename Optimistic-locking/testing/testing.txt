@@ -1,0 +1,24 @@
+This is a list of testcases for evaluating based on different rules in policy.                
+Below lines contain the testcase and comments to describe the motivation and target rule
+We have a total of 6 test cases
+
+1) The first testcase can be run using conf1.json,data1.json and policy1.xml.
+   This testcase  evaluates the policy where a single movie with movie Id: mov2 is being watched by multiple subjects and policy dictates a max count of the number of times it is watchable.
+   Once max count hits the system rejects any more access request by sending policy evaluation value as false.
+   
+2)The 2nd case can be run using conf2.json,data2.json and policy2.xml.
+	This testcase is similar to the above testcase except that it simulates the condition where the policy is for "--" instead of "++"
+
+3) The 3rd case can be run using conf3.json,data3.json and policy3.xml.
+   This causes a flood of multiple acccess to same resource by same subject, since number of workers is limited, this policy will cause a conflict in subject tentative attributes and will restart the requests.
+   However all requests are to be granted, but still are restarted as the same attribute("history") is read/updated by all the testcases.
+   
+4) The 4th case can be run using conf4.json,data4.json and policy4.xml.
+	This is using same resource multiple times by same/diferent subjects. This causes a resource conflict and the resource co ordinator indicates a resource conflict and then the later requests are re evaluated.
+	
+5) The 5th case can be run using conf5.json,data5.json and policy5.xml.
+	This is a testcase where request is denied due to conflict of interest, i.e same employee cannot access documentsw of bank A as well as bank B.
+	
+Apart from above 5 testcases, we have a functionality of pseudo-random testcase geenration.
+Using a boolean flag as 4th command line argument with value true activates this functionality, which picks up 100 random testcases based on given current testase file .
+These cases are then run to simulate a real distributed system behaviour instead of a pre designed testcase and will showcase multiple features of the system.

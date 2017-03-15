@@ -1,0 +1,237 @@
+ 
+ 
+                            Submitter: Umesh Jain 
+Rishabh Agrawal 
+CSE 535­ Asynchronous Systems 
+                  Project 
+ 
+Phase 1: PseudoCode for [Decat+2015] 
+ 
+Various actors: 
+Subject : s 
+Resource: r 
+Request: R(s, r) 
+Subject coordinators: Cs 
+Resource coordinators: Cr 
+Workers: W 
+ 
+#We use RPC to communicate between various actors , however the below pseudo code 
+contains the RPC parameters as function arguments for clarity. These RPC’s can be simply 
+designed using Actor type,message type and message.  
+ 
+ALGO BEGIN: 
+ 
+Init Phase: 
+def init_app_interface: 
+    Generate Unique Application handle at App Interface:  # get_unique_app_handle(); 
+    Register the App interface callback with Application: # Send App handle and function pointer 
+for callback to application 
+ 
+ 
+# Init Globals   
+    Initialize the local memory # Request_count ,eval_success_count = 0; 
+ 
+ 
+def Init Coordinators: 
+    Identify number of Coordinators. 
+    Generate Subject Coordinator ID's for each Subject Coordinator 
+    create a set of Subject Coordinator tuples  
+    # Cs = {(Cs1), (Cs2) ,....(Csi)} where i is the number of subject Coordiantors 
+    Generate resource Coordinator ID's for each resource Coordinator 
+    create a set of Resource Coordinator tuples   
+    # Cr = {(Cr1), (Cr2) ,....(Cri)}where i is the Number of resource Coordiantors 
+    Create a Queue for application requests 
+# Applications_Queue  
+    Create a Queue for restart requests. 
+# Restart_Queue 
+    Init Each Coordinator 
+    Init Each Worker 
+  
+def Init Each Coordinator: 
+    Create a List of resources tuples as  Resource_list{resource Id, Last_requested = ­1} 
+    Create Queue for handling requests [] 
+    Register with App Interface 
+    Store App_Interface Callback to send result/response 
+    Request ContextList = [] 
+   
+def Init worker:   
+    Generate worker ID; 
+    Create Connection with attribute database 
+    Register with Resource Coordinator 
+   
+def Init Attribute Database    : 
+    initialize Database 
+# Database dependency on way to initialize 
+    Ready for handling Connections 
+# DB Dependency 
+ 
+def Global_init: 
+    Init Attribute Database() 
+    Init App_interface() 
+    Init Coordinators() 
+    Init Workers() 
+ 
+#Flow Start: 
+Application: 
+def send_request_to_subject_coordinator(): 
+id = get_subject_coordinator_id() 
+send_request_to_subject_cordinator(app_req_id, subject, resource, var_list)# 
+var_list contains the details of policy evaluation needed by the application 
+ 
+def on_receive(result):
+ 
+If result == True: 
+##do something 
+else: 
+##do something else 
+   
+def App_interface_create_request(Subject, Resource, var_list)  
+#Application requests with subject, resource and policy needed  
+     get_SubjectID(Subject) 
+    Get_ResourceID(Resource) 
+    Subject_Coordinator = Hash(Subject); 
+    Add request to Application_Queue 
+    Call create_request_subject_Coordinator; 
+  
+#Enter Subject Coordinator 
+def create_request_subject_Coordinator(SubjectID,Resource ID, var_list)  
+    Store var_list with requestID in a static List 
+	
+# In case we need to restart  
+the evaluation 
+    Generate unique request ID; 
+    Pick 1st request from application_queue and place it in restart_queue 
+    subject_cordinator_run(); 
+  
+def subject_cordinator_run() 
+    Pick first element from restart_queue 
+    Fetch var_list for this requestID from static list.  
+    Create Request Context with below parameters: 
+    Request Context= (RequestID, 
+    Resource ID, 
+    Resource _Coordinator ID 
+    Resource_access_time = request creation time/current_time
+    tentative attributes)   
+    Add Request Context in Request Context_list 
+    if(subject_list does not exist) 
+        Create list/array for this subject to store currently generated requestID with list of   
+        
+        attributes for this request 
+    else 
+        Update database attributes and requestID in subject_list 
+        insert tentative attributes of this subject(possible overwrite) in the list for local cache
+        For each request in attributeList: 
+Update Resource_list Last_used_timestamp to current_time
+ 
+        request_resource_coordinator(requestID,subject, resource,var_list) 
+ 
+def send_result_to_subject_coordinator: 
+     detect_conflict_at_subject(subject, requestID) 
+		use tentative attribute timestamp to compare against read and updated attribute list sent by worker to detect conflict
+     If conflict found: 
+		resolve_conflict_at_subject(subject, requestID) 
+
+    else 
+		detect_conflict_at_resource(subject, requestID) 
+		
+ 
+If conflict found: 
+      resolve_resource_conflict(subject, requestID) 
+else 
+      Commit final updates to cache # inserting random delay before update
+      clear_request_resource_context(req_id): 
+      clear_request_subject_context(req_id): 
+   
+ 
+  
+ 
+ 
+ 
+Subject co­ordinator found conflict while updating subject attribute: 
+def detect_conflict_at_subject(s, req_id) 
+    req_context = get_subject_request_context(req_id) 
+    If req_context is Null: 
+        return false 
+    elif req_context is not null: 
+        for attrb in s.attrb: 
+            If req_context.req_ts < get_last_subject_attrb_ts(s.attrb): 
+    return true 
+return false 
+ 
+def resolve_conflict_at_subject(s, req_id): 
+    #clear old request context 
+    clear_request_subject_context(req_id) 
+    ​ #create new context and add to subject list 
+    req_context = create_request_context(req_id) 
+    request_context_list.append(req_context) 
+    update_request_to_subject_list(req_id) 
+    #send request to resource co­ordinator 
+    request_resource_coordinator(req_id, s, r, type) 
+ 
+def clear_request_subject_context(req_id): 
+    for i in request_context_list: 
+        If (i.id == req_id): 
+request_context_list.remove(i) 
+return 
+ 
+def request_resource_coordinator(req_id, s, r, type): 
+    static list_ongoing = [ ] 
+     If check_request_already_present(list_ongoing, req_id): 
+clear_request_resource_context(req_id) 
+     send_to_worker(res_id, s, r, type) 
+ 
+def clear_request_resource_context(req_id): 
+    for i in list_ongoing: 
+        If (i.id == req_id): 
+list_ongoing.remove(i) 
+Return 
+ 
+ Resource co­ordinator found conflict while updating resource attribute: 
+def detect_conflict_at_resource(s, req_id): 
+    req_context = get_resource_request_context(req_id)
+ 
+    If req_context is Null: 
+        return false 
+    elif req_context is not null: 
+        If req_context.res_ts < get_last_res_ts(res.id): 
+            return true 
+    return false 
+ 
+def resolve_resource_conflict(req_id): 
+    clear_request_resource_context(req_id) 
+    notify_resource_conflict_to_subject_coordinator(req_id) 
+ 
+def notify_resource_conflict_to_subject_coordinator(req_id): 
+    #clear old request context 
+    clear_request_subject_context(req_id) 
+    ​ #create new context and add to subject list 
+    req_context = create_request_context(req_id) 
+    request_context_list.append(req_context) 
+    update_request_to_subject_list(req_id) 
+    #clear all requests of same subject id with at least one common attribute 
+    ​ for i in subject_list: 
+      If common_attrib(req_id, i): 
+put_request_in_restart_queue() 
+create_request_subject_Coordinator(s.id,,r.id, var_list) 
+     #send request to resource co­ordinator 
+request_resource_coordinator(req_id, s, r, type) 
+ 
+Worker:
+ 
+def on_receive(req_id, subject, resource, var_list): 
+    If q.size() != MAX_SIZE: 
+        add_request_to_worker_queue(req_id, s, r, var_list) 
+ 
+def worker_run(req_id, s, r, var_list): 
+    #changed attributes will contain all read or modified attributes for this req
+    Changed_attributes = [] 
+    (req_id, s, r, var_list) = read_request_from_worker_queue() 
+    read_policy_attributes(s, r, var_list, changed_attributes) 
+    evaluate_policy_attributes(s, r, var_list, changed_attributes) 
+    get_subject_cordinator_id(s) 
+    send_result_to_subject_coordinator([req_id, result, changed_attributes]) 
+   
+ 
+  
+ 
+ 

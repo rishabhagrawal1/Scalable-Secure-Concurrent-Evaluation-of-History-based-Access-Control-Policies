@@ -1,0 +1,242 @@
+import config
+import random,time
+TIMEOUT = 1
+MAXDBLatency = 0.1
+MINDBLatency = 0.01
+w = import_da("worker")
+from message import Message
+config(clock = 'Lamport')
+config(channel = 'fifo')
+
+class Coordinator(process):
+    def setup(config: Config, coord_list: list, worker_count: int, data: object, work_list: list):
+        self.subj_attr_dict = {}
+        self.res_attr_dict = {}
+        self.tentative_dict = {}
+        work = new(w.Worker, num=config.num_workers)
+        work_list = list(work)
+        setup(work, (coord_list, config.policy_file, data))
+        start(work)
+
+    def caluculateHash(sub_id):
+        count = 0
+        for i in sub_id:
+            count += ord(i)
+        return count
+
+    def sendPolicyResultToApp(msg):
+        output("Coordinator: Policy result is received ,sending to App")
+        send(('result_sub', msg), to=msg.get_curr_app())
+
+    def send_query_to_resource_coordinator_for_verification(msg):
+        output("Coordinator: Check with Resource Coordinator for conflict")
+        send(('req_sub_conflict_check', msg), to=coord_list[caluculateHash(msg.res_id) % len(coord_list)])
+
+    def send_response_to_subject_coordinator_after_verification(msg):
+        output("send cached updates and verified resource attributes")
+        send(('reply_res', msg), to=coord_list[caluculateHash(msg.subj_id) % len(coord_list)])
+
+    def populate_tentative_subj_updates_in_msg(msg):
+        if msg.subj_id in self.subj_attr_dict:
+            msg.tent_attr.set_sub_attr(self.subj_attr_dict[msg.subj_id])
+        if(msg.subj_id in self.tentative_dict and len(self.tentative_dict[msg.subj_id]) > 0):
+            self.tentative_dict[msg.subj_id][-1][1].append(msg.subj_id)
+
+    def populate_tentative_res_updates_in_msg(msg):
+        output("Coordinator: in populate_tentative_res_updates_in_msg self.res_attr_dict,", self.res_attr_dict, self)
+        if msg.subj_id in self.res_attr_dict:
+            msg.tent_attr.set_res_attr(self.res_attr_dict[msg.res_id])
+
+    def restart_policy_evauation_request(msg):
+        output("Coordinator: restarting conflicting request for msg id::", msg.MsgId)
+        msg.generateTimeStamp()
+        msg.reset_attr_objects()
+        send(('req_app', msg), to=coord_list[caluculateHash(msg.subj_id) % len(coord_list)])
+
+    ## Returns true on conflict detection, False on no conflicts ##
+    def check_conflicts_on_subject_coordinator(msg):
+        output("Coordinator: check_conflicts_on_subject_coordinator")
+        if msg.subj_id in self.subj_attr_dict:
+            tentative_attr_list = self.subj_attr_dict[msg.subj_id]
+            for k,v in msg.worker_attr.get_read_attr_sub().items():
+                print("check_conflicts_on_subject_coordinator", k, v, msg.timeStamp)
+                if k in tentative_attr_list and tentative_attr_list[k][1] > msg.timeStamp:
+                    print("Conflict detected at subject coordinator for msg id::", msg.MsgId)
+                    restart_policy_evauation_request(msg)
+                    return True
+        return False
+
+    ## Returns true on conflict detection, False on no conflicts ##
+    ## Response back to subject co-ordinator ##
+    def check_conflicts_on_resource_coordinator(msg):
+        output("Coordinator: check_conflicts_on_resource_coordinator")
+        if msg.res_id in self.res_attr_dict:
+            tentative_attr_list = self.res_attr_dict[msg.res_id]
+            for k,v in msg.worker_attr.get_read_attr_res().items():  ##tentative_attr_list is a tuple of (val, timestamp)
+                print("check_conflicts_on_resource_coordinator", k, v, msg.timeStamp)
+                if k in tentative_attr_list and tentative_attr_list[k][1] > msg.timeStamp:
+                    print("Conflict detected at resource for msg id::", msg.MsgId)
+                    restart_policy_evauation_request(msg)
+                    return True
+            ## No conflict detected at the resource ##
+        return False
+
+    def update_attribute_on_resource_coordinator(msg):
+        output("update_attribute_on_resource_coordinator entry", msg.worker_attr.get_updated_attr_res())
+        if msg.res_id not in self.res_attr_dict:
+            self.res_attr_dict[msg.res_id] = dict()
+        for k, v in msg.worker_attr.get_updated_attr_res().items():  ##tentative_attr_list is a tuple of (val, timestamp)
+            clk = time.time()
+            self.res_attr_dict[msg.res_id][k] = (v, clk)
+        print("update_attribute_on_resource_coordinator exit", self.res_attr_dict)
+
+    ## Check if attributes read by this request used some tentative attributes and restart if need rollback ##
+    def check_conflict_and_restart_request(msg, tentative_attr_list):
+        output("Coordinator: check_conflict_and_restart_request")
+        tentative_attr = msg.worker_attr.get_read_attr_sub()
+        for attr in tentative_attr_list:
+            if attr in tentative_attr:
+                print("Msg id", msg.MsgId, "got the conflict")
+                restart_policy_evauation_request(msg)
+                break
+
+    ## Remove tentative attributes from sub attr list maintained at subject coordinator ##
+    def removeTentativeAttributes(msg, tentative_attr_list):
+        output("Coordinator: removeTentativeAttributes")
+        for attr in tentative_attr_list:
+            if attr in self.subj_attr_dict:
+                del self.subj_attr_dict[attr]
+
+    def removeEntryFromTentativeList(msg, is_conflicted):  ## List
+        output("Coordinator: removeEntryFromTentativeList")
+        i = 0
+        j = 0
+        print("tentative_dict is:", tentative_dict)
+        if msg.subj_id in tentative_dict:
+            tentative_list = tentative_dict[msg.subj_id]
+            ## Check if this process created the tentative attributes ##
+            while i < len(tentative_list):
+                if len(tentative_list[i]) > 0 and tentative_list[i][1][0] == msg.MsgId:
+                    print("Found msg with ", msg.MsgId, "as creator of tentative updates")
+                    removeTentativeAttributes(msg, tentative_list[i][0][0])
+                    tentative_dict[msg.subj_id][i][1].pop(0)
+                    if(is_conflicted):
+                        restart_policy_evauation_request(msg)
+                        tentative_dict[msg.subj_id][i][0][1] = False
+                    return
+                i = i + 1
+            ## Rollback the processes dependent on these tentative attributes ##
+            i = 0
+            while i < len(tentative_list):
+                while len(tentative_list[i]) > 0 and j < len(tentative_list[i][1]):
+                    ## Check if the tentative  attriutes for this request has been rolled back ##
+                    if (tentative_list[i][1][j] == msg.MsgId):
+                        if (is_conflicted):
+                            restart_policy_evauation_request(msg)
+                        elif (tentative_list[i][0][1] == False):
+                            check_conflict_and_restart_request(msg, tentative_list[i][0][0])
+                        tentative_dict[msg.subj_id][i][1].pop(j)
+                        if (len(tentative_dict[msg.subj_id][i][1]) == 0):
+                            tentative_dict[msg.subj_id].pop(i)
+                        return
+                    j = j + 1
+                i = i + 1
+
+    def populate_subject_tentative_updates_in_coordinator(msg):
+        output("Coordinator: populate_subject_tentative_updates_in_coordinator")
+        updated_attr_sub = msg.worker_attr.get_updated_attr_sub()
+        print("updated_attr_sub", updated_attr_sub)
+        if(len(updated_attr_sub) > 0):
+            attr = list()
+            req = list()
+            req.append(msg.MsgId)
+            if msg.subj_id not in self.subj_attr_dict:
+                self.subj_attr_dict[msg.subj_id] = dict()
+            if msg.subj_id not in self.tentative_dict:
+                self.tentative_dict[msg.subj_id] = list()
+            for k,v in msg.worker_attr.get_updated_attr_sub().items():
+                clk = time.time()
+                self.subj_attr_dict[msg.subj_id][k] = (v, clk)
+                attr.append(k)
+            t1 = (attr, True)
+            t2 = (t1, req)
+            self.tentative_dict[msg.subj_id].append(t2)
+
+    def handleSubjectRequest(msg):
+        output("Coordinator: handleSubjectRequest: piggyback tentative updates to msg")
+        populate_tentative_subj_updates_in_msg(msg)
+        send(('req_sub', msg), to=coord_list[caluculateHash(msg.res_id) % len(coord_list)])
+
+    def handleResourceRequest(msg):
+        output("Coordinator: handleResourceRequest")
+        populate_tentative_res_updates_in_msg(msg)
+        msg.curr_worker = work_list[worker_count % (config.num_workers)]
+        send(('req_res', msg), to=msg.curr_worker)
+        worker_count += 1
+        print("Work sent to worker")
+
+    def handleResourceResponse(msg):
+        output("Coordinator: handleResourceResponse")
+        if(msg.get_result() == False):  ##NO conflict at Resource coordinator
+            ## Update request to database ##
+            x = random.uniform(MINDBLatency,MAXDBLatency)    
+            time.sleep(x)
+            send(('req_db_write', msg), to=data)
+            msg.set_result(True)
+            sendPolicyResultToApp(msg)
+            removeEntryFromTentativeList(msg, False)
+        else: ##Conflict detected, Need restart
+            print("restarting conflicting request for msg id::", msg.MsgId)
+            removeEntryFromTentativeList(msg, True)
+
+    def handleWorkerResponse(msg):
+        output("Coordinator: handleWorkerResponse")
+        #print(msg.worker_attr.get_updated_attr_sub())
+        #print(msg.worker_attr.get_read_attr_sub())
+        #print(msg.worker_attr.get_updated_attr_res())
+        #print(msg.worker_attr.get_read_attr_res())
+        ##check for worker response
+        if(msg.result == False):
+            sendPolicyResultToApp(msg)
+        else:
+            if(check_conflicts_on_subject_coordinator(msg) == False):  ##check for conflict on subject coordinator
+                output("Coordinator: store tentative updates to tentative list ")
+                populate_subject_tentative_updates_in_coordinator(msg)
+                send_query_to_resource_coordinator_for_verification(msg)
+
+    def handleConflictCheckOnResource(msg):
+        output("Coordinator: handleConflictCheckOnResource")
+        result = check_conflicts_on_resource_coordinator(msg)  ##check for conflict on resource coordinator
+        if(result == False):
+            update_attribute_on_resource_coordinator(msg)
+        msg.set_result(result)
+        send_response_to_subject_coordinator_after_verification(msg)
+
+    def run():
+        output("Coordinator started")
+        while True:
+            if(await(some(received(('req_app', msg))))):
+                pass
+            elif(some(received(('req_sub', msg)))):
+                pass
+            elif (some(received(('reply_work', msg)))):
+                pass
+            elif (some(received(('reply_res', msg)))):
+                pass
+            elif (some(received(('req_sub_conflict_check', msg)))):
+                pass
+            elif timeout(TIMEOUT * 10):
+                pass
+            #output('failed learning anything')
+
+    def receive(msg = (a, b)):
+        if(a == "req_app"):
+            handleSubjectRequest(b)
+        elif(a == "req_sub"):
+            handleResourceRequest(b)
+        elif(a == "reply_work"):
+            handleWorkerResponse(b)
+        elif (a == "reply_res"):
+            handleResourceResponse(b)
+        elif(a == "req_sub_conflict_check"):
+            handleConflictCheckOnResource(b)
